@@ -13,6 +13,7 @@ import { Calendar1, Popcorn } from "lucide-react";
 
 export default function Home() {
   const [active, setActive] = useState(false);
+  const [foo, setFoo] = useState(false);
 
   return (
     <BUIProvider theme={theme}>
@@ -24,12 +25,13 @@ export default function Home() {
             icon={<Popcorn />}
           />
           <Button
-            onClick={() => setActive((prev) => !prev)}
+            onClick={() => setFoo((prev) => !prev)}
             icon={<Calendar1 />}
           />
           <Button>Button</Button>
         </Stack>
       </Box>
+      {foo && "Expelliarmus"}
       {active && (
         <Box mixin={{ width: "400px" }}>
           <Calendar

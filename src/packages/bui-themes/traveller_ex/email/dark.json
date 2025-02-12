@@ -1,0 +1,451 @@
+{
+    "id": "traveller_ex",
+    "name": "Traveller Ex",
+    "version": "2.2.2",
+    "mode": "dark",
+    "colors": {
+        "color_border": "#a2a2a2",
+        "color_border_alt": "#595959",
+        "color_accent_border": "#ffb700",
+        "color_action_border": "#57a6f4",
+        "color_callout_border": "#f56700",
+        "color_border_disabled": "#595959",
+        "color_destructive_border": "#e56b74",
+        "color_constructive_border": "#24a85b",
+        "color_foreground": "#f5f5f5",
+        "color_foreground_alt": "#d9d9d9",
+        "color_foreground_inverted": "#1a1a1a",
+        "color_accent_foreground": "#ffb700",
+        "color_action_foreground": "#57a6f4",
+        "color_callout_foreground": "#f56700",
+        "color_foreground_disabled": "#868686",
+        "color_destructive_foreground": "#e56b74",
+        "color_constructive_foreground": "#24a85b",
+        "color_foreground_disabled_alt": "#595959",
+        "color_brand_primary_foreground": "#cee6ff",
+        "color_action_foreground_inverted": "#006ce4",
+        "color_brand_genius_secondary_foreground": "#febb02",
+        "color_action_focus": "rgba(87, 166, 244, 0.24)",
+        "color_cta_highlighted": "#0057b8",
+        "color_highlighted_alt": "rgba(255, 255, 255, 0.12)",
+        "color_action_highlighted": "#0057b8",
+        "color_action_highlighted_alt": "rgba(87, 166, 244, 0.12)",
+        "color_destructive_highlighted": "#af0e19",
+        "color_destructive_highlighted_alt": "rgba(229, 107, 116, 0.12)",
+        "color_highlighted": "#4b4b4b",
+        "color_destructive_focus": "rgba(229, 107, 116, 0.24)",
+        "color_on_background": "#242424",
+        "color_on_accent_background": "#242424",
+        "color_on_callout_background": "#242424",
+        "color_on_brand_secondary_background": "#242424",
+        "color_on_cta_background": "#ffffff",
+        "color_on_action_background": "#ffffff",
+        "color_on_destructive_background": "#ffffff",
+        "color_on_constructive_background": "#ffffff",
+        "color_on_brand_primary_background": "#ffffff",
+        "color_on_brand_genius_primary_background": "#ffffff",
+        "color_background_inverted": "#f5f5f5",
+        "color_background_inverted_rgb": "245, 245, 245",
+        "color_action_background_alt": "rgba(0, 108, 228, 0.24)",
+        "color_background": "#d9d9d9",
+        "color_background_rgb": "217, 217, 217",
+        "color_transparent": "rgba(26, 26, 26, 0)",
+        "color_background_alt": "#2b2b2b",
+        "color_background_alt_rgb": "43, 43, 43",
+        "color_cta_background": "#006ce4",
+        "color_cta_background_rgb": "0, 108, 228",
+        "color_background_base": "#1a1a1a",
+        "color_background_base_rgb": "26, 26, 26",
+        "color_black_with_alpha": "rgba(26, 26, 26, 0.5)",
+        "color_accent_background": "#ffb700",
+        "color_accent_background_rgb": "255, 183, 0",
+        "color_action_background": "#006ce4",
+        "color_action_background_rgb": "0, 108, 228",
+        "color_callout_background": "#f56700",
+        "color_callout_background_rgb": "245, 103, 0",
+        "color_background_base_alt": "#1a1a1a",
+        "color_background_base_alt_rgb": "26, 26, 26",
+        "color_background_disabled": "#595959",
+        "color_background_disabled_rgb": "89, 89, 89",
+        "color_accent_background_alt": "#463301",
+        "color_accent_background_alt_rgb": "70, 51, 1",
+        "color_callout_background_alt": "#411b01",
+        "color_callout_background_alt_rgb": "65, 27, 1",
+        "color_destructive_background": "#d4111e",
+        "color_destructive_background_rgb": "212, 17, 30",
+        "color_background_disabled_alt": "#2b2b2b",
+        "color_background_disabled_alt_rgb": "43, 43, 43",
+        "color_constructive_background": "#008234",
+        "color_constructive_background_rgb": "0, 130, 52",
+        "color_brand_primary_background": "#003b95",
+        "color_brand_primary_background_rgb": "0, 59, 149",
+        "color_brand_secondary_background": "#ffb700",
+        "color_brand_secondary_background_rgb": "255, 183, 0",
+        "color_destructive_background_alt": "#420a0e",
+        "color_destructive_background_alt_rgb": "66, 10, 14",
+        "color_constructive_background_alt": "#083019",
+        "color_constructive_background_alt_rgb": "8, 48, 25",
+        "color_brand_genius_primary_background": "#003b95",
+        "color_brand_genius_primary_background_rgb": "0, 59, 149",
+        "color_on_accent_background_dynamic": "#ffb700",
+        "color_on_callout_background_dynamic": "#f56700",
+        "color_on_brand_secondary_background_dynamic": "#ffb700",
+        "color_on_destructive_background_dynamic": "#e56b74",
+        "color_on_constructive_background_dynamic": "#24a85b",
+        "color_on_brand_primary_background_dynamic": "#ffffff",
+        "color_black": "#1a1a1a",
+        "color_black_rgb": "26, 26, 26",
+        "color_white": "#ffffff",
+        "color_white_rgb": "255, 255, 255",
+        "color_background_elevation_one": "#242424",
+        "color_background_elevation_two": "#2b2b2b",
+        "color_background_elevation_two_rgb": "43, 43, 43",
+        "color_accent_background_dynamic": "#2b2b2b",
+        "color_callout_background_dynamic": "#2b2b2b",
+        "color_destructive_background_dynamic": "#2b2b2b",
+        "color_constructive_background_dynamic": "#2b2b2b",
+        "color_brand_primary_background_dynamic": "#2b2b2b",
+        "color_brand_secondary_background_dynamic": "#2b2b2b"
+    },
+    "units": {
+        "spacing_1x": "4px",
+        "spacing_2x": "8px",
+        "spacing_3x": "12px",
+        "spacing_4x": "16px",
+        "spacing_6x": "24px",
+        "spacing_8x": "32px",
+        "spacing_12x": "48px",
+        "spacing_16x": "64px",
+        "spacing_24x": "96px",
+        "spacing_half": "2px",
+        "border_width_100": "1px",
+        "border_width_200": "2px",
+        "border_radius_100": "4px",
+        "border_radius_200": "8px",
+        "border_radius_300": "16px"
+    },
+    "fonts": {
+        "small": {
+            "font_body_1": {
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontWeight": 400,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_body_2": {
+                "fontSize": "14px",
+                "lineHeight": "20px",
+                "fontWeight": 400,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_small_1": {
+                "fontSize": "12px",
+                "lineHeight": "18px",
+                "fontWeight": 400,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_small_2": {
+                "fontSize": "10px",
+                "lineHeight": "16px",
+                "fontWeight": 500,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_strong_1": {
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontWeight": 700,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_strong_2": {
+                "fontSize": "14px",
+                "lineHeight": "20px",
+                "fontWeight": 700,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_display_1": {
+                "fontSize": "40px",
+                "lineHeight": "52px",
+                "fontWeight": 800,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_display_2": {
+                "fontSize": "36px",
+                "lineHeight": "48px",
+                "fontWeight": 800,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_display_3": {
+                "fontSize": "32px",
+                "lineHeight": "40px",
+                "fontWeight": 800,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_featured_1": {
+                "fontSize": "20px",
+                "lineHeight": "28px",
+                "fontWeight": 400,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_featured_2": {
+                "fontSize": "20px",
+                "lineHeight": "28px",
+                "fontWeight": 400,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_featured_3": {
+                "fontSize": "20px",
+                "lineHeight": "28px",
+                "fontWeight": 400,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_headline_1": {
+                "fontSize": "28px",
+                "lineHeight": "36px",
+                "fontWeight": 700,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_headline_2": {
+                "fontSize": "24px",
+                "lineHeight": "32px",
+                "fontWeight": 700,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_headline_3": {
+                "fontSize": "20px",
+                "lineHeight": "28px",
+                "fontWeight": 700,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_emphasized_1": {
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontWeight": 500,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_emphasized_2": {
+                "fontSize": "14px",
+                "lineHeight": "20px",
+                "fontWeight": 500,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            }
+        },
+        "medium": {
+            "font_body_1": {
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontWeight": 400,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_body_2": {
+                "fontSize": "14px",
+                "lineHeight": "20px",
+                "fontWeight": 400,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_small_1": {
+                "fontSize": "12px",
+                "lineHeight": "18px",
+                "fontWeight": 400,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_small_2": {
+                "fontSize": "12px",
+                "lineHeight": "18px",
+                "fontWeight": 500,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_strong_1": {
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontWeight": 700,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_strong_2": {
+                "fontSize": "14px",
+                "lineHeight": "20px",
+                "fontWeight": 700,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_display_1": {
+                "fontSize": "64px",
+                "lineHeight": "72px",
+                "fontWeight": 800,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_display_2": {
+                "fontSize": "56px",
+                "lineHeight": "64px",
+                "fontWeight": 800,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_display_3": {
+                "fontSize": "48px",
+                "lineHeight": "62px",
+                "fontWeight": 800,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_featured_1": {
+                "fontSize": "32px",
+                "lineHeight": "40px",
+                "fontWeight": 400,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_featured_2": {
+                "fontSize": "24px",
+                "lineHeight": "32px",
+                "fontWeight": 400,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_featured_3": {
+                "fontSize": "20px",
+                "lineHeight": "28px",
+                "fontWeight": 400,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_headline_1": {
+                "fontSize": "32px",
+                "lineHeight": "40px",
+                "fontWeight": 700,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_headline_2": {
+                "fontSize": "24px",
+                "lineHeight": "32px",
+                "fontWeight": 700,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_headline_3": {
+                "fontSize": "20px",
+                "lineHeight": "28px",
+                "fontWeight": 700,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_emphasized_1": {
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontWeight": 500,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_emphasized_2": {
+                "fontSize": "14px",
+                "lineHeight": "20px",
+                "fontWeight": 500,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            }
+        },
+        "large": {
+            "font_body_1": {
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontWeight": 400,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_body_2": {
+                "fontSize": "14px",
+                "lineHeight": "20px",
+                "fontWeight": 400,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_small_1": {
+                "fontSize": "12px",
+                "lineHeight": "18px",
+                "fontWeight": 400,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_small_2": {
+                "fontSize": "12px",
+                "lineHeight": "18px",
+                "fontWeight": 500,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_strong_1": {
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontWeight": 700,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_strong_2": {
+                "fontSize": "14px",
+                "lineHeight": "20px",
+                "fontWeight": 700,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_display_1": {
+                "fontSize": "96px",
+                "lineHeight": "108px",
+                "fontWeight": 800,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_display_2": {
+                "fontSize": "64px",
+                "lineHeight": "72px",
+                "fontWeight": 800,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_display_3": {
+                "fontSize": "48px",
+                "lineHeight": "62px",
+                "fontWeight": 800,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_featured_1": {
+                "fontSize": "32px",
+                "lineHeight": "40px",
+                "fontWeight": 400,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_featured_2": {
+                "fontSize": "24px",
+                "lineHeight": "32px",
+                "fontWeight": 400,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_featured_3": {
+                "fontSize": "20px",
+                "lineHeight": "28px",
+                "fontWeight": 400,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_headline_1": {
+                "fontSize": "32px",
+                "lineHeight": "40px",
+                "fontWeight": 700,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_headline_2": {
+                "fontSize": "24px",
+                "lineHeight": "32px",
+                "fontWeight": 700,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_headline_3": {
+                "fontSize": "20px",
+                "lineHeight": "28px",
+                "fontWeight": 700,
+                "fontFamily": "\"Blue Sans\", BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_emphasized_1": {
+                "fontSize": "16px",
+                "lineHeight": "24px",
+                "fontWeight": 500,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            },
+            "font_emphasized_2": {
+                "fontSize": "14px",
+                "lineHeight": "20px",
+                "fontWeight": 500,
+                "fontFamily": "BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+            }
+        }
+    },
+    "shadows": {
+        "shadow_100": "0px 2px 8px 0px rgba(26, 26, 26, 0.16)",
+        "shadow_200": "0px 2px 16px 0px rgba(26, 26, 26, 0.24)"
+    },
+    "viewports": {
+        "small": "max-width: 575px",
+        "medium": "min-width: 576px",
+        "large": "min-width: 1024px",
+        "xlarge": "min-width: 1280px"
+    }
+}

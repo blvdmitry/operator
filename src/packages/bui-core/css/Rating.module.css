@@ -1,0 +1,1 @@
+.root{display:flex}.item{fill:var(--bui_color_accent_background);margin-inline-start:var(--bui_spacing_half);margin-inline-end:0}.item--empty{fill:var(--bui_color_background_disabled)}.item:first-child{margin-inline-start:0}

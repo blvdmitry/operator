@@ -1,0 +1,1 @@
+.root{position:relative;padding-inline-end:calc(var(--bui_spacing_1x) * 9)}.close{position:absolute;inset-block-start:var(--bui_spacing_half);inset-inline-end:0;z-index:5}.root--fill .close{inset-block-start:var(--bui_spacing_4x);inset-inline-end:var(--bui_spacing_4x)}.root--fill,.root--hide-close{padding-inline-end:0}

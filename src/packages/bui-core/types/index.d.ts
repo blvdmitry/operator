@@ -1,0 +1,46 @@
+export type ResponsiveOnly<T> = {
+    s: T;
+    m?: T;
+    l?: T;
+    xl?: T;
+};
+export type Responsive<T> = T | ResponsiveOnly<T>;
+export type ViewportKey = "s" | "m" | "l" | "xl";
+export type ViewportName = "small" | "medium" | "large" | "xlarge";
+export type MixinUnits = "%" | "em" | "and" | "ex" | "rem" | "lh" | "rlh" | "it" | "vw" | "vh" | "vmin" | "vmax" | "vb" | "vi" | "svw" | "svh" | "lvw" | "lvh" | "dvw" | "dvh" | "px";
+export type MixinLiteralValue = `${number}${MixinUnits}`;
+type MixinProperties = {
+    height?: Responsive<number | MixinLiteralValue | "auto">;
+    minHeight?: Responsive<number | MixinLiteralValue | "auto">;
+    maxHeight?: Responsive<number | MixinLiteralValue | "auto">;
+    width?: Responsive<number | MixinLiteralValue | "auto">;
+    minWidth?: Responsive<number | MixinLiteralValue | "auto">;
+    maxWidth?: Responsive<number | MixinLiteralValue | "auto">;
+    position?: Responsive<"static" | "relative" | "absolute" | "fixed" | "sticky">;
+    zIndex?: Responsive<0 | 1 | 2 | 3 | 4>;
+    inset?: Responsive<number | "auto">;
+    insetBlockStart?: Responsive<number | "auto">;
+    insetBlockEnd?: Responsive<number | "auto">;
+    insetInlineStart?: Responsive<number | "auto">;
+    insetInlineEnd?: Responsive<number | "auto">;
+    margin?: Responsive<number | "auto">;
+    marginBlockStart?: Responsive<number | "auto">;
+    marginBlockEnd?: Responsive<number | "auto">;
+    marginInlineStart?: Responsive<number | "auto">;
+    marginInlineEnd?: Responsive<number | "auto">;
+    padding?: Responsive<number>;
+    paddingBlockStart?: Responsive<number>;
+    paddingBlockEnd?: Responsive<number>;
+    paddingInlineStart?: Responsive<number>;
+    paddingInlineEnd?: Responsive<number>;
+};
+type ExcludedProperties<Properties extends MixinProperties, Flag extends false | undefined, ExcludedKeys extends keyof MixinProperties> = Flag extends false ? Omit<Properties, ExcludedKeys> : Properties;
+export type Mixin<Flags extends {
+    width?: false;
+    height?: false;
+    position?: false;
+    inset?: false;
+    margin?: false;
+    padding?: false;
+} = {}, Properties extends MixinProperties | undefined = MixinProperties, P extends MixinProperties = Properties extends undefined ? MixinProperties : Properties> = ExcludedProperties<ExcludedProperties<ExcludedProperties<ExcludedProperties<ExcludedProperties<ExcludedProperties<P, Flags["margin"], "margin" | "marginBlockStart" | "marginBlockEnd" | "marginInlineStart" | "marginInlineEnd">, Flags["padding"], "padding" | "paddingBlockStart" | "paddingBlockEnd" | "paddingInlineStart" | "paddingInlineEnd">, Flags["inset"], "inset" | "insetBlockStart" | "insetBlockEnd" | "insetInlineStart" | "insetInlineEnd">, Flags["position"], "position" | "zIndex">, Flags["height"], "height" | "minHeight" | "maxHeight">, Flags["width"], "width" | "minWidth" | "maxWidth">;
+export {};

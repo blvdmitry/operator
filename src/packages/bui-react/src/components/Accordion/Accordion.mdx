@@ -1,0 +1,60 @@
+# Accordion
+
+<Featured>
+  An accordion is a vertically stacked list of headings that toggle further
+  information. Each item can be collapsed and expanded to show the complete
+  content.
+</Featured>
+
+<Grid>
+  <CrossLink
+    title="Accordion"
+    type="documentation"
+    text="Learn more about the Accordion design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design-system.booking.com/article/bui/components/containers/accordion/"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+```jsx
+import { Accordion } from "@bookingcom/bui-react";
+import type { AccordionProps } from "@bookingcom/bui-react";
+```
+
+Use accordions to show and hide detailed information on demand. Accordions make sense when the amount of hidden information is useful for the user to see on the same screen rather than on a separate screen.
+
+When clicking on the title content, the main content would appear and the chevron would point in the opposite direction.
+
+<Example name="default" />
+
+In most use cases, you need to hide not just one piece of information, but a whole group of content.
+You can achieve this by grouping multiple accordions within `<Stack />` component.
+
+In this case, accordions can have multiple items expanded.
+
+<Example name="multiple" />
+
+In case you need to show one accordion at one time, you can use `React.useState` hook with an example solution below.
+
+<Example name="controlled" />
+
+## Accessibility
+
+Make sure that the title of the section clearly states what information it reveals.
+
+## Properties
+
+| Name          | Type         | Default | Required | Description                                                                                                    |
+| ------------- | ------------ | ------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| titleContent  | `ReactNode`  | -       | false    | Content for the clickable area                                                                                 |
+| children      | `ReactNode`  | -       | false    | Toggleable content                                                                                             |
+| active        | `boolean`    | false   | false    | Controlled mode                                                                                                |
+| defaultActive | `boolean`    | -       | false    | Uncontrolled mode                                                                                              |
+| onOpen        | `() => void` | -       | false    |                                                                                                                |
+| onClose       | `() => void` | -       | false    |                                                                                                                |
+| className     | `string`     | -       | false    | Custom root element className                                                                                  |
+| attributes    | `object`     | -       | false    | Custom root element attributes                                                                                 |
+| mixin           | `object`     | -       | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |

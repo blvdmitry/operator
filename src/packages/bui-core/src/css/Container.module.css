@@ -1,0 +1,11 @@
+.root {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  padding: var(--bui_spacing_4x);
+}
+
+.root--centered {
+  margin: 0 auto;
+  max-width: var(--bui_container);
+}

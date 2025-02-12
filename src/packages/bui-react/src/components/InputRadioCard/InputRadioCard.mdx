@@ -1,0 +1,82 @@
+# InputRadioCard
+
+<Featured>
+  Allows users to choose one or multiple of several pre-defined options
+  displayed as cards.
+</Featured>
+
+If a multiple selections are possible, use `InputRadioCard` component instead.
+
+<Grid>
+  <CrossLink
+    title="InputRadioCard"
+    type="documentation"
+    text="Learn more about the InputRadioCard design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design-system.booking.com/article/bui/components/elements/input-radio/#Input-radio-card"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+```jsx
+import { InputRadioCard } from "@bookingcom/bui-react";
+import type { InputRadioPropsCard } from "@bookingcom/bui-react";
+```
+
+The `children` prop corresponds to the content of the InputRadioCard which must contain the label for the input field.
+
+<Example name="default" />
+
+The `additionalContent` is optional. We can pass a React component to this prop to display any additional information about the selection when just the label is not enough.
+
+<Example name="additionalContent" />
+
+The input element can be aligned to either the `top` or `center` of the content using the `inputElementVerticalAlignment`
+
+<Example name="verticalAlignment" />
+
+The radio element can also be hidden to free up some space for the content. Set the `showInputElement` prop to false to achieve this behavior.
+
+<Example name="hiddenInput" />
+
+Use the `disabled` prop to disable interactions with the InputRadioCard
+
+<Example name="disabled" />
+
+The InputRadioCard also has an `error` state which indicates the user that some kind of validations have failed
+
+<Example name="error" />
+
+### Controlled and uncontrolled
+
+All input components in BUI support controlled and uncontrolled version.
+Uncontrolled version is the default behavior where you can pass it a `defaultChecked` and the browser will control the InputRadioCard's checked or unchecked state.
+
+<Example name="uncontrolled" />
+
+Controlled version is enabled once you pass the `checked` prop to InputRadioCard .
+This means that clicking on the InputRadioCard will trigger `onChange` but you will have to update the `checked` prop using your own state.
+
+<Example name="controlled" />
+
+## Properties
+
+| Name              | Type                        | Default | Required | Description                                                                                                    |
+| ----------------- | --------------------------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| id                | `string`                    | -       | false    | Field id                                                                                                       |
+| children          | `ReactNode`                 | -       | false    | Field label                                                                                                    |
+| additionalContent | `ReactNode`                 | -       | false    | Field additional content                                                                                       |
+| showInputElement  | `boolean`                   | `true`  | false    | Show the radio element?                                                                                        |
+| value             | `string`                    | -       | false    | Field value, mostly used for grouped radios                                                                    |
+| checked           | `boolean`, `null`           | -       | false    | Is field checked? Activates controlled variant of the component                                                |
+| defaultChecked    | `boolean`                   | -       | false    | Is field checked by default? Activates uncontrolled variant of the component                                   |
+| name              | `string`                    | -       | true     | Field name                                                                                                     |
+| disabled          | `boolean`                   | -       | false    | Is field disabled?                                                                                             |
+| error             | `string`, `boolean`         | -       | false    | Field error text                                                                                               |
+| onChange          | `({ name, value }) => void` | -       | false    | Field change handler                                                                                           |
+| className         | `string`                    | -       | false    | Custom root element className                                                                                  |
+| attributes        | `object`                    | -       | false    | Custom root element attributes                                                                                 |
+| inputAttributes   | `object`                    | -       | false    | Custom input element attributes                                                                                |
+| mixin               | `object`                    | -       | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |

@@ -1,0 +1,181 @@
+/* __label is used here not to introduce a breaking change since it was removed */
+.input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+.bar {
+  width: 100%;
+  padding: var(--bui_spacing_4x) 0;
+  border-radius: var(--bui_border_radius_100);
+  position: relative;
+  cursor: grab;
+}
+
+.bar::before {
+  width: 100%;
+  background-color: var(--bui_color_border_alt);
+  content: "";
+}
+
+.selected-area {
+  inset-inline: 0;
+  z-index: 1;
+  background-color: var(--bui_color_action_background);
+}
+
+.bar::before,
+.selected-area {
+  height: var(--bui_spacing_1x);
+  margin-block-start: calc(var(--bui_spacing_half) * -1);
+  border-radius: var(--bui_border_radius_100);
+  position: absolute;
+}
+
+.handle {
+  position: absolute;
+  transform: translateY(-50%);
+  inset-block-start: 50%;
+  height: 0;
+  width: 0;
+  z-index: 2;
+}
+
+/* 
+* Using left/top here for centering since transform isn't mirrored in RTL
+*/
+.handle::before,
+.handle::after {
+  content: "";
+  display: block;
+  height: var(--bui_spacing_4x);
+  width: var(--bui_spacing_4x);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transform-origin: 50% 50%;
+  transition: var(--bui_animation_hover);
+  transition-property: transform, box-shadow;
+  border-radius: 50%;
+  inset-block-start: 50%;
+
+  /* stylelint-disable-next-line safe-logical-properties/validate-logical-usage */
+  left: 50%;
+}
+
+.handle::before {
+  background-color: var(--bui_color_action_background);
+  outline: none;
+  z-index: 1;
+}
+
+.handle::after {
+  transform: translate(-50%, -50%) scale(0);
+  box-shadow: 0 0 0 var(--bui_spacing_3x) var(--bui_color_action_background);
+  opacity: 0.24;
+}
+
+.handle--active {
+  z-index: 3;
+}
+
+.handle--active::before {
+  background-color: var(--bui_color_action_highlighted);
+  transform: translate(-50%, -50%) scale(1.25);
+}
+
+.handle--active::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.input:focus + .handle::before {
+  @apply --bui_focus;
+}
+
+.input:focus + .handle::after {
+  content: none;
+}
+
+.display {
+  line-height: 20px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 
+* Using left/bottom here for centering since transform isn't mirrored in RTL
+*/
+.handle-tooltip {
+  position: absolute;
+  transform: translate(-50%, calc(var(--bui_spacing_1x) * 5));
+  padding-block-end: calc(var(--bui_spacing_1x) * 10);
+
+  /* stylelint-disable-next-line safe-logical-properties/validate-logical-usage */
+  left: 50%;
+  inset-block-end: 100%;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.handle-tooltip--hidden-content .handle-tooltip-content {
+  opacity: 0;
+}
+
+.handle-tooltip-content {
+  background: var(--bui_color_background_inverted);
+  color: var(--bui_color_foreground_inverted);
+  display: inline-block;
+  border-radius: var(--bui_border_radius_100);
+  padding: var(--bui_spacing_1x) var(--bui_spacing_2x);
+  max-width: calc(var(--bui_spacing_8x) * 10);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  z-index: var(--bui_z_index_1);
+  box-shadow: var(--bui_shadow_100);
+  user-select: none;
+
+  @apply --bui_font_body_2;
+}
+
+.handle-tooltip::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: calc(var(--bui_spacing_1x) * 9);
+  margin: auto;
+  width: 0;
+  height: 0;
+  border: calc(var(--bui_spacing_3x) / 2) solid
+    var(--bui_color_background_inverted);
+  border-left-color: transparent;
+  border-top-color: transparent;
+  transform: rotate(45deg);
+}
+
+.handle--visible .handle-tooltip,
+.handle:hover .handle-tooltip,
+.input:focus + .handle .handle-tooltip {
+  display: inherit;
+  opacity: 1;
+  visibility: visible;
+}
+
+.input[disabled] ~ .selected-area {
+  background-color: var(--bui_color_foreground_disabled_alt);
+}
+
+.input[disabled] ~ .handle,
+.input[disabled] ~ .handle:active {
+  cursor: not-allowed;
+  background-color: var(--bui_color_foreground_disabled_alt);
+}
+
+.input[disabled] ~ .handle:hover .handle-tooltip {
+  display: none;
+}
+
+.root--tooltip .bar {
+  margin-block-start: calc(var(--bui_spacing_1x) * 7);
+}

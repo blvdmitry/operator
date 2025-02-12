@@ -1,0 +1,139 @@
+.root--color-neutral {
+  color: var(--bui_color_foreground);
+}
+
+.root--color-neutral_alt {
+  color: var(--bui_color_foreground_alt);
+}
+
+.root--color-action {
+  color: var(--bui_color_action_foreground);
+}
+
+.root--color-constructive {
+  color: var(--bui_color_constructive_foreground);
+}
+
+.root--color-destructive {
+  color: var(--bui_color_destructive_foreground);
+}
+
+.root--color-accent {
+  color: var(--bui_color_accent_foreground);
+}
+
+.root--color-callout {
+  color: var(--bui_color_callout_foreground);
+}
+
+.root--color-white {
+  color: var(--bui_color_white);
+}
+
+.root--color-disabled {
+  color: var(--bui_color_foreground_disabled);
+}
+
+.root--color-brand_primary {
+  color: var(--bui_color_brand_primary_foreground);
+}
+
+.root--color-brand_genius_secondary {
+  color: var(--bui_color_brand_genius_secondary_foreground);
+}
+
+.root--color-inherit {
+  color: currentcolor;
+}
+
+.root--variant-display_1 {
+  @apply --bui_font_display_1;
+}
+
+.root--variant-display_2 {
+  @apply --bui_font_display_2;
+}
+
+.root--variant-display_3 {
+  @apply --bui_font_display_3;
+}
+
+.root--variant-featured_1 {
+  @apply --bui_font_featured_1;
+}
+
+.root--variant-featured_2 {
+  @apply --bui_font_featured_2;
+}
+
+.root--variant-featured_3 {
+  @apply --bui_font_featured_3;
+}
+
+.root--variant-headline_1 {
+  @apply --bui_font_headline_1;
+}
+
+.root--variant-headline_2 {
+  @apply --bui_font_headline_2;
+}
+
+.root--variant-headline_3 {
+  @apply --bui_font_headline_3;
+}
+
+.root--variant-strong_1 {
+  @apply --bui_font_strong_1;
+}
+
+.root--variant-strong_2 {
+  @apply --bui_font_strong_2;
+}
+
+.root--variant-emphasized_1 {
+  @apply --bui_font_emphasized_1;
+}
+
+.root--variant-emphasized_2 {
+  @apply --bui_font_emphasized_2;
+}
+
+.root--variant-body_1 {
+  @apply --bui_font_body_1;
+}
+
+.root--variant-body_2 {
+  @apply --bui_font_body_2;
+}
+
+.root--variant-small_1 {
+  @apply --bui_font_small_1;
+}
+
+.root--variant-small_2 {
+  @apply --bui_font_small_2;
+}
+
+.root--text-align-left {
+  text-align: start;
+}
+
+.root--text-align-center {
+  text-align: center;
+}
+
+.root--text-align-right {
+  text-align: end;
+}
+
+.root--text-decoration-underline {
+  text-decoration: underline;
+}
+
+.root--text-decoration-underline-dotted {
+  text-decoration: underline dotted;
+}
+
+.root--text-decoration-line-through {
+  text-decoration: line-through;
+}

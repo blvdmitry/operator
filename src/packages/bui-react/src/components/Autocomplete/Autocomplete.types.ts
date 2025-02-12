@@ -1,0 +1,65 @@
+import type React from "react";
+import type { ListItemProps } from "components/ListItem";
+
+type ChangeHandler = (args: { value: string }) => void;
+
+export type Props = {
+  children: React.ReactNode;
+  value?: string;
+  onChange?: ChangeHandler;
+  onInput?: ChangeHandler;
+};
+
+export type TriggerProps = {
+  children: (
+    attributes: {
+      ref: React.RefObject<HTMLInputElement>;
+      onChange: React.ChangeEventHandler<HTMLInputElement>;
+      onInput: React.ChangeEventHandler<HTMLInputElement>;
+      role: string;
+      autoComplete: string;
+    } & Pick<
+      React.HTMLAttributes<HTMLElement>,
+      "aria-haspopup" | "aria-autocomplete" | "aria-expanded"
+    >,
+    positionRef: React.RefObject<HTMLElement>
+  ) => React.ReactNode;
+};
+
+export type PopoverProps = {
+  children: React.ReactNode;
+  popoverSize?: "small" | "medium" | "auto" | "stretch" | string;
+};
+
+export type ItemProps = Pick<
+  ListItemProps,
+  "children" | "startSlot" | "endSlot" | "icon" | "attributes"
+> & {
+  value: string;
+};
+
+export type Context = {
+  active: boolean;
+  open: () => void;
+  close: () => void;
+  triggerRef: React.RefObject<HTMLInputElement>;
+  positionRef: React.RefObject<HTMLElement>;
+  onChange?: Props["onChange"];
+  onInput?: Props["onInput"];
+  onItemClick: ChangeHandler;
+};
+
+export type RefProps = {
+  open: () => void;
+  close: () => void;
+};
+
+export type Ref = React.Ref<RefProps>;
+
+export type Compound = React.ForwardRefExoticComponent<
+  Props & { ref?: Ref }
+> & {
+  Trigger: React.ComponentType<TriggerProps>;
+  Popover: React.ComponentType<PopoverProps>;
+  Item: React.ComponentType<ItemProps>;
+};

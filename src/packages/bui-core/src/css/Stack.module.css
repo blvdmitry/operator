@@ -1,0 +1,208 @@
+/* React implementation, until flex-gap is supported */
+
+.root {
+  --bui_stack_height: initial;
+
+  display: flex;
+  padding: 0;
+  list-style-type: none;
+
+  /* Height spans 100% when Stack is the only-child (Flex handles this if there are other children) */
+  height: var(--bui_stack_height, initial);
+
+  /* Reset margins */
+  margin: 0;
+}
+
+.root > * {
+  flex-shrink: 0;
+
+  /* 
+  * Resetting margins for all direct children of the Stack
+  * To avoid extra spacing when Stack children inherit margins 
+  * from global CSS configs or browser defaults, e.g: h1, h2, h3 etc.
+  
+  * TODO: target toxic global CSS configs rather than resetting 
+  * things here in the future major release.
+  */
+  margin-block-start: initial;
+  margin-block-end: initial;
+  margin-inline-start: initial;
+  margin-inline-end: initial;
+}
+
+/* Direction */
+@bui-responsive .root--direction {
+  @bui-modifier column {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  @bui-modifier column-reverse {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  @bui-modifier row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  @bui-modifier row-reverse {
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+}
+
+/* Align Items */
+@bui-responsive .root--align-items {
+  @bui-modifier start {
+    align-items: flex-start;
+  }
+
+  @bui-modifier end {
+    align-items: flex-end;
+  }
+
+  @bui-modifier center {
+    align-items: center;
+  }
+
+  @bui-modifier stretch {
+    align-items: stretch;
+  }
+
+  @bui-modifier baseline {
+    align-items: baseline;
+  }
+}
+
+/* Justify Content */
+@bui-responsive .root--justify-content {
+  @bui-modifier start {
+    justify-content: flex-start;
+  }
+
+  @bui-modifier center {
+    justify-content: center;
+  }
+
+  @bui-modifier end {
+    justify-content: flex-end;
+  }
+
+  @bui-modifier space-between {
+    justify-content: space-between;
+  }
+}
+
+@bui-responsive-vars .root, stack, gap {
+  @bui-unit;
+}
+
+@bui-responsive .root--direction > .item--split {
+  @bui-modifier column {
+    margin-block: auto 0;
+    margin-inline: 0;
+  }
+
+  @bui-modifier column-reverse {
+    margin-block: 0 auto;
+    margin-inline: 0;
+  }
+
+  @bui-modifier row, {
+    margin-block: 0;
+    margin-inline: auto 0;
+  }
+
+  @bui-modifier row-reverse {
+    margin-block: 0;
+    margin-inline: 0 auto;
+  }
+}
+
+@bui-responsive .root--direction:only-child {
+  @bui-modifier column, column-reverse {
+    --bui_stack_height: 100%;
+  }
+}
+
+.root--nowrap {
+  flex-wrap: nowrap;
+}
+
+/* Flex-wrap */
+@bui-responsive .root--wrap {
+  @bui-modifier nowrap {
+    flex-wrap: nowrap;
+  }
+
+  @bui-modifier wrap {
+    flex-wrap: wrap;
+  }
+
+  @bui-modifier wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+}
+
+/* Flex-grow */
+@bui-responsive .root--grow {
+  @bui-modifier true {
+    flex-grow: 1;
+  }
+
+  @bui-modifier false {
+    flex-grow: initial;
+  }
+}
+
+/* Align-self */
+@bui-responsive .root--align-self {
+  @bui-modifier start {
+    align-self: flex-start;
+  }
+
+  @bui-modifier center {
+    align-self: center;
+  }
+
+  @bui-modifier end {
+    align-self: flex-end;
+  }
+}
+
+/* Stack.Item */
+
+/* Grow */
+.item--grow {
+  flex-basis: 100%;
+  flex-grow: 1;
+}
+
+/* Shrink */
+.item--shrink {
+  flex-shrink: 1;
+}
+
+/* Align self */
+.item--align-self-start {
+  align-self: flex-start;
+}
+
+.item--align-self-center {
+  align-self: center;
+}
+
+.item--align-self-end {
+  align-self: flex-end;
+}
+
+/* Divider */
+
+.divider {
+  align-self: stretch;
+}

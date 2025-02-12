@@ -1,0 +1,13 @@
+:root {
+  --bui_focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--bui_color_background_base),
+      0 0 0 4px var(--bui_color_action_border);
+  }
+
+  --bui_focus_inset {
+    outline: none;
+    box-shadow: inset 0 0 0 2px var(--bui_color_background_base),
+      inset 0 0 0 4px var(--bui_color_action_border);
+  }
+}

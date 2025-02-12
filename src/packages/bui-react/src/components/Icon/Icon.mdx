@@ -1,0 +1,57 @@
+# Icon
+
+<Featured>
+  Icon component is a simple wrapper around svg to provide correct alignment and
+  helpers for size/color definitions.
+</Featured>
+
+<Grid>
+  <CrossLink
+    title="Icon"
+    type="documentation"
+    text="Learn more about the Icon design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design.booking.com/article/bui/components/elements/icon/"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+```jsx
+import { Icon } from "@bookingcom/bui-react";
+import type { IconProps } from "@bookingcom/bui-react";
+```
+
+Icon component is a simple wrapper around svg to provide correct alignment and helpers for size/color definitions.
+
+<Example name="default" />
+
+It comes in various sizes.
+
+<Example name="sizes" />
+
+## Responsive properties
+
+Size property can be responsive. That means it can have different value between viewports. You can read more about responsive properties [here](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#Responsive-development).
+
+<Example name="responsive" />
+
+## Accessibility
+
+- Icon is a utility component used to render SVG in other components. By default they are classified as ‘decorative’ thus invisible to screen readers in BUI because the information is conveyed via adjacent text.
+- If you are using an icon as a visual enhancement, make sure the information provided by the icon is given using adjacent text.
+- If you are using an icon to convey meaning (i.e., it’s informative), apply an appropriate, descriptive copytag as an aria-label to its parent element.
+- If you want to use an icon as an interactive element, Button (icon) would suit this purpose instead.
+
+## Properties
+
+| Name       | Type                                                                                                                                  | Default | Required | Description                                                                                                                 |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- | --------------------------------------------------------------------------------------------------------------------------- |
+| svg        | `ReactNode`                                                                                                                           | -       | true     | Icon svg node                                                                                                               |
+| size       | `smallest`, `smaller`, `small`, `medium`, `large`, `larger`, `largest`                                                                | -       | false    | [Responsive](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#Responsive-development). Icon size |
+| color      | `destructive`, `constructive`, `accent`, `callout`, `white`, `action`, `neutral`, `neutral_alt`, `brand_genius_secondary`, `disabled` | -       | false    | Icon color                                                                                                                  |
+| className  | `string`                                                                                                                              | -       | false    | Custom root element className                                                                                               |
+| ariaLabel  | `string`                                                                                                                              | -       | false    | aria-label for informative icons                                                                                            |
+| attributes | `object`                                                                                                                              | -       | false    | Custom root element attributes                                                                                              |
+| mixin        | `object`                                                                                                                              | -       | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer)              |

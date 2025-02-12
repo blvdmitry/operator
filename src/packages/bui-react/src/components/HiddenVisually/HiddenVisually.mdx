@@ -1,0 +1,25 @@
+# HiddenVisually
+
+<Featured>Use the HiddenVisually component to hide content visually.</Featured>
+
+## Usage
+
+```jsx
+import { HiddenVisually } from "@bookingcom/bui-react";
+import type { HiddenVisuallyProps } from "@bookingcom/bui-react";
+```
+
+HiddenVisually hides the content visually, but keeps it rendered.
+
+<Example name="hiddenVisually" />
+
+By default, HiddenVisually wraps your component with an additional wrapper that controls its display.
+In case you need to avoid having that wrapper, you can use render props approach:
+
+<Example name="renderProps" />
+
+### Properties
+
+| Name     | Type                                        | Default | Required | Description                   |
+| -------- | ------------------------------------------- | ------- | -------- | ----------------------------- |
+| children | `ReactNode`, `({ className }) => ReactNode` | ---     | true     | Content to be hidden visually |

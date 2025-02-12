@@ -1,0 +1,73 @@
+# Grid
+
+<Featured>
+  Grid is a utility for rendering content in grid-like layouts.
+</Featured>
+
+## Usage
+
+```jsx
+import { Grid } from "@bookingcom/bui-react";
+import type { GridProps } from "@bookingcom/bui-react";
+```
+
+Grid utility is build on top of CSS Flexbox, so its API should feel familiar.
+It uses 12-column system and is usually composed of `<Grid>` and `<Grid.Column>` components.
+
+Consider this example with column `size=3` and `offset=3` for the last column.
+
+<Example name="default" />
+
+Have smaller gutter with `size=small`. Remove default column paddings using `bleed` prop.
+
+<Example name="smallBleed" />
+
+Multiline grids are no problem.
+
+<Example name="multiline" />
+
+Grid has various align and justify options.
+
+<Example name="alignJustify" />
+
+### Responsive Properties
+
+Grid properties like `gap`, `align`, `justify` or Grid.Column's `size`, `offset` can be responsive. That means they can have different values between viewports. You can read more about responsive properties [here](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#Responsive-development).
+
+The following example shows the advantages of responsive `gap` together with `reversed`. Try changing the breakpoint from desktop to mobile:
+
+<Example name="responsive" />
+
+### Utility Layer
+
+Quite often you find yourself in need for some basic CSS styling. Grid as well as other BUI Components has support for stylying via [BUI Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer).
+
+<Example name="utilityLayer" />
+
+Try switching between breakpoints to see the padding applied and toggle "Preview" button to check out the code.
+
+## Properties
+
+| Name       | Type                                                      | Default          | Required | Description                                                                                                                                 |
+| ---------- | --------------------------------------------------------- | ---------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| gap        | `8`, `6`, `4`, `3`, `2`, `1`, `0.5`, `0`                  | `{ s: 4, m: 6 }` | false    | [Responsive](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#Responsive-development). Grid gap size             |
+| columns    | _1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12_                   | 12               | false    | [Responsive](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#Responsive-development). The number of columns.    |
+| align      | `center`, `end`                                           | -                | false    | [Responsive](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#Responsive-development). Grid vertical alignment   |
+| justify    | `space-between`, `start`, `center`, `end`, `space-around` | -                | false    | [Responsive](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#Responsive-development). Grid horizontal alignment |
+| bleed      | `boolean`                                                 | -                | false    | Do columns bleed on sides?                                                                                                                  |
+| reversed   | `boolean`                                                 | -                | false    | Is column order reversed?                                                                                                                   |
+| children   | `ReactNode`                                               | -                | true     | Grid content                                                                                                                                |
+| className  | `string`                                                  | -                | false    | Custom root element className                                                                                                               |
+| attributes | `object`                                                  | -                | false    | Custom root element attributes                                                                                                              |
+| mixin        | `object`                                                  | -                | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer)                              |
+
+## Column properties
+
+| Name       | Type                                                    | Default | Required | Description                                                                                                                               |
+| ---------- | ------------------------------------------------------- | ------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| children   | node                                                    | -       | true     | Grid column content                                                                                                                       |
+| size       | _1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 'half', 'full'_ | -       | false    | [Responsive](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#Responsive-development). Grid column size        |
+| offset     | _1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 'auto'_         | -       | false    | [Responsive](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#Responsive-development). Grid column left offset |
+| align      | _center, end_                                           | -       | -        | Align Self flex controls                                                                                                                  |
+| className  | string                                                  | -       | false    | Custom root element className                                                                                                             |
+| attributes | object                                                  | -       | false    | Custom root element attributes                                                                                                            |

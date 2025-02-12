@@ -1,0 +1,89 @@
+.root {
+  display: block;
+}
+
+.skeleton {
+  display: block;
+  position: relative;
+  border-radius: var(--bui_border_radius_100);
+  opacity: var(--bui_skeleton_loader--opacity);
+  height: var(--bui_spacing_4x);
+  overflow: hidden;
+}
+
+.skeleton::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: var(--bui_skeleton_loader--color_opacity);
+  background-color: var(--bui_skeleton_loader--background_color);
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 80px;
+  inset-block-start: 0;
+  inset-inline-start: -80px;
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0px,
+    rgba(255, 255, 255, 0.8) 40px,
+    rgba(255, 255, 255, 0) 80px
+  );
+  opacity: var(--bui_skeleton_loader--color_opacity);
+  animation: 1.6s skeleton-animation linear infinite;
+}
+
+.skeleton + .skeleton {
+  margin-block-start: var(--bui_spacing_2x);
+}
+
+.title {
+  width: 70%;
+}
+
+.line {
+  width: 100%;
+}
+
+.halfLine {
+  width: 50%;
+}
+
+.box {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.root--color-neutral {
+  --bui_skeleton_loader--background_color: var(--bui_color_background);
+  --bui_skeleton_loader--opacity: 0.15;
+  --bui_skeleton_loader--color_opacity: 1;
+}
+
+.root--color-inherit {
+  --bui_skeleton_loader--background_color: currentcolor;
+  --bui_skeleton_loader--opacity: 0.3;
+  --bui_skeleton_loader--color_opacity: 0.5;
+}
+
+@media (prefers-reduced-motion) {
+  .skeleton::after {
+    animation-duration: 1ms;
+    animation-iteration-count: 1;
+  }
+}
+
+@keyframes skeleton-animation {
+  0% {
+    inset-inline-start: -80px;
+  }
+
+  50%,
+  100% {
+    inset-inline-start: 100vw;
+  }
+}

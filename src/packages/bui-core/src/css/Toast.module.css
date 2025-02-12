@@ -1,0 +1,59 @@
+.root {
+  position: fixed;
+  inset-inline-start: var(--bui_spacing_6x);
+  inset-block-end: var(--bui_spacing_6x);
+  background: var(--bui_color_background_inverted);
+  border-radius: var(--bui_border_radius_200);
+  color: var(--bui_color_foreground_inverted);
+  padding: var(--bui_spacing_4x);
+  width: calc(var(--bui_spacing_8x) * 10);
+  z-index: var(--bui_z_index_4);
+  box-shadow: var(--bui_shadow_100);
+
+  @apply --bui_font_body_2;
+}
+
+.button {
+  color: var(--bui_color_action_foreground_inverted);
+  margin-inline-start: auto;
+}
+
+@media (--bui_small_viewport) {
+  .root {
+    width: auto;
+    inset-inline: var(--bui_spacing_4x);
+    inset-block-end: var(--bui_spacing_4x);
+  }
+}
+
+/* Animations on by default */
+.root--enter-from {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.root--enter-settings {
+  transition: var(--bui_animation_enter);
+  transition-property: opacity, transform;
+}
+
+.root--exit-to,
+.container:not(:last-child) {
+  transform: scale(0.84);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.root--exit-settings,
+.container:not(:last-child) {
+  transition: var(--bui_animation_exit);
+  transition-property: opacity, transform;
+}
+
+.container:not(:last-child) {
+  /*
+    toast logic is dependant on transitionend event
+    which does not fire on transition-duration 0ms
+  */
+  transition-duration: 1ms;
+}

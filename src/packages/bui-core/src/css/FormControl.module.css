@@ -1,0 +1,28 @@
+.root {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.label {
+  display: flex;
+  align-items: flex-end;
+  padding: 0;
+  padding-block-end: var(--bui_spacing_1x);
+}
+
+/* Inline block applies RTL content direction correctly, swappiing label and sublabel */
+.subLabel,
+.asterisk {
+  display: inline-block;
+  margin-inline-start: var(--bui_spacing_1x);
+}
+
+.labelEnd {
+  flex-grow: 1;
+  text-align: end;
+}
+
+.note {
+  margin-block-start: var(--bui_spacing_1x);
+}

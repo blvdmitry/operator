@@ -1,0 +1,30 @@
+{
+  "name": "@bookingcom/bui-core",
+  "version": "9.26.10",
+  "license": "UNLICENSED",
+  "author": "Design Systems",
+  "files": [
+    "constants/**/*",
+    "utilities/**/*",
+    "types/**/*",
+    "css/**/*"
+  ],
+  "devDependencies": {
+    "@bookingcom/bui-postcss": "9.10.4",
+    "@bookingcom/bui-themes": "9.9.2",
+    "chokidar-cli": "3.0.0"
+  },
+  "scripts": {
+    "build:css": "postcss src/css/{*.css,**/*.css} --base src/css --dir css --config tools",
+    "watch:css": "chokidar \"src/**/*.css\" -c \"yarn build:css\" --initial true",
+    "build:js": "tsc",
+    "watch:js": "yarn build:js -w",
+    "build": "yarn clean && yarn build:css && yarn build:js",
+    "watch": "concurrently \"yarn watch:js\" \"yarn watch:css\"",
+    "clean": "rm -rf constants types utilities css",
+    "lint": "eslint",
+    "lint:fix": "yarn lint --fix",
+    "test": "jest --config tools/jest.config.js",
+    "test:ci": "yarn test --maxWorkers=4"
+  }
+}

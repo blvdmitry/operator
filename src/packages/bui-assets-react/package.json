@@ -1,0 +1,10 @@
+{
+  "name": "@bookingcom/bui-assets-react",
+  "version": "9.9.2",
+  "license": "UNLICENSED",
+  "author": "Design Systems",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ]
+}

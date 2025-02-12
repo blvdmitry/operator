@@ -1,0 +1,30 @@
+# Print
+
+<Featured>
+  Use the Print component to display content available only for printing.
+</Featured>
+
+## Usage
+
+```jsx
+import { Print } from "@bookingcom/bui-react";
+import type { PrintProps } from "@bookingcom/bui-react";
+```
+
+Print hides the content visually, but keeps it rendered.
+You can use `hidden` to achieve the opposite: keep it normally visible and hidden in print.
+
+<Example name="print" />
+
+By default, Print wraps your component with an additional wrapper that controls its display.
+In case you need to avoid having that wrapper, you can use render props approach:
+
+<Example name="renderProps" />
+
+### Properties
+
+| Name     | Type                                        | Default | Required | Description                                                                                                    |
+| -------- | ------------------------------------------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| hidden   | `boolean`                                   | false   | false    | Hides the content in print media                                                                               |
+| children | `ReactNode`, `({ className }) => ReactNode` | ---     | true     | Content for the print media                                                                                    |
+| mixin      | `object`                                    | -       | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |

@@ -1,0 +1,88 @@
+# Avatar
+
+<Featured>
+  Use avatars to represent an entity or a user's identity to associate them with
+  personalised content and indicate content created by the user themselves.
+</Featured>
+
+<Grid>
+  <CrossLink
+    title="Avatar"
+    type="documentation"
+    text="Learn more about the Avatar design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design-system.booking.com/article/bui/components/elements/avatar/"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+```jsx
+import { Avatar } from "@bookingcom/bui-react";
+import type { AvatarProps } from "@bookingcom/bui-react";
+```
+
+The most basic presentation variant of an avatar will be an image.
+Avatars can be presented using multiple provided sizes, with `medium` size used as a default value:
+
+<Example name="size" />
+
+Avatar component is integrated with the asset service, which means you can use it to display country flags by using `countryCode` property.
+Note that flags are stored as pngs so currently it's possible to use it only with `small` avatar size.
+
+<Example name="asset" />
+
+In case image `url` is not available for an avatar, text or icon fallback can be applied instead:
+
+<Example name="fallback" />
+
+In case image url is a wrong image `url`, the text or the icon will be used as fallback:
+
+<Example name="fallbackUrl" />
+
+When image is not rendered, you can use any of the provided color schemes:
+
+<Example name="color" />
+
+For the cases where background is dynamic, you can use `inherit` color value.
+For example, it should be helpful when rendering avatars on top of brand color, to keep them accessible no matter which theme is applied.
+
+<Example name="colorInherit" />
+
+If you need to visually highlight the avatar or separate it from the rest of the content, you can use `outline` property:
+
+<Example name="outline" />
+
+## Responsive properties
+
+Size property can be responsive. That means it can have different value between viewports. You can read more about responsive properties [here](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#Responsive-development).
+
+<Example name="responsive" />
+
+## Accessibility
+
+The avatar component represents content (an entity or a user's identity), and should have a text equivalent for people using assistive technologies (such as screen readers).
+
+- When used on its own - make sure you pass `ariaLabel` to the component.
+- When an avatar is adjacent to a text alternative, such as a user name, omit `ariaLabel`, so that they can be ignored by assistive technologies. Refer to Avatar block for this use case.
+
+## Properties
+
+| Name               | Type                                                              | Default | Required | Description                                                                                                                          |
+| ------------------ | ----------------------------------------------------------------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| src                | `string`                                                          | -       | false    | URL of avatar image                                                                                                                  |
+| asset              | `object`                                                          | -       | false    | Asset service data                                                                                                                   |
+| asset.setName      | `string`                                                          | -       | true     | Name of the image set                                                                                                                |
+| asset.assetName    | `string`                                                          | -       | true     | Name of the image asset                                                                                                              |
+| size               | `large`, `larger`, `largest`, `small`                             | -       | false    | [Responsive](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#Responsive-development). Size of the avatar |
+| text               | `string`                                                          | -       | false    | Text for avatars that don't have an image representation                                                                             |
+| icon               | `ReactNode`                                                       | -       | false    | Icon for avatars that don't have an image representation                                                                             |
+| color              | `destructive`, `callout`, `complement`, `constructive`, `inherit` | -       | false    | Color scheme for text avatar                                                                                                         |
+| outline            | `white`, `accent`, `destructive`, `constructive`, `callout`       | -       | false    | Avatar outline color                                                                                                                 |
+| backgroundPosition | `string`                                                          | -       | false    | CSS value for the image background position                                                                                          |
+| backgroundSize     | `string`                                                          | -       | false    | CSS value for the image background size                                                                                              |
+| ariaLabel          | `string`                                                          | -       | false    |
+| className          | `string`                                                          | -       | false    | Custom root element className                                                                                                        |
+| attributes         | `object`                                                          | -       | false    | Custom root element attributes                                                                                                       |
+| mixin                | `object`                                                          | -       | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer)                       |

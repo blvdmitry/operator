@@ -1,0 +1,65 @@
+.root {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.input:focus ~ .wrapper {
+  @apply --bui_focus;
+}
+
+.subtract,
+.add {
+  width: calc(var(--bui_spacing_8x) + var(--bui_spacing_2x));
+  height: calc(var(--bui_spacing_8x) + var(--bui_spacing_2x));
+  margin-inline-end: 0;
+  min-width: auto;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  border: var(--bui_border_width_100) solid var(--bui_color_border);
+  border-radius: var(--bui_border_radius_100);
+}
+
+.value {
+  @apply --bui_font_emphasized_2;
+  display: block;
+  text-align: center;
+  min-width: calc(var(--bui_spacing_8x) + var(--bui_spacing_1x));
+  margin: 0 var(--bui_spacing_1x);
+}
+
+.label-wrapper {
+  margin-inline-end: var(--bui_spacing_2x);
+}
+
+.label {
+  @apply --bui_font_emphasized_2;
+}
+
+.input[disabled] ~ .wrapper {
+  background-color: var(--bui_color_background_disabled_alt);
+  border: var(--bui_border_width_100) solid var(--bui_color_border_disabled);
+}
+
+.input[disabled] ~ .label-wrapper .label,
+.input[disabled] ~ .label-wrapper .helper-text {
+  color: var(--bui_color_foreground_disabled);
+}
+
+.input[disabled] ~ .wrapper .value {
+  cursor: not-allowed;
+  color: var(--bui_color_foreground_disabled);
+}

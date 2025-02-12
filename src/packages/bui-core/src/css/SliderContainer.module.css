@@ -1,0 +1,92 @@
+.root {
+  position: relative;
+  overflow: hidden;
+}
+
+[data-bui-keyboard] .root--focused {
+  @apply --bui_focus;
+}
+
+.items {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.item {
+  width: 100%;
+  height: 100%;
+  white-space: normal;
+  display: inline-block;
+  vertical-align: top;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.content {
+  height: 100%;
+  background-size: cover;
+}
+
+.control {
+  position: absolute;
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+  transition: var(--bui_animation_hover);
+  transition-property: opacity, visibility;
+}
+
+.previous-control {
+  inset-inline-start: var(--bui_spacing_2x);
+}
+
+.next-control {
+  inset-inline-end: var(--bui_spacing_2x);
+}
+
+.pagination-indicator-container {
+  display: flex;
+  justify-content: center;
+}
+
+/**
+* Modifiers
+*/
+
+.root--variant-media {
+  background: var(--bui_color_background_alt);
+  color: var(--bui_color_white);
+  padding-block-start: 66.66%;
+}
+
+.root--variant-media .inner {
+  position: absolute;
+  inset: 0;
+}
+
+.root--variant-media .items {
+  background: var(--bui_color_background_alt);
+}
+
+.root--border-radius-100 {
+  border-radius: var(--bui_border_radius_100);
+}
+
+.root--border-radius-200 {
+  border-radius: var(--bui_border_radius_200);
+}
+
+.root--border-radius-300 {
+  border-radius: var(--bui_border_radius_300);
+}
+
+.root--hide-controls .control {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.root--hide-controls:hover .control {
+  visibility: visible;
+  opacity: 1;
+}

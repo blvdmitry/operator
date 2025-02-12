@@ -1,0 +1,62 @@
+.root {
+  border-radius: var(--bui_border_radius_200);
+}
+
+.title {
+  display: var(--bui_alert_title_display);
+  margin-block-end: var(--bui_spacing_2x);
+}
+
+.text {
+  margin-block-start: 0;
+}
+
+.icon {
+  height: var(--bui_alert_icon_height);
+  display: inline-flex;
+  align-items: center;
+}
+
+.icon--no-title {
+  --bui_alert_icon_height: var(--bui_font_body_2_line-height);
+}
+
+.root--variant-success {
+  --bui_alert_background: var(--bui_color_constructive_background_alt);
+  --bui_alert_border: 1px solid var(--bui_color_constructive_border);
+  --bui_alert_color: var(--bui_color_constructive_foreground);
+}
+
+.root--variant-error {
+  --bui_alert_background: var(--bui_color_destructive_background_alt);
+  --bui_alert_border: 1px solid var(--bui_color_destructive_border);
+  --bui_alert_color: var(--bui_color_destructive_foreground);
+}
+
+.root--variant-primary {
+  --bui_alert_background: var(--bui_color_action_background_alt);
+  --bui_alert_border: 1px solid var(--bui_color_action_border);
+  --bui_alert_color: var(--bui_color_foreground);
+}
+
+@bui-responsive .root--inline {
+  @bui-modifier true {
+    --bui_alert_title_display: none;
+    --bui_alert_icon_height: var(--bui_font_body_2_line-height);
+
+    background-color: transparent;
+    color: var(--bui_alert_color);
+    border: none;
+    padding: 0;
+  }
+
+  @bui-modifier false {
+    --bui_alert_title_display: block;
+    --bui_alert_icon_height: var(--bui_font_strong_1_line-height);
+
+    background-color: var(--bui_alert_background);
+    color: var(--bui_color_foreground);
+    border: var(--bui_alert_border);
+    padding: var(--bui_spacing_4x);
+  }
+}

@@ -1,0 +1,127 @@
+.root {
+  --bui-segmented-control-padding: calc(
+    var(--bui_spacing_1x) - var(--bui_border_width_100)
+  );
+}
+
+.label {
+  display: block;
+  margin-block-end: var(--bui_spacing_1x);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  display: inline-flex;
+  align-items: stretch;
+  vertical-align: top;
+  border-radius: 999px;
+  background-color: var(--bui_color_background_alt);
+  border: var(--bui_border_width_100) solid var(--bui_color_border_alt);
+  padding: var(--bui-segmented-control-padding);
+  position: relative;
+}
+
+.list::before {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 999px;
+  width: var(--bui-segmented-control-active-scale-x, 0);
+  height: calc(100% - var(--bui-segmented-control-padding) * 2);
+  transition: var(--bui_animation_press);
+  transition-property: width, transform;
+  z-index: var(--bui_z_index_1);
+  background-color: var(--bui_color_background_elevation_one);
+  border: var(--bui_border_width_100) solid var(--bui_color_border);
+  inset-block-start: var(--bui-segmented-control-padding);
+
+  /* stylelint-disable-next-line safe-logical-properties/validate-logical-usage */
+  left: 0;
+  transform: translateX(var(--bui-segmented-control-active-transform-x, 0));
+  visibility: hidden;
+}
+
+.button {
+  user-select: none;
+  display: flex;
+  align-items: center;
+  padding: calc(var(--bui_spacing_1x) - var(--bui_border_width_100))
+    calc(var(--bui_spacing_3x) - var(--bui_border_width_100));
+  position: relative;
+  z-index: var(--bui_z_index_2);
+  border-radius: 999px;
+  cursor: pointer;
+  box-sizing: border-box;
+  text-align: center;
+  border: var(--bui_border_width_100) solid transparent;
+  margin-inline-end: var(--bui_spacing_1x);
+}
+
+.button:hover {
+  background: var(--bui_color_highlighted_alt);
+}
+
+.button:last-child {
+  margin-inline-end: 0;
+}
+
+.button::after {
+  content: "";
+  width: var(--bui_border_width_100);
+  background: var(--bui_color_border_alt);
+  position: absolute;
+  inset-inline-start: calc(var(--bui_spacing_half) * -1);
+  inset-block: calc(var(--bui_spacing_1x) + var(--bui_spacing_half));
+}
+
+.button-text {
+  position: relative;
+  z-index: var(--bui_z_index_2);
+}
+
+.trigger {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  border: 0;
+}
+
+.root:not(.root--animated) .trigger:checked + .button,
+.root:not(.root--animated) .trigger:checked + .button:hover {
+  background-color: var(--bui_color_background_elevation_one);
+  border-color: var(--bui_color_border);
+}
+
+[data-bui-keyboard] .trigger:focus + .button {
+  @apply --bui_focus;
+  z-index: var(--bui_z_index_1);
+}
+
+.trigger:first-child + .button::after,
+.button:hover::after,
+.button:hover + .trigger + .button::after,
+.trigger:checked + .button::after,
+.trigger:checked + .button + .trigger + .button::after {
+  opacity: 0;
+  transition: none;
+}
+
+.root--fill-equally .list {
+  display: flex;
+}
+
+.root--fill-equally .item,
+.root--fill-equally .button {
+  width: 100%;
+  justify-content: center;
+}
+
+.root--animated .list::before {
+  visibility: visible;
+}
+
+.root--animated .button {
+  background: transparent;
+}

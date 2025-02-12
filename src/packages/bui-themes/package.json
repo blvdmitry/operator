@@ -1,0 +1,32 @@
+{
+  "name": "@bookingcom/bui-themes",
+  "version": "9.9.2",
+  "license": "UNLICENSED",
+  "author": "Design Systems",
+  "files": [
+    "legacy/**/*",
+    "traveller/**/*",
+    "traveller_ex/**/*",
+    "rentalcars/**/*",
+    "utilities/**/*",
+    "themes/**/*",
+    "index.css",
+    "index.js",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "build": "yarn clean && tsc && yarn copy:styles && yarn copy:exports",
+    "clean": "sh scripts/clean.sh",
+    "copy:exports": "sh scripts/copyExports.sh",
+    "copy:styles": "find src/ -type f -name '*.css' | cut -d / -f 2- | xargs -IX sh -c \"mkdir -p dist/\\$(dirname X) && cp src/X dist/X\"",
+    "install:themes": "node scripts/cli.js --theme traveller legacy rentalcars traveller_ex --output src/themes",
+    "lint": "eslint",
+    "lint:fix": "yarn lint --fix"
+  },
+  "devDependencies": {
+    "@bookingcom/theming-transform": "1.5.0",
+    "execa": "5.1.1",
+    "fs-extra": "9.1.0",
+    "yargs": "17.7.2"
+  }
+}

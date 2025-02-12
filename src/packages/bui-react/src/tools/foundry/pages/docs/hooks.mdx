@@ -1,0 +1,72 @@
+To get access to the hooks - your application should be wrapped with BUIProvider component.
+
+## useRTL hook
+
+useRTL relies on having access to the document node,
+so you can use provider defaultRTL property to support it for SSR.
+
+```jsx
+import { useRTL } from "@bookingcom/bui-react";
+
+const CarouselButton = () => {
+  const [isRTL, setRTL] = useRTL();
+
+  const scrollToLeft = () => {};
+  const scrollToRight = () => {};
+
+  return (
+    <button onClick={isRTL ? scrollToLeft : scrollToRight}>
+      Scroll back to start
+    </button>
+  );
+};
+```
+
+## useViewport hook
+
+useViewport requires access to DOM, so it currently uses 'small' viewport as a fallback for SSR.
+
+```jsx
+import { useViewport, SheetContainer } from "@bookingcom/bui-react";
+
+const ResponsiveDialog = (props) => {
+  const { isSmall } = useViewport();
+
+  // Show a bottom sheet on mobile and a centered modal on other viewports
+  return <SheetContainer position={isSmall ? "bottom" : "center"} />;
+};
+```
+
+## useTheme hook
+
+useTheme gives access to all theme foundations in JS.
+
+```jsx
+import { useTheme } from "@bookingcom/bui-react";
+
+const Foo = () => {
+  const theme = useTheme();
+
+  console.log(theme.color.foreground);
+};
+```
+
+## useThemeMode hook
+
+useThemeMode gives access to the current theme mode and ways for toggling it.
+
+```jsx
+import { useThemeMode } from "@bookingcom/bui-react";
+
+const ModeToggle = () => {
+  const { mode, setMode, invertMode } = useThemeMode();
+
+  return (
+    <>
+      Current mode is {mode}
+      <button onClick={() => invertMode()}>Invert mode</button>
+      <button onClick={() => setMode("dark")}>Switch to dark mode</button>
+    </>
+  );
+};
+```

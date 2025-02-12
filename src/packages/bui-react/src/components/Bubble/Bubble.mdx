@@ -1,0 +1,61 @@
+# Bubble
+
+<Featured>
+  Use bubbles to indicate a running total of a numeric value related to a field,
+  such as unread messages. Bubbles are used for numeric values only, if you're
+  in need of a similar style for text, see badges.
+</Featured>
+
+<Grid>
+  <CrossLink
+    title="Bubble"
+    type="documentation"
+    text="Learn more about the Bubble design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design-system.booking.com/article/bui/components/elements/bubble/"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+```jsx
+import { Bubble } from "@bookingcom/bui-react";
+import type { BubbleProps } from "@bookingcom/bui-react";
+```
+
+Bubble supports a two variants, namely `neutral` and `destructive` which you can use in the product based on their context with the `variant` property.
+
+<Example name="variantsEmpty" />
+
+The following are examples of Bubble with some `text` in them
+
+<Example name="variants" />
+
+You can also define a maximum limit for the value of the bubble. By default it is `99`. For any value greater than `maxValue` the bubble shows a `+` sign next to the maximum value.
+
+<Example name="maxValue" />
+
+## Accessibility
+
+While the styling of bubbles provides a visual cue as to their purpose, users of screen readers and similar assistive technologies will simply be presented with the content of the bubble. Depending on the specific situation, bubbles may seem like random additional numbers at the end of a sentence, link, or button.
+
+Therefore:
+
+- Include additional context with a meaningful `aria-label` that describes what the content of the bubble relates to and if the content requires immediate attention and action.
+
+Additionally:
+
+- If the bubble's text updates dynamically and needs to be announced by the screen reader, set the `aria-live` and `aria-atomic` propertes. For more information on live regions, check out the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
+
+## Properties
+
+| Name       | Type                               | Default | Required | Description                                                                                                         |
+| ---------- | ---------------------------------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------- |
+| text       | `string`, `number`                 | -       | false    | Bubble text                                                                                                         |
+| maxValue   | `number`                           | `99`    | false    | maximum value of the Bubble. Converts text to the form `${maxValue}+` if text(as a number) is greater than maxValue |
+| variant    | `destructive`, `neutral`, `action` | -       | false    | Bubble variant                                                                                                      |
+| ariaLabel  | `string`                           | -       | false    | Bubble aria label attribute                                                                                         |
+| className  | `string`                           | -       | false    | Custom root element className                                                                                       |
+| attributes | `object`                           | -       | false    | Custom root element attributes                                                                                      |
+| mixin        | `object`                           | -       | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer)      |

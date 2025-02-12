@@ -1,0 +1,74 @@
+# InputSwitch
+
+<Featured>
+  The InputSwitch represents a physical switch that can be toggled on and off,
+  like a light switch.
+</Featured>
+
+<Grid>
+  <CrossLink
+    title="InputSwitch"
+    type="documentation"
+    text="Learn more about the InputSwitch design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design-system.booking.com/article/bui/components/elements/input-switch/"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+```jsx
+import { InputSwitch } from "@bookingcom/bui-react";
+import type { InputSwitchProps } from "@bookingcom/bui-react";
+```
+
+InputSwitch is used to toggle on or off various options and operates with only two values. For a selection between or of multiple values/states, use InputCheckbox or InputRadio instead.
+
+<Example name="default" />
+
+There might be use cases wherein we would want the label to be rendered before the switch control, we can use the `reversed` prop to achieve this.
+
+<Example name="reversed" />
+
+The `disabled` flag makes the InputSwitch non-interactive.
+
+<Example name="disabled" />
+
+### Custom Labels
+
+You can alternatively pass a custom label to the InputSwitch by passing a custom component to the `label` prop.
+When using custom labels, we need to make sure that the `disabled` and `reversed` states are handled as well.
+
+<Example name="customLabel" />
+
+### Controlled and uncontrolled
+
+All input components in BUI support controlled and uncontrolled version.
+Uncontrolled version is the default behavior where you can check it by default with `defaultValue` flag but the browser will control the rendering of the input.
+
+<Example name="uncontrolled" />
+
+Controlled version is enabled once you pass `value` flag.
+This means that toggling the component will only trigger `onChange` but you will have to update the `value` using your own state.
+
+<Example name="controlled" />
+
+## Accessibility
+
+`aria-label` content must reflect the option this input toggles: e.g. Turn on subscription for weekly email promotions.
+Passing `aria-label` would be required in cases where there is no `label` on the InputSwitch.
+
+## Properties
+
+| Name            | Type                        | Default | Required | Description                                                                                                    |
+| --------------- | --------------------------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| label           | `ReactNode`                 | -       | false    | Field off label                                                                                                |
+| name            | `string`                    | -       | true     | Field name                                                                                                     |
+| value           | `boolean`                   | -       | false    | Field value                                                                                                    |
+| disabled        | `boolean`                   | -       | false    | Is field disabled?                                                                                             |
+| reversed        | `boolean`                   | -       | false    | Reverse field direction?                                                                                       |
+| onChange        | `({ name, value }) => void` | -       | false    | Field change handler                                                                                           |
+| attributes      | `object`                    | -       | false    | Custom root element attributes                                                                                 |
+| inputAttributes | `object`                    | -       | false    | Custom input element attributes                                                                                |
+| mixin             | `object`                    | -       | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |

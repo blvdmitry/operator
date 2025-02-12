@@ -1,0 +1,115 @@
+.root {
+  position: relative;
+}
+
+.root:active .field {
+  transform: scale(0.94);
+}
+
+.input {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  border: 0;
+  margin: 0;
+}
+
+.hitbox {
+  display: none;
+}
+
+@media (--bui_small_viewport) {
+  .hitbox {
+    display: block;
+    position: absolute;
+    inset-block-start: 50%;
+    transform: translateY(-50%);
+
+    /* height is set to 44px as that is the minimum required hitbox size for a11y reasons */
+    height: 44px;
+    width: 100%;
+  }
+}
+
+.container {
+  cursor: pointer;
+}
+
+.icon {
+  align-items: center;
+  display: inline-flex;
+  height: var(--bui_font_body_2_line-height);
+}
+
+.field {
+  height: calc(var(--bui_spacing_1x) * 5);
+  width: calc(var(--bui_spacing_1x) * 5);
+  background-color: var(--bui_color_background_elevation_one);
+  border: var(--bui_border_width_100) solid var(--bui_color_border);
+  box-sizing: border-box;
+  border-radius: 50%;
+  position: relative;
+  transition: var(--bui_animation_press);
+  transition-property: background-color, border-color, transform;
+}
+
+/* 
+* Using left/top here for centering since transform isn't mirrored in RTL
+*/
+.field::before {
+  content: "";
+  position: absolute;
+  height: calc(var(--bui_spacing_2x) + var(--bui_spacing_half));
+  width: calc(var(--bui_spacing_2x) + var(--bui_spacing_half));
+  inset-block-start: 50%;
+
+  /* stylelint-disable-next-line safe-logical-properties/validate-logical-usage */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--bui_color_on_action_background);
+  opacity: 0;
+  border-radius: 50%;
+  transition: opacity var(--bui_animation_press);
+}
+
+/* checked state */
+.input:checked ~ .container .field,
+.input:checked:focus ~ .container .field {
+  border-color: var(--bui_color_action_background);
+  border-width: var(--bui_border_width_200);
+}
+
+.input:checked ~ .container .field::before {
+  background-color: var(--bui_color_action_foreground);
+  opacity: 1;
+}
+
+/* Error state */
+.root--error .field {
+  border-color: var(--bui_color_destructive_border);
+  border-width: var(--bui_border_width_200);
+}
+
+/* Disabled state */
+.input:disabled ~ .container {
+  cursor: not-allowed;
+}
+
+.input:disabled ~ .container .field {
+  border-color: var(--bui_color_border_disabled);
+  border-width: var(--bui_border_width_100);
+  background-color: var(--bui_color_background_disabled_alt);
+}
+
+.input:disabled ~ .container .field::before {
+  background-color: var(--bui_color_border_disabled);
+}
+
+/* focus state */
+[data-bui-keyboard] .input:focus ~ .container .field {
+  @apply --bui_focus;
+}

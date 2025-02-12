@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useId generates ids 1`] = `
+[
+  <div
+    data-testid="id"
+  >
+    __bui-1
+  </div>,
+  <div
+    data-testid="id"
+  >
+    __bui-2
+  </div>,
+  <div
+    data-testid="id"
+  >
+    __bui-3
+  </div>,
+]
+`;
+
+exports[`useId works with multiple providers 1`] = `
+[
+  <div
+    data-testid="id"
+  >
+    __bui-c1-1
+  </div>,
+  <div
+    data-testid="id"
+  >
+    __bui-c1-2
+  </div>,
+  <div
+    data-testid="id"
+  >
+    __bui-c1-3
+  </div>,
+  <div
+    data-testid="id"
+  >
+    __bui-c2-1
+  </div>,
+  <div
+    data-testid="id"
+  >
+    __bui-c2-2
+  </div>,
+  <div
+    data-testid="id"
+  >
+    __bui-c2-3
+  </div>,
+]
+`;

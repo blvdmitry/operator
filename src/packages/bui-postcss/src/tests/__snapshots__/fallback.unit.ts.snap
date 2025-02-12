@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fallback config 1`] = `
+"/* media size definitions */
+/* fonts definitions */
+.foo {
+  color: red;
+  margin-left: 10px;
+}
+.bar {
+  color: red;
+  margin-left: 10px;
+}
+@media (max-width: 575px) {
+  .foo {
+    margin-left: 20px;
+  }
+}
+.bui {
+  background: #003b95;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+@media (min-width: 1024px) {
+  .bui {
+  font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  }
+}
+@media (min-width: 576px) {
+  .bui {
+  font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  }
+}
+@media (min-width: 1024px) {
+  .bui {
+  line-height: 24px;
+  }
+}
+@media (min-width: 576px) {
+  .bui {
+  line-height: 24px;
+  }
+}
+@media (min-width: 1024px) {
+  .bui {
+  font-weight: 400;
+  }
+}
+@media (min-width: 576px) {
+  .bui {
+  font-weight: 400;
+  }
+}
+@media (min-width: 1024px) {
+  .bui {
+  font-size: 16px;
+  }
+}
+@media (min-width: 576px) {
+  .bui {
+  font-size: 16px;
+  }
+}
+"
+`;

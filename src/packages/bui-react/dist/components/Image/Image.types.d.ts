@@ -1,0 +1,31 @@
+import React from "react";
+import { getImageAssetUrl } from "@bookingcom/bui-assets-react";
+import type { Responsive, Mixin, MixinLiteralValue } from "@bookingcom/bui-core/types";
+import type { IconSVG } from "../Icon";
+import type * as G from "../../types/global";
+export type Props = {
+    alt?: string;
+    src?: string;
+    asset?: Parameters<typeof getImageAssetUrl>[0];
+    height?: Responsive<MixinLiteralValue | "auto" | number | string>;
+    width?: Responsive<MixinLiteralValue | "auto" | number | string>;
+    borderRadius?: 100 | 200 | 300;
+    contentMode?: "fill" | "fit";
+    fallback?: "image" | "icon" | "background" | null;
+    fallbackImageSrc?: string;
+    fallbackImage?: React.ReactNode;
+    fallbackImagePadding?: "none" | "small" | "large";
+    fallbackImageBackgroundColor?: "neutral" | "transparent";
+    fallbackIcon?: IconSVG;
+    onError?: () => void;
+    priority?: boolean;
+    className?: string;
+    attributes?: G.Attributes<"picture">;
+    imgClassName?: string;
+    imgAttributes?: G.Attributes<"img">;
+    mixin?: Mixin<{
+        padding: false;
+        width: false;
+        height: false;
+    }>;
+};

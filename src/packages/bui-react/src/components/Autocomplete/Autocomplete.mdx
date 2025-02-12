@@ -1,0 +1,76 @@
+# Autocomplete
+
+<Featured>
+  Utility for handling value suggestions based on the user input.
+</Featured>
+
+## Usage
+
+```jsx
+import { Autocomplete } from "@bookingcom/bui-react";
+import type { AutocompleteProps } from "@bookingcom/bui-react";
+```
+
+Autocomplete is a compound component consisting of `Autocomplete`, `Autocomplete.Trigger`, `Autocomplete.Popover` and `Autocomplete.Item`.
+With this approach, you can easily build a simple autocomplete with a list of options, as well as implement autocomplete with a custom trigger element or a custom popover layout, while preserving its accessibility features.
+
+Autocomplete always behaves as a controlled component, which means that you need to handle the values changes with your own state.
+You can use `onChange` handler on the `Autocomplete` to handle the value selection and then pass the resulting value to the input field you're using.
+
+Each `Autocomplete.Item` expects a value to be passed which you can then use to either insert in the text field directly or format it based on your own data.
+
+`Autocomplete.Item` uses `ListItem` internally, so they also provide some of the `ListItem` properties, like `icon`, `startSlot` and `endSlot`.
+It should allow you to build more complex item layouts, displaying location icons or thumbnails.
+
+<Example name="base" />
+
+By default, Autocomplete positions the popover based on the trigger element dimensions.
+In cases when your text field is displaying icons or other content before/after the actual field – you might want to position the popover based on the field wrapper instead.
+To achieve that, we're providing a second argument for the `Autocomplete.Trigger` children that lets you define a separate element for positioning.
+
+<Example name="positionRef" />
+
+Autocomplete won't show the dropdown if no content is rendered in it.
+Since most of the suggestions you would show in the product are received from the server, you can either keep the popover empty while the request happens or show Skeleton loaders for longer requests.
+Try typing something in the text field below to see how it would behave.
+
+<Example name="skeleton" />
+
+## Accessibility
+
+- Autocomplete opens a list of suggested options on focus and lets user select an option using arrow keys navigation.
+  Arrow key navigation doesn't change the real browser focus in this case and keeps it on the input, allowing users to keep typing
+- `Enter` key adds the focused autocomplete item value to the text field
+- `ArrowDown` opens the autocomplete popover in case it is closed
+
+## Properties
+
+**Autocomplete properties:**
+
+| Name     | Type                                | Default | Required | Description |
+| -------- | ----------------------------------- | ------- | -------- | ----------- |
+| children | `ReactNode`                         | -       | true     |             |
+| value    | `string`                            | -       | false    |             |
+| onChange | `(args: { value: string }) => void` | -       | false    |             |
+
+**Autocomplete.Trigger properties:**
+
+| Name        | Type                                                  | Default | Required | Description              |
+| ----------- | ----------------------------------------------------- | ------- | -------- | ------------------------ |
+| children    | `(attributes: object, positionRef: Ref) => ReactNode` | -       | true     |                          |
+| popoverSize | `small`, `medium`, `auto`, `stretch`, string          | -       | false    | Popover content box size |
+
+**Autocomplete.Popover properties:**
+
+| Name     | Type        | Default | Required | Description |
+| -------- | ----------- | ------- | -------- | ----------- |
+| children | `ReactNode` | -       | true     |             |
+
+**Autocomplete.Item properties:**
+
+| Name      | Type        | Default | Required | Description |
+| --------- | ----------- | ------- | -------- | ----------- |
+| children  | `ReactNode` | -       | true     |             |
+| icon      | `Icon`      | -       | false    |             |
+| startSlot | `ReactNode` | -       | false    |             |
+| endSlot   | `ReactNode` | -       | false    |             |

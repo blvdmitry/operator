@@ -1,0 +1,67 @@
+.root {
+  display: block;
+  width: 100%;
+  border-radius: 0;
+  color: var(--bui_color_foreground);
+  text-decoration: none;
+  box-sizing: border-box;
+  cursor: default;
+
+  @apply --bui_font_body_2;
+  transform: none;
+  transition: var(--bui_animation_hover);
+  transition-property: background-color;
+}
+
+.content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* interactive */
+.root--interactive:hover,
+.root--interactive[data-bui-focus] {
+  background-color: var(--bui_color_highlighted_alt);
+  cursor: pointer;
+}
+
+/* active */
+.root--interactive.root--active,
+.root--interactive.root--active:hover,
+.root--interactive.root--active:focus,
+.root--interactive.root-active[data-bui-focus] {
+  background: var(--bui_color_action_highlighted_alt);
+  color: var(--bui_color_action_foreground);
+}
+
+/* disabled */
+.root--interactive[disabled],
+.root--interactive[disabled]:hover
+  .root--interactive[disabled][data-bui-focus] {
+  color: var(--bui_color_foreground_disabled);
+  background: none;
+  cursor: not-allowed;
+}
+
+/* roundedCorners */
+.root--roundedCorners {
+  border-radius: var(--bui_border_radius_100);
+}
+
+/* spacing = "small" */
+.root--spacing-small.root--interactive,
+.root--spacing-small.root--edge-spacing {
+  padding: var(--bui_spacing_3x);
+}
+
+/* spacing = "medium" */
+.root--spacing-medium.root--interactive,
+.root--spacing-medium.root--edge-spacing {
+  padding: var(--bui_spacing_3x) var(--bui_spacing_4x);
+}
+
+/* spacing = "large" */
+.root--spacing-large.root--interactive,
+.root--spacing-large.root--edge-spacing {
+  padding: var(--bui_spacing_4x) var(--bui_spacing_6x);
+}

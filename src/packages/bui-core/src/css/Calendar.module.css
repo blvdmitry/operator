@@ -1,0 +1,245 @@
+.root {
+  position: relative;
+}
+
+.month {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+}
+
+.root:not(.root--vertical) .month {
+  line-height: calc(var(--bui_spacing_1x) * 12);
+}
+
+.control {
+  position: absolute;
+  inset-block-start: 0;
+}
+
+.control--next {
+  inset-inline-end: 0;
+}
+
+.control--prev {
+  inset-inline-start: 0;
+}
+
+.content {
+  display: flex;
+  box-sizing: border-box;
+}
+
+.monthWrapper {
+  padding-inline-start: var(--bui_spacing_4x);
+}
+
+.monthWrapper:first-child {
+  padding-inline-start: 0;
+}
+
+.dates {
+  width: 100%;
+  table-layout: fixed;
+  border-spacing: 0;
+}
+
+.weekday {
+  text-align: center;
+  border-block-start: var(--bui_spacing_2x) solid transparent;
+  padding: var(--bui_spacing_half);
+  border-spacing: 0;
+}
+
+.cell {
+  height: calc(var(--bui_spacing_1x) * 11);
+  padding: 0;
+  border-spacing: 0;
+  border-block-start: var(--bui_spacing_1x) solid transparent;
+  outline: none;
+}
+
+.date {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 var(--bui_spacing_1x);
+}
+
+.date.date--hoverable:hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bui_color_highlighted_alt);
+  pointer-events: none;
+}
+
+[data-bui-keyboard] .date:focus:not(.date--disabled) {
+  position: relative;
+  z-index: 10;
+
+  @apply --bui_focus;
+}
+
+.date--today {
+  color: var(--bui_color_action_foreground);
+
+  @apply --bui_font_strong_2;
+}
+
+.date--in-range {
+  background: var(--bui_color_highlighted_alt);
+}
+
+.date--selected,
+.date--selected:hover,
+.date--selected:focus-within {
+  color: var(--bui_color_on_action_background);
+  background: var(--bui_color_action_background);
+}
+
+.date--selected-start,
+.date--selected-start::after {
+  border-top-left-radius: var(--bui_border_radius_100);
+  border-bottom-left-radius: var(--bui_border_radius_100);
+}
+
+/* 
+* Needs Safari 15+ for logical properties
+* https://caniuse.com/?search=border-start-start-radius
+*/
+[dir="rtl"] .date--selected-start,
+[dir="rtl"] .date--selected-start::after {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: var(--bui_border_radius_100);
+  border-bottom-right-radius: var(--bui_border_radius_100);
+}
+
+.date--selected-end,
+.date--selected-end::after {
+  border-top-right-radius: var(--bui_border_radius_100);
+  border-bottom-right-radius: var(--bui_border_radius_100);
+}
+
+/* 
+* Needs Safari 15+ for logical properties
+* https://caniuse.com/?search=border-start-start-radius
+*/
+[dir="rtl"] .date--selected-end,
+[dir="rtl"] .date--selected-end::after {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: var(--bui_border_radius_100);
+  border-bottom-left-radius: var(--bui_border_radius_100);
+}
+
+.date--selected-start.date--selected-end,
+.date--selected-start.date--selected-end::after {
+  border-radius: var(--bui_border_radius_100);
+}
+
+.date--disabled,
+.date--disabled:hover,
+.date--disabled:hover::after,
+.date--disabled:focus {
+  color: var(--bui_color_foreground_disabled);
+  background: none;
+  cursor: default;
+}
+
+.attachment {
+  max-width: 100%;
+}
+
+.loader {
+  margin-block-start: var(--bui_spacing_1x);
+}
+
+.display {
+  border-block-start: var(--bui_border_width_100) solid
+    var(--bui_color_border_alt);
+  text-align: center;
+  margin-block-start: var(--bui_spacing_2x);
+  padding-block-start: var(--bui_spacing_2x);
+}
+
+.display:empty {
+  display: none;
+}
+
+.root--vertical {
+  /* Avoid an issue of month making the parent component of calendar adding a second scroll */
+  overflow: hidden;
+  max-height: 340px;
+  display: flex;
+  flex-direction: column;
+}
+
+.verticalHeader {
+  padding: 0 var(--bui_spacing_4x);
+  background: var(--bui_color_background_elevation_one);
+  border-block-end: var(--bui_border_width_100) solid
+    var(--bui_color_border_alt);
+  flex-shrink: 0;
+}
+
+.verticalWeekdays {
+  width: 100%;
+  table-layout: fixed;
+  border-spacing: 0;
+}
+
+.root--vertical .weekday {
+  border-block-start: 0;
+  padding-block: calc(var(--bui_spacing_2x) + var(--bui_spacing_half));
+}
+
+.root--vertical .content {
+  display: block;
+  overflow: auto;
+  padding: var(--bui_spacing_4x);
+  padding-block-start: var(--bui_spacing_8x);
+  flex-grow: 1;
+}
+
+.root--vertical .monthWrapper {
+  padding: 0;
+  padding-block-start: var(--bui_spacing_4x);
+}
+
+.root--vertical .monthWrapper:first-child {
+  padding-block-start: 0;
+}
+
+.root--vertical .control {
+  display: none;
+}
+
+.root--vertical .month {
+  text-align: start;
+  justify-content: flex-start;
+}
+
+.root--full-height {
+  height: 100%;
+  max-height: none;
+}
+
+/*
+  `selected` is passed to CalendarAttachment in the render function in React
+  This is not possible in Vue without converting CalendarMonth to JSX which
+  affects the performance. e.g. re-renders the weeks on hover in JSX
+*/
+.date--selected .attachment {
+  color: currentcolor;
+}

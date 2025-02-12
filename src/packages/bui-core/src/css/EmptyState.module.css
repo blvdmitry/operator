@@ -1,0 +1,62 @@
+.root {
+  max-width: calc(var(--bui_spacing_1x) * 175);
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+  margin-block-end: var(--bui_spacing_4x);
+}
+
+.slot,
+.startSlot {
+  /* Hardcoded because it's not tied to the theme, but to the device screen size */
+  max-height: 256px;
+}
+
+.startSlot {
+  margin-block-end: var(--bui_spacing_6x);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.link:not(:first-child) {
+  margin-block-start: var(--bui_spacing_2x);
+}
+
+@media (--bui_medium_viewport) {
+  .root--horizontal {
+    flex-direction: row;
+    text-align: start;
+  }
+
+  .root--horizontal .content {
+    align-items: flex-start;
+  }
+
+  .root--horizontal .actions {
+    flex-direction: row;
+  }
+
+  .root--horizontal .link:not(:first-child) {
+    margin-block-start: 0;
+    margin-inline-start: var(--bui_spacing_2x);
+  }
+
+  .startSlot {
+    margin-block-end: 0;
+    margin-inline-end: var(--bui_spacing_6x);
+    max-height: none;
+
+    /* Hardcoded because it's not tied to the theme, but to the device screen size */
+    max-width: 256px;
+  }
+}

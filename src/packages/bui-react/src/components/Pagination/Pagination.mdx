@@ -1,0 +1,67 @@
+# Pagination
+
+<Featured>
+  Use pagination to enable navigation between multiple pages of the same
+  content.
+</Featured>
+
+<Grid>
+  <CrossLink
+    title="Pagination"
+    type="documentation"
+    text="Learn more about the Pagination design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design.booking.com/article/bui/components/patterns/pagination/"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+```jsx
+import { Pagination } from "@bookingcom/bui-react";
+import type { PaginationProps } from "@bookingcom/bui-react";
+```
+
+Render default Pagination providing `totalPages` props.
+
+<Example name="default" />
+
+Without `totalPages` the simplified look will be rendered.
+
+<Example name="simplified" />
+
+Use `showFirstPageButton` together with `firstPageButtonLabel` props to display a shortcut button to the first page.
+
+<Example name="simplifiedWithFirstButton" />
+
+## Accessibility
+
+- Navigation chevrons are hidden for voice-assisted navigation
+- All links should have real URLs as part of the href value, oposed to a #
+- In case of using simplified display, make sure to use `ariaPreviousLabel` and `ariaNextLabel` as aria-label attributes for previous and next buttons.
+- All page links should have a proper aria-label, use `ariaPageLabelPrefix` for that
+- The input component that allows selecting the number of results to display per page has a title attribute.
+- When a select is used the inputAttributes `aria-label` is required as selecbox rendered has no associated label
+
+## Properties
+
+| Name                 | Type                 | Default | Required | Description                                                                                                    |
+| -------------------- | -------------------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| currentPage          | `number`             | -       | true     | Currently selected page                                                                                        |
+| totalPages           | `number`             | -       | false    | Total number of pages                                                                                          |
+| ariaPageLabelPrefix  | `string`             | -       | true     | Aria label prefix for each page                                                                                |
+| isLastPage           | `boolean`            | -       | false    | Disables `Next` button (only when `totalPages` is undefined or 0)                                              |
+| showFirstPageButton  | `boolean`            | -       | false    | Display a schortcut button to the first page                                                                   |
+| firstPageButtonLabel | `string`             | -       | true     | Aria label for first page shortcut button                                                                      |
+| previousLabel        | `string`             | -       | false    | Text for previous control                                                                                      |
+| nextLabel            | `string`             | -       | false    | Text for next control                                                                                          |
+| ariaPreviousLabel    | `string`             | -       | false    | Aria label for previous control                                                                                |
+| ariaNextLabel        | `string`             | -       | false    | Aria label for next control                                                                                    |
+| pageLabelPrefix      | `string`             | -       | true     | Text prefix for simplified display page label                                                                  |
+| select               | `InputSelectProps`   | -       | false    | Input select properties                                                                                        |
+| infoLabel            | `string`             | -       | false    | Label holding meta information                                                                                 |
+| onPageChange         | `({ page }) => void` | -       | false    | Page change handler                                                                                            |
+| className            | `string`             | -       | false    | Custom root element className                                                                                  |
+| attributes           | `object`             | -       | false    | Custom root element attributes                                                                                 |
+| mixin                  | `object`             | -       | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |

@@ -1,0 +1,17 @@
+.root {
+  margin: 0;
+  border: 0;
+  background: var(--bui_color_border_alt);
+}
+
+@bui-responsive .root--vertical {
+  @bui-modifier false {
+    height: var(--bui_border_width_100);
+    width: initial;
+  }
+
+  @bui-modifier true {
+    height: 100%;
+    width: var(--bui_border_width_100);
+  }
+}

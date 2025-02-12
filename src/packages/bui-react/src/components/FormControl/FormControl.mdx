@@ -1,0 +1,62 @@
+# FormControl
+
+<Featured>
+  FormControl is a utility for rendering elements that are usually displayed for
+  form fields, like labels, error messages etc.
+</Featured>
+
+## Usage
+
+```jsx
+import { FormControl } from "@bookingcom/bui-react";
+import type { FormControlProps } from "@bookingcom/bui-react";
+```
+
+Since we're using the same styles for our form elements, we're using this utility internally in core BUI components.
+However, it's also valuable to use it in custom product patterns to avoid reimplementing the same thing from scratch.
+
+FormControl doesn't apply its styles to the children. For example, if you pass `disabled` property, its label colors will be updated but input should receive disabled property separately.
+
+It works with `children` function to generate ids for the form field to make it accessible out of the box.
+It returns an object with html attributes that you should just pass to your input element or component.
+
+**Note**: BUI inputs already use FormControl internally, so you don't have to wrap them with this utility manually.
+
+Give users instructions or additional information about the field using `helper` prop.
+
+<Example name="helper" />
+
+Communicate validation errors and other problems using `error` prop.
+
+<Example name="error" />
+
+Mark users successful actions with `success` prop. For example, two password fields matching.
+
+<Example name="success" />
+
+Use `disabled` prop to reflect disabled state of the input.
+
+<Example name="disabled" />
+
+Build even more descriptive forms with other props: `subLabel`, `labelEndSlot` etc.
+
+<Example name="other" />
+
+## Properties
+
+| Name         | Type                        | Default | Required | Description                                                                                                    |
+| ------------ | --------------------------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| id           | `string`                    | -       | false    | Custom id to override auto-generated one                                                                       |
+| group        | `boolean`                   | -       | false    | Is form control used for a group of input elements?                                                            |
+| label        | `ReactNode`                 | -       | false    |
+| subLabel     | `ReactNode`                 | -       | false    | Additional label information                                                                                   |
+| labelEndSlot | `ReactNode`                 | -       | false    |
+| required     | `boolean`                   | -       | false    |
+| disabled     | `boolean`                   | -       | false    |
+| helper       | `ReactNode`                 | -       | false    |
+| error        | `ReactNode`                 | -       | false    |
+| success      | `ReactNode`                 | -       | false    |
+| children     | `(attributes) => ReactNode` | -       | true     | Contents of the control                                                                                        |
+| className    | `string`                    | -       | false    | Custom root element className                                                                                  |
+| attributes   | `object`                    | -       | false    | Custom root element attributes                                                                                 |
+| mixin          | `object`                    | -       | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |

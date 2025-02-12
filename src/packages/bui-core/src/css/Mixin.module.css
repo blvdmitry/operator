@@ -1,0 +1,131 @@
+/* Position */
+
+@bui-responsive-vars .bui_mixin_position, mixin, position {
+  @bui-important;
+  @bui-literal;
+}
+
+/* Z-index */
+
+@bui-responsive .bui_mixin_z-index {
+  @bui-modifier 0 {
+    z-index: var(--bui_z_index_0) !important;
+  }
+
+  @bui-modifier 1 {
+    z-index: var(--bui_z_index_1) !important;
+  }
+
+  @bui-modifier 2 {
+    z-index: var(--bui_z_index_2) !important;
+  }
+
+  @bui-modifier 3 {
+    z-index: var(--bui_z_index_3) !important;
+  }
+
+  @bui-modifier 4 {
+    z-index: var(--bui_z_index_4) !important;
+  }
+}
+
+/* Height */
+
+@bui-responsive-vars .bui_mixin_height, mixin, height {
+  @bui-important;
+  @bui-unit;
+  @bui-literal;
+}
+
+/* Width */
+
+@bui-responsive-vars .bui_mixin_width, mixin, width {
+  @bui-important;
+  @bui-unit;
+  @bui-literal;
+}
+
+/* Inset */
+
+@bui-responsive-vars .bui_mixin_inset, mixin, inset {
+  @bui-important;
+  @bui-unit;
+}
+
+@bui-responsive-vars .bui_mixin_inset-block-start, mixin, inset-block-start {
+  @bui-important;
+  @bui-unit;
+  @bui-literal;
+}
+
+@bui-responsive-vars .bui_mixin_inset-block-end, mixin, inset-block-end {
+  @bui-important;
+  @bui-unit;
+  @bui-literal;
+}
+
+@bui-responsive-vars .bui_mixin_inset-inline-start, mixin, inset-inline-start {
+  @bui-important;
+  @bui-unit;
+  @bui-literal;
+}
+
+@bui-responsive-vars .bui_mixin_inset-inline-end, mixin, inset-inline-end {
+  @bui-important;
+  @bui-unit;
+  @bui-literal;
+}
+
+/* Margin */
+
+@bui-responsive-vars .bui_mixin_margin, mixin, margin {
+  @bui-important;
+  @bui-unit;
+}
+
+@bui-responsive-vars .bui_mixin_margin-block-start, mixin, margin-block-start {
+  @bui-important;
+  @bui-unit;
+}
+
+@bui-responsive-vars .bui_mixin_margin-block-end, mixin, margin-block-end {
+  @bui-important;
+  @bui-unit;
+}
+
+@bui-responsive-vars .bui_mixin_margin-inline-start, mixin, margin-inline-start {
+  @bui-important;
+  @bui-unit;
+}
+
+@bui-responsive-vars .bui_mixin_margin-inline-end, mixin, margin-inline-end {
+  @bui-important;
+  @bui-unit;
+}
+
+/* Padding */
+
+@bui-responsive-vars .bui_mixin_padding, mixin, padding {
+  @bui-important;
+  @bui-unit;
+}
+
+@bui-responsive-vars .bui_mixin_padding-block-start, mixin, padding-block-start {
+  @bui-important;
+  @bui-unit;
+}
+
+@bui-responsive-vars .bui_mixin_padding-block-end, mixin, padding-block-end {
+  @bui-important;
+  @bui-unit;
+}
+
+@bui-responsive-vars .bui_mixin_padding-inline-start, mixin, padding-inline-start {
+  @bui-important;
+  @bui-unit;
+}
+
+@bui-responsive-vars .bui_mixin_padding-inline-end, mixin, padding-inline-end {
+  @bui-important;
+  @bui-unit;
+}

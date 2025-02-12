@@ -1,0 +1,60 @@
+# ReviewScore
+
+<Featured>Review score displays user-generated review scores.</Featured>
+
+<Grid>
+  <CrossLink
+    title="Review Score"
+    type="documentation"
+    text="Learn more about the Review Score design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design.booking.com/article/bui/components/patterns/review-score/"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+Use review-score to display user generated review scores.
+
+```jsx
+import { ReviewScore } from "@bookingcom/bui-react";
+import type { ReviewScoreProps } from "@bookingcom/bui-react";
+```
+
+Use `variant` to control ReviewScore appearence.
+
+<Example name="variants" />
+
+Control alignment via `alignment` prop.
+
+<Example name="alignment" />
+
+For more simplified look, use `inline` prop, or don't include `ratingReviewAriaLabel` and `rating` props to display rating as a badge.
+
+<Example name="simplified" />
+
+## Accessibility
+
+Make sure to set the aria-label fields with a copy tag. Below are some recommended copy tags you can use for this component.
+
+- Score Rating: `a11y_rating_score_for_screenreader`
+- Score Word: `a11y_adjective_rating`
+- Total Number of Reviews: `a11y_comp_num_reviews`.
+
+## Properties
+
+| Name                  | Type                         | Default | Required | Description                                                                                                    |
+| --------------------- | ---------------------------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| score                 | `string`                     | -       | true     | Score value                                                                                                    |
+| scoreAriaLabel        | `string`                     | -       | false    | Score aria label                                                                                               |
+| reviewCount           | `string`                     | -       | false    | Number of reviews                                                                                              |
+| rating                | `string`                     | -       | false    | Rating description                                                                                             |
+| ratingReviewAriaLabel | `string`                     | -       | false    | Aria label                                                                                                     |
+| variant               | `outline`, `text`, `inverse` | -       | false    | Variants                                                                                                       |
+| size                  | `smaller`, `small`           | -       | false    | Size                                                                                                           |
+| inline                | `boolean`                    | -       | false    | Merges title and subtitle in a single line, separated by ·                                                     |
+| alignment             | `start`, `end`               | -       | false    | Location of the badge in relation to text                                                                      |
+| className             | `string`                     | -       | false    | Custom root element className                                                                                  |
+| attributes            | `object`                     | -       | false    | Custom root element attributes                                                                                 |
+| mixin                   | `object`                     | -       | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |

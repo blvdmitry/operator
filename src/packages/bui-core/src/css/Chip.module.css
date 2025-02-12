@@ -1,0 +1,125 @@
+.root {
+  position: relative;
+  display: inline-flex;
+  vertical-align: top;
+  transition: var(--bui_animation_press);
+  transition-property: transform;
+}
+
+.root:active {
+  transform: scale(0.98);
+}
+
+.wrapper,
+.action {
+  padding: calc(var(--bui_spacing_2x) - var(--bui_border_width_100))
+    calc(var(--bui_spacing_3x) - var(--bui_border_width_100));
+  border: var(--bui_border_width_100) solid var(--bui_color_border);
+  background: var(--bui_color_background_elevation_one);
+  color: var(--bui_color_foreground);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+
+.wrapper {
+  transition: var(--bui_animation_press);
+  transition-property: border-color, color;
+}
+
+.wrapper::before,
+.action::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: background-color var(--bui_animation_press);
+}
+
+.wrapper,
+.wrapper::before,
+.action,
+.action::before {
+  border-radius: 999px;
+}
+
+.wrapper:hover::before,
+.action:hover::before {
+  background-color: var(--bui_color_highlighted_alt);
+}
+
+.icon {
+  margin-inline-end: var(--bui_spacing_2x);
+}
+
+.dismiss {
+  margin-inline-start: var(--bui_spacing_2x);
+}
+
+.bubble {
+  margin-inline-start: var(--bui_spacing_1x);
+}
+
+.arrow-icon {
+  margin-inline-start: var(--bui_spacing_2x);
+}
+
+.root--wide,
+.root--wide .wrapper,
+.action.root--wide {
+  width: 100%;
+}
+
+.action.root--wide,
+.root--wide .wrapper {
+  justify-content: center;
+}
+
+.root--elevated .wrapper,
+.root--elevated .wrapper:hover,
+.root--elevated.root--disabled .wrapper,
+.root--elevated.root--disabled .wrapper:hover,
+.action.root--elevated,
+.action.root--elevated:hover,
+.action.root--elevated.action.root--disabled,
+.action.root--elevated.action.root--disabled:hover {
+  box-shadow: var(--bui_shadow_100);
+  background: var(--bui_color_background_elevation_two);
+  border-color: transparent;
+}
+
+.root--selected .wrapper,
+.root--selected .wrapper:hover,
+.action.root--selected {
+  color: var(--bui_color_action_foreground);
+  border-color: var(--bui_color_action_border);
+}
+
+.root--selected .wrapper::before,
+.root--selected .wrapper:hover::before,
+.action.root--selected::before,
+.action.root--selected:hover::before {
+  background-color: var(--bui_color_action_highlighted_alt);
+}
+
+.root--disabled .wrapper,
+.root--disabled .wrapper:hover,
+.action.root--disabled,
+.action.root--disabled:hover {
+  cursor: not-allowed;
+  background-color: var(--bui_color_background_disabled_alt);
+  border-color: var(--bui_color_border_disabled);
+  color: var(--bui_color_foreground_disabled);
+}
+
+.root--disabled .wrapper::before,
+.root--disabled .wrapper:hover::before,
+.action.root--disabled::before,
+.action.root--disabled:hover::before {
+  background: transparent;
+}
+
+[data-bui-keyboard] .input:focus ~ .wrapper {
+  @apply --bui_focus;
+}

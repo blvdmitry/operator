@@ -1,0 +1,91 @@
+# InputCheckbox
+
+<Featured>
+  Allows users to choose one or multiple of several pre-defined options.
+</Featured>
+
+<Grid>
+  <CrossLink
+    title="InputCheckbox"
+    type="documentation"
+    text="Learn more about the InputCheckbox design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design-system.booking.com/article/bui/components/elements/input-checkbox/"
+    target="_blank"
+  />
+</Grid>
+
+For managing state of multiple `InputCheckbox` components – use `InputCheckboxGroup`.
+
+If a single selection is required, use `InputRadio` input instead.
+
+## Usage
+
+```jsx
+import { InputCheckbox } from "@bookingcom/bui-react";
+import type { InputCheckboxProps } from "@bookingcom/bui-react";
+```
+
+<Example name="default" />
+
+In case the `label` property is not enough to describe the purpose of the checkbox, the `helper` prop can be used.
+As a form-field, if the checkbox is required and is not checked or fails other validations, we can set the `error` prop to highlight the checkbox in an error state
+
+<Example name="error" />
+
+Use the `disabled` prop to disable interactions with the InputCheckbox
+
+<Example name="disabled" />
+
+The InputCheckbox also has an `inderminate` state.
+The indeterminate state is used when multiple sub-options are grouped under a parent option. The indeterminate state will represent that multiple sub-options (but not all of them) are selected in the list.
+
+<Example name="indeterminate" />
+
+You can use the `icon` slot to decorate the checkbox.
+
+<Example name="icon" />
+
+### Controlled and uncontrolled
+
+All input components in BUI support controlled and uncontrolled version.
+Uncontrolled version is the default behavior where you can pass it a `defaultChecked` and the browser will control the InputCheckbox's checked or unchecked state.
+
+<Example name="uncontrolled" />
+
+Controlled version is enabled once you pass the `checked` prop to InputCheckbox .
+This means that clicking on the InputCheckbox will trigger `onChange` but you will have to update the `checked` prop using your own state.
+
+<Example name="controlled" />
+
+## Accessibility
+
+- The component is built to be keyboard accessible
+- When an error is displayed for a not checked required checkbox hide the error when it gets checked
+- Errors should have `alert` role to be announced when being applied
+- Try to avoid using `required` checkboxes
+- When grouped - checkboxes should be wrapped with a `fieldset` and provide a descriptive `legend` for screen readers
+- When implementing `required` checkboxes try to add the `required` attribute, but at least set the `aria-required` to `true` to make sure that the input is announced as such
+
+## Properties
+
+| Name            | Type                        | Default | Required           | Description                                                                                                    |
+| --------------- | --------------------------- | ------- | ------------------ | -------------------------------------------------------------------------------------------------------------- |
+| id              | `string`                    | -       | false              | Field id                                                                                                       |
+| label           | `ReactNode`                 | -       | false              | Field label                                                                                                    |
+| value           | `string`                    | -       | false              | Field value, mostly used for grouped checkboxes                                                                |
+| checked         | `boolean`, `null`           | -       | false              | Is field checked? Activates controlled variant of the component                                                |
+| defaultChecked  | `boolean`                   | -       | false              | Is field checked by default? Activates uncontrolled variant of the component                                   |
+| name            | `string`                    | -       | false              | Field name                                                                                                     |
+| disabled        | `boolean`                   | -       | false              | Is field disabled?                                                                                             |
+| error           | `string`, `boolean`         | -       | false              | Field error text                                                                                               |
+| indeterminate   | `boolean`                   | -       | false              | Is field indeterminate?                                                                                        |
+| onChange        | `({ name, value }) => void` | -       | false              | Field change handler                                                                                           |
+| onFocus         | `(event) => void`           | -       | false              | Field focus handler                                                                                            |
+| onBlur          | `(event) => void`           | false   | Field blur handler |
+| className       | `string`                    | -       | false              | Custom root element className                                                                                  |
+| attributes      | `object`                    | -       | false              | Custom root element attributes                                                                                 |
+| inputAttributes | `object`                    | -       | false              | Custom input element attributes                                                                                |
+| helper          | `string`                    | -       | false              | Field helper text                                                                                              |
+| icon            | `ReactNode`                 | -       | false              | InputCheckbox icon svg                                                                                         |
+| mixin             | `object`                    | -       | false              | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |

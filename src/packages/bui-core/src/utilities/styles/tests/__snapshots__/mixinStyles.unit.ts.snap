@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`styles/mixinStyles resolves mixin 1`] = `
+{
+  "--bui_mixin_position--s": "relative",
+  "--bui_mixin_spaced_height--l": 8,
+  "--bui_mixin_spaced_height--s": 4,
+  "--bui_mixin_spaced_inset-block-start--s": 20,
+}
+`;

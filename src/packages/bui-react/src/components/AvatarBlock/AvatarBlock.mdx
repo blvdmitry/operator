@@ -1,0 +1,58 @@
+# AvatarBlock
+
+<Featured>
+  Avatar block combines an avatar with text elements and can be used for users
+  or entities like categories, properties etc.
+</Featured>
+
+<Grid>
+  <CrossLink
+    title="Avatar block"
+    type="documentation"
+    text="Learn more about the Avatar block design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design-system.booking.com/article/bui/components/patterns/avatar-block/"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+```jsx
+import { AvatarBlock } from "@bookingcom/bui-react";
+import type { AvatarBlockProps } from "@bookingcom/bui-react";
+```
+
+AvatarBlock comes in three sizes, with `medium` being a default one.
+You can use change any of the `Avatar` properties in it except for its `size`, which is defined by the `size` of the AvatarBlock.
+
+<Example name="default" />
+
+When rendering AvatarBlock on top of background colors, use `inherit` color to make the text color dynamically adjust based on the parent color value.
+For example, AvatarBlock rendered in the header can use the color defined by it.
+
+<Example name="colorInherit" />
+
+## Responsive properties
+
+Size property can be responsive. That means it can have different value between viewports. You can read more about responsive properties [here](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#Responsive-development).
+
+<Example name="responsive" />
+
+## Accessibility
+
+Avatar block represents content (an entity or a user's identity) adjacent to a text alternative, such as a user/entity name.
+Avatar doesn't need to have an `ariaLabel` so that it can be ignored by assistive technologies; as it is redundant for the screen reader to read the name twice.
+
+## Properties
+
+| Name       | Type                       | Default | Required | Description                                                                                                                         |
+| ---------- | -------------------------- | ------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| title      | `ReactNode`                | -       | true     | Avatar block title                                                                                                                  |
+| subtitle   | `ReactNode`                | -       | false    | Avatar block subtitle                                                                                                               |
+| size       | `small`, `medium`, `large` | -       | false    | [Responsive](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#Responsive-development). Avatar block size |
+| color      | `inherit`                  | -       | false    | Avatar block text color                                                                                                             |
+| avatar     | `AvatarProps`              | -       | true     | Avatar component props                                                                                                              |
+| className  | `string`                   | -       | false    | Custom root element className                                                                                                       |
+| attributes | `object`                   | -       | false    | Custom root element attributes                                                                                                      |
+| mixin        | `object`                   | -       | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer)                      |

@@ -1,0 +1,75 @@
+# Banner
+
+<Featured>
+  Banners are used to display an important, succinct message, and provide
+  actions for users to address (or dismiss the banner).
+</Featured>
+
+<Grid>
+  <CrossLink
+    title="Banner"
+    type="documentation"
+    text="Learn more about the Banner design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design.booking.com/article/bui/components/patterns/banner/"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+```jsx
+import { Banner } from "@bookingcom/bui-react";
+import type { BannerProps } from "@bookingcom/bui-react";
+```
+
+Use different variants to give your Banner proper styling.
+
+<Example name="variants" />
+
+Customize Banners by providing your content instead of props.
+
+<Example name="neutralSlot" />
+
+Use top images to enrich the content of your banner.
+
+<Example name="topImage" />
+
+Start images are smaller in size and provide secondary context.
+
+<Example name="startImage" />
+
+Icons complement banner content is simple and elegant way.
+
+<Example name="icon" />
+
+## Accessibility
+
+Make sure you add a `aria-label` and title to the close button.
+Each icon should have `role="presentation"` as an attribute.
+
+## Properties
+
+| Name                   | Type                         | Default   | Required | Description                                                                                                    |
+| ---------------------- | ---------------------------- | --------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| children               | `ReactNode`                  | -         | false    | Banner content                                                                                                 |
+| shown                  | `boolean`                    | -         | false    | Is banner shown?                                                                                               |
+| topImage.src           | `string`                     | -         | false    | Banner top image url                                                                                           |
+| topImage.alt           | `string`                     | -         | false    | Banner top image alt attribute (for image a11y)                                                                |
+| topImage.contentMode   | `fill`, `fit`                | `fill`    | false    | Banner top image Content display mode                                                                          |
+| startImage.src         | `string`                     | -         | false    | Banner start image url                                                                                         |
+| startImage.alt         | `string`                     | -         | false    | Banner start image alt attribute (for image a11y)                                                              |
+| startImage.contentMode | `fill`, `fit`                | `fill`    | false    | Banner start image Content display mode                                                                        |
+| title                  | `ReactNode`                  | -         | false    | Banner title                                                                                                   |
+| text                   | `ReactNode`                  | -         | false    | Banner text                                                                                                    |
+| actions                | `ButtonProps[]`              | -         | false    | Array of banner actions                                                                                        |
+| startIcon              | `ReactNode`                  | -         | false    | Banner start icon                                                                                              |
+| startIconColor         | `IconProps.color`            | -         | false    |
+| variant                | `neutral`, `hint`, `callout` | `neutral` | false    | Banner variant                                                                                                 |
+| closeAriaLabel         | `string`                     | -         | false    | Aria label attribute for close button                                                                          |
+| onClose()              | `() => void`                 | -         | false    | Banner close handler                                                                                           |
+| dismissible            | `boolean`                    | true      | false    | Should close icon be displayed?                                                                                |
+| bleed                  | `boolean`                    | -         | false    | Should component take full width on mobile?                                                                    |
+| className              | `string`                     | -         | false    | Custom root element className                                                                                  |
+| attributes             | `object`                     | -         | false    | Custom root element attributes                                                                                 |
+| mixin                    | `object`                     | -         | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |

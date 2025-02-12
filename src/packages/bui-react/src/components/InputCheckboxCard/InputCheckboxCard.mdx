@@ -1,0 +1,86 @@
+# InputCheckboxCard
+
+<Featured>
+  Allows users to choose one or multiple of several pre-defined options
+  displayed as cards.
+</Featured>
+
+For managing state of multiple `InputCheckboxCard` components – use `InputCheckboxGroup`.
+
+If a single selection is required, use `InputRadioCard` component instead.
+
+<Grid>
+  <CrossLink
+    title="InputCheckboxCard"
+    type="documentation"
+    text="Learn more about the InputCheckboxCard design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design-system.booking.com/article/bui/components/elements/input-checkbox/#Input-checkbox-card"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+```jsx
+import { InputCheckboxCard } from "@bookingcom/bui-react";
+import type { InputCheckboxPropsCard } from "@bookingcom/bui-react";
+```
+
+The `children` prop corresponds to the content of the InputCheckboxCard which must contain the label for the input field.
+
+<Example name="default" />
+
+The `additionalContent` is optional. We can pass a React component to this prop to display any additional information about the selection when just the label is not enough.
+
+<Example name="additionalContent" />
+
+The input element can be aligned to either the `top` or `center` of the content using the `inputElementVerticalAlignment`
+
+<Example name="verticalAlignment" />
+
+Use the `disabled` prop to disable interactions with the InputCheckboxCard
+
+<Example name="disabled" />
+
+The InputCheckboxCard also has an `error` state which indicates the user that some kind of validations have failed
+
+<Example name="error" />
+
+### Controlled and uncontrolled
+
+All input components in BUI support controlled and uncontrolled version.
+Uncontrolled version is the default behavior where you can pass it a `defaultChecked` and the browser will control the InputCheckboxCard's checked or unchecked state.
+
+<Example name="uncontrolled" />
+
+Controlled version is enabled once you pass the `checked` prop to InputCheckboxCard .
+This means that clicking on the InputCheckboxCard will trigger `onChange` but you will have to update the `checked` prop using your own state.
+
+<Example name="controlled" />
+
+## Accessibility
+
+- The component is built to be keyboard accessible
+- Try to avoid using `required` checkboxes
+- When grouped - checkboxes should be wrapped with a `fieldset` and provide a descriptive `legend` for screen readers
+- When implementing `required` checkboxes try to add the `required` attribute, but at least set the `aria-required` to `true` to make sure that the input is announced as such
+
+## Properties
+
+| Name              | Type                        | Default | Required | Description                                                                                                    |
+| ----------------- | --------------------------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| id                | `string`                    | -       | false    | Field id                                                                                                       |
+| children          | `ReactNode`                 | -       | false    | CheckboxCard label                                                                                             |
+| additionalContent | `ReactNode`                 | -       | false    | CheckboxCard additional content                                                                                |
+| value             | `string`                    | -       | false    | CheckboxCard value, mostly used for grouped checkboxes                                                         |
+| checked           | `boolean`, `null`           | -       | false    | Is CheckboxCard checked? Activates controlled variant of the component                                         |
+| defaultChecked    | `boolean`                   | -       | false    | Is CheckboxCard checked by default? Activates uncontrolled variant of the component                            |
+| name              | `string`                    | -       | true     | CheckboxCard name                                                                                              |
+| disabled          | `boolean`                   | -       | false    | Is CheckboxCard disabled?                                                                                      |
+| error             | `boolean`                   | -       | false    | CheckboxCard error state                                                                                       |
+| onChange          | `({ name, value }) => void` | -       | false    | CheckboxCard change handler                                                                                    |
+| className         | `string`                    | -       | false    | Custom root element className                                                                                  |
+| attributes        | `object`                    | -       | false    | Custom root element attributes                                                                                 |
+| inputAttributes   | `object`                    | -       | false    | Custom input element attributes                                                                                |
+| mixin               | `object`                    | -       | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |

@@ -1,0 +1,57 @@
+# Scrim
+
+<Featured>
+  Scrim used for overlaying text over media content. Scrim supports 4 different
+  positions for its gradient overlay and also supports a variant with an overlay
+  covering the full media content.
+</Featured>
+
+<Grid>
+  <CrossLink
+    title="Scrim"
+    type="documentation"
+    text="Learn more about the Scrim container design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design.booking.com/article/bui/components/containers/scrim/"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+```jsx
+import { Scrim } from "@bookingcom/bui-react";
+import type { ScrimProps } from "@bookingcom/bui-react";
+```
+
+### Positioned
+
+Scrim can be positioned at the top, bottom, start or end, or it can also take up the full container size by using the `position` prop.
+
+<Example name="start" />
+<Example name="full" />
+
+### Fill
+
+To remove paddings around the content area, the `fill` prop can be used.
+
+<Example name="fill" />
+
+### With Background
+
+Passing in an `<Image />` or some kind of media component to the `backgroundSlot` prop allows for defining a background behind the Scrim container.
+
+<Example name="background" />
+
+## Properties
+
+| Name           | Type                                    | Default | Required | Description                        |
+| -------------- | --------------------------------------- | ------- | -------- | ---------------------------------- |
+| position       | `top`, `bottom`, `start`, `end`, `full` | `full`  | false    | Scrim content position             |
+| centered       | `boolean`                               | -       | false    | Should content be centered?        |
+| fill           | `boolean`                               | -       | false    | Should content padding be removed? |
+| children       | `ReactNode`                             | -       | false    | Scrim content                      |
+| backgroundSlot | `ReactNode`                             | -       | false    | Content rendered behind the scrim  |
+| className      | `string`                                | -       | false    | Custom root element className      |
+| attributes     | `object`                                | -       | false    | Custom root element attributes     |
+| borderRadius   | `100`, `200`, `300`                     | -       | false    | Border radius of the component     |

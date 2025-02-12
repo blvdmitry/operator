@@ -1,0 +1,74 @@
+# InputRadio
+
+<Featured>
+  Input radio allows users to choose one of several predefined options that are
+  mutually exclusive.
+</Featured>
+<Grid>
+  <CrossLink
+    title="InputRadio"
+    type="documentation"
+    text="Learn more about the InputRadio design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design-system.booking.com/article/bui/components/elements/input-radio/"
+    target="_blank"
+  />
+</Grid>
+
+This component is a part of an `InputRadioGroup` component which you'll use in the end product most of the time.
+
+## Usage
+
+```jsx
+import { InputRadio } from "@bookingcom/bui-react";
+import type { InputRadioProps } from "@bookingcom/bui-react";
+```
+
+<Example name="default" />
+
+In case the `label` property is not enough to describe the purpose of the radio, the `helper` prop can be used.
+As a form-field, if the radio is required and is not checked or fails other validations, we can set the `error` prop to highlight the radio in an error state
+
+<Example name="errorHelper" />
+
+Use the `disabled` prop to disable interactions with the InputRadio
+
+<Example name="disabled" />
+
+You can use the `icon` slot to decorate the radio.
+
+<Example name="icon" />
+
+## Controlled and uncontrolled
+
+All input components in BUI support controlled and uncontrolled version.
+Uncontrolled version is the default behavior where you can pass it a `defaultChecked` and the browser will control the InputRadio's checked or unchecked state.
+
+<Example name="uncontrolledChecked" />
+
+Controlled version is enabled once you pass the `checked` prop to InputRadio.
+This means that clicking on the InputRadio will trigger `onChange` but you will have to update the `checked` prop using your own state.
+
+<Example name="controlledChecked" />
+
+## Properties
+
+| Name            | Type                                        | Default | Required | Description                                                                                                    |
+| --------------- | ------------------------------------------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| id              | `string`                                    | -       | false    | Field id                                                                                                       |
+| label           | `ReactNode`                                 | -       | false    | Field label                                                                                                    |
+| helper          | `string`                                    | -       | false    | Helper text or sub label                                                                                       |
+| checked         | `boolean`                                   | -       | false    | Is field checked?                                                                                              |
+| defaultChecked  | `boolean`                                   | -       | false    | Is field checked by default?                                                                                   |
+| value           | `string`                                    | -       | false    | Field value                                                                                                    |
+| name            | `string`                                    | -       | false    | Field name                                                                                                     |
+| disabled        | `boolean`                                   | -       | false    | Is field disabled?                                                                                             |
+| error           | `boolean`                                   | -       | false    | Is invalid?                                                                                                    |
+| onChange        | `({ name, value, checked, event }) => void` | -       | false    | Field change handler                                                                                           |
+| onFocus         | `(event) => void`                           | -       | false    | Field focus handler                                                                                            |
+| onBlur          | `(event) => void`                           | -       | false    | Field blur handler                                                                                             |
+| className       | `string`                                    | -       | false    | Custom root element className                                                                                  |
+| attributes      | `object`                                    | -       | false    | Custom root element attributes                                                                                 |
+| inputAttributes | `object`                                    | -       | false    | Custom input element attributes                                                                                |
+| icon            | `ReactNode`                                 | -       | false    | InputRadio icon svg                                                                                            |
+| mixin             | `object`                                    | -       | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |

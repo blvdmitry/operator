@@ -1,0 +1,51 @@
+# Breadcrumbs
+
+<Featured>
+  Breadcrumbs help users visualise their path to their current location. They
+  display a list of links to a different hierarchical level of a product and the
+  current page in the hierarchy. Each item in the breadcrumbs will have at a
+  minimum a link to that level in the hierarchy (except for the current page).
+</Featured>
+
+<Grid>
+  <CrossLink
+    title="Breadcrumbs"
+    type="documentation"
+    text="Learn more about the Breadcrumbs design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design.booking.com/article/bui/components/patterns/breadcrumbs/"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+```jsx
+import { Breadcrumbs } from "@bookingcom/bui-react";
+import type { BreadcrumbsProps } from "@bookingcom/bui-react";
+```
+
+To render classic breacrumbs interface use `items` prop. For each item you can provide either `href` or `onClick` properties to make it act like a link.
+
+<Example name="default" />
+
+Render back-link using `back` prop. Regardless the number of `items` you provide, only the first one is used to render.
+
+<Example name="back" />
+
+## Accessibility
+
+Use `ariaLabel` property to provide additional element description to screen-readers.
+
+## Properties
+
+| Name          | Type         | Default | Required | Description                                                                                                    |
+| ------------- | ------------ | ------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| items         | `array`      | -       | true     | Breadcrumbs items                                                                                              |
+| items.text    | `string`     | -       | true     | Breadcrumbs item text                                                                                          |
+| items.href    | `string`     | -       | false    | Href for breadcrumbs item link (deprecated in current item)                                                    |
+| items.onClick | `() => void` | -       | false    | Click handler for breadcrumbs item link (deprecated in current item)                                           |
+| back          | `boolean`    | -       | false    | Is breadcrumbs used for back link?                                                                             |
+| className     | `string`     | -       | false    | Custom root element className                                                                                  |
+| attributes    | `object`     | -       | false    | Custom root element attributes                                                                                 |
+| mixin           | `object`     | -       | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |

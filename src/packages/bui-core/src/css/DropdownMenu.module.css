@@ -1,0 +1,13 @@
+.textSlot {
+  margin-inline-start: var(--bui_spacing_2x);
+}
+
+.items {
+  margin: 0;
+  padding: var(--bui_spacing_1x) 0;
+  list-style-type: none;
+}
+
+.divider {
+  margin: var(--bui_spacing_1x) 0;
+}

@@ -1,0 +1,125 @@
+.root {
+  background-color: var(--bui_color_background);
+  border: var(--bui_border_width_100) solid transparent;
+  border-radius: var(--bui_border_radius_100);
+  color: var(--bui_color_on_background);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: calc(var(--bui_spacing_half) - var(--bui_border_width_100))
+    var(--bui_spacing_1x);
+}
+
+.root--icon-only {
+  padding: calc(var(--bui_spacing_1x) - var(--bui_border_width_100));
+}
+
+.text {
+  margin-inline-start: var(--bui_spacing_1x);
+}
+
+.text:first-child {
+  margin-inline-start: 0px;
+}
+
+.close-icon {
+  margin-inline-start: var(--bui_spacing_1x);
+}
+
+/* Variants */
+.root--alt {
+  background-color: var(--bui_color_background_alt);
+  border-color: transparent;
+  color: var(--bui_color_foreground);
+}
+
+.root--variant-destructive {
+  border-color: var(--bui_color_destructive_border);
+  background-color: var(--bui_color_destructive_background_dynamic);
+  color: var(--bui_color_on_destructive_background_dynamic);
+}
+
+.root--variant-callout {
+  border-color: var(--bui_color_callout_border);
+  background-color: var(--bui_color_callout_background_dynamic);
+  color: var(--bui_color_on_callout_background_dynamic);
+}
+
+.root--variant-accent {
+  border-color: var(--bui_color_accent_border);
+  background-color: var(--bui_color_accent_background_dynamic);
+  color: var(--bui_color_on_accent_background_dynamic);
+}
+
+.root--variant-constructive {
+  border-color: transparent;
+  background-color: var(--bui_color_constructive_background_dynamic);
+  color: var(--bui_color_on_constructive_background_dynamic);
+}
+
+.root--variant-brand-primary {
+  border-color: transparent;
+  background-color: var(--bui_color_brand_primary_background);
+  color: var(--bui_color_on_brand_primary_background);
+}
+
+.root--variant-brand-genius-primary {
+  border-color: transparent;
+  background-color: var(--bui_color_brand_genius_primary_background);
+  color: var(--bui_color_on_brand_genius_primary_background);
+}
+
+.root--variant-outline {
+  border-color: var(--bui_color_border);
+  background: var(--bui_color_background_elevation_one);
+  color: var(--bui_color_foreground);
+}
+
+.root--variant-media {
+  border-color: transparent;
+  background: var(--bui_color_background_base);
+  color: var(--bui_color_foreground_alt);
+}
+
+.root--variant-destructive.root--alt {
+  border-color: transparent;
+  background-color: var(--bui_color_destructive_background_alt);
+  color: var(--bui_color_destructive_foreground);
+}
+
+.root--variant-callout.root--alt {
+  border-color: transparent;
+  background-color: var(--bui_color_callout_background_alt);
+  color: var(--bui_color_callout_foreground);
+}
+
+.root--variant-accent.root--alt {
+  border-color: transparent;
+  background-color: var(--bui_color_accent_background_alt);
+  color: var(--bui_color_accent_foreground);
+}
+
+.root--variant-constructive.root--alt {
+  border-color: transparent;
+  background-color: var(--bui_color_constructive_background_alt);
+  color: var(--bui_color_constructive_foreground);
+}
+
+.root--variant-brand-primary.root--alt {
+  border-color: transparent;
+  background-color: var(--bui_color_action_background_alt);
+  color: var(--bui_color_brand_primary_foreground);
+}
+
+.root--variant-outline.root--alt {
+  border-color: var(--bui_color_border_alt);
+  background: var(--bui_color_background_elevation_one);
+  color: var(--bui_color_foreground_alt);
+}
+
+.root--variant-media.root--alt {
+  border-color: transparent;
+  background: var(--bui_color_black_with_alpha);
+  color: var(--bui_color_white);
+}

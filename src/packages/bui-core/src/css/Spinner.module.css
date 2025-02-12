@@ -1,0 +1,147 @@
+/* stylelint-disable safe-logical-properties/validate-logical-usage */
+
+/* Ignoring rtl for spinner completely since it always rotates clockwise */
+
+@keyframes bui-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(720deg);
+  }
+}
+
+.root {
+  direction: ltr;
+  position: relative;
+  animation: bui-spinner 1s infinite cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  width: var(--bui_spinner_size);
+  height: var(--bui_spinner_size);
+}
+
+.root::after,
+.root::before {
+  content: "";
+  border-radius: 50%;
+  position: absolute;
+  z-index: 2;
+  transform: translateY(-50%);
+  width: var(--bui_spinner_before_size);
+  height: var(--bui_spinner_before_size);
+}
+
+.root::after {
+  right: 0;
+  top: 50%;
+}
+
+.root::before {
+  left: 0;
+  top: 50%;
+}
+
+.inner::after,
+.inner::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border: solid transparent;
+  border-radius: 50%;
+  border-width: var(--bui_spinner_inner_after_border_width);
+}
+
+.inner::after {
+  transform: rotate(-45deg);
+}
+
+/*
+  Colors
+*/
+
+.root--color-white::after,
+.root--color-white::before {
+  background: var(--bui_color_white);
+}
+
+.root--color-white .inner::before {
+  border-color: var(--bui_color_white);
+  opacity: 0.5;
+}
+
+.root--color-white .inner::after {
+  border-right-color: var(--bui_color_white);
+  border-top-color: var(--bui_color_white);
+}
+
+.root--color-action::after,
+.root--color-action::before {
+  background: var(--bui_color_action_border);
+}
+
+.root--color-action .inner::before {
+  border-color: var(--bui_color_border_alt);
+}
+
+.root--color-action .inner::after {
+  border-right-color: var(--bui_color_action_border);
+  border-top-color: var(--bui_color_action_border);
+}
+
+.root--color-destructive::after,
+.root--color-destructive::before {
+  background: var(--bui_color_destructive_border);
+}
+
+.root--color-destructive .inner::before {
+  border-color: var(--bui_color_border_alt);
+}
+
+.root--color-destructive .inner::after {
+  border-right-color: var(--bui_color_destructive_border);
+  border-top-color: var(--bui_color_destructive_border);
+}
+
+.root--color-inherit::after,
+.root--color-inherit::before {
+  background: currentcolor;
+}
+
+.root--color-inherit .inner::before {
+  border-color: currentcolor;
+  opacity: 0.5;
+}
+
+.root--color-inherit .inner::after {
+  border-right-color: currentcolor;
+  border-top-color: currentcolor;
+}
+
+@bui-responsive .root--size {
+  @bui-modifier small {
+    --bui_spinner_size: var(--bui_spacing_4x);
+    --bui_spinner_before_size: var(--bui_spacing_half);
+    --bui_spinner_inner_after_border_width: var(--bui_spacing_half);
+  }
+
+  @bui-modifier medium {
+    --bui_spinner_size: var(--bui_spacing_6x);
+    --bui_spinner_before_size: calc(var(--bui_spacing_half) * 1.5);
+    --bui_spinner_inner_after_border_width: calc(var(--bui_spacing_half) * 1.5);
+  }
+
+  @bui-modifier large {
+    --bui_spinner_size: var(--bui_spacing_8x);
+    --bui_spinner_before_size: var(--bui_spacing_1x);
+    --bui_spinner_inner_after_border_width: var(--bui_spacing_1x);
+  }
+
+  @bui-modifier larger {
+    --bui_spinner_size: calc(var(--bui_spacing_6x) * 2);
+    --bui_spinner_before_size: calc(var(--bui_spacing_half) * 3);
+    --bui_spinner_inner_after_border_width: calc(var(--bui_spacing_half) * 3);
+  }
+}

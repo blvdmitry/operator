@@ -1,0 +1,631 @@
+.root {
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: none;
+  box-sizing: border-box;
+  vertical-align: middle;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+
+  /* For outline shadow shape */
+  border-radius: var(--bui_border_radius_100);
+  background: transparent;
+  transition: var(--bui_animation_press);
+  transition-property: transform;
+}
+
+.root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border: var(--bui_border_width_100) solid transparent;
+  border-radius: var(--bui_border_radius_100);
+  box-sizing: border-box;
+  transition: var(--bui_animation_hover);
+  transition-property: background-color, border-color;
+}
+
+.root:active {
+  transform: scale(0.98);
+}
+
+.root:hover,
+.root:visited,
+.root:focus,
+.root:active,
+.root.root--active,
+.root:link {
+  /* Covers modifiers specificity, removes product overrides */
+  text-decoration: none;
+}
+
+.icon {
+  position: relative;
+  display: inline-flex;
+  fill: currentcolor;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin: 0 calc(var(--bui_spacing_3x) * -1);
+}
+
+.icon--start {
+  margin-inline-start: 0;
+  margin-inline-end: var(--bui_spacing_2x);
+}
+
+.icon--end {
+  margin-inline-start: var(--bui_spacing_2x);
+  margin-inline-end: 0;
+}
+
+.text {
+  position: relative;
+}
+
+.spinner {
+  display: none;
+  position: absolute;
+  inset-block-start: 50%;
+
+  /* stylelint-disable-next-line safe-logical-properties/validate-logical-usage */
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Loading State */
+.root--loading {
+  cursor: default;
+}
+
+.root--loading > .spinner {
+  display: block;
+}
+
+.root--loading > .text,
+.root--loading > .icon {
+  visibility: hidden;
+}
+
+/* Primry */
+
+/* Primary Disabled */
+.root--variant-primary[disabled],
+.root--variant-primary[disabled]:hover,
+.root--variant-primary[disabled]:active {
+  color: var(--bui_color_foreground_disabled);
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+.root--variant-primary[disabled]::before,
+.root--variant-primary[disabled]:hover::before,
+.root--variant-primary[disabled]:active::before {
+  background-color: var(--bui_color_background_disabled);
+  border-color: var(--bui_color_background_disabled);
+}
+
+/* Primary Action */
+.root--variant-primary-action {
+  color: var(--bui_color_on_cta_background);
+}
+
+.root--variant-primary-action::before {
+  background-color: var(--bui_color_cta_background);
+  border-color: var(--bui_color_cta_background);
+}
+
+.root--variant-primary-action:hover,
+.root--variant-primary-action:visited,
+.root--variant-primary-action:focus,
+.root--variant-primary-action:active,
+.root--variant-primary-action.root--active,
+.root--variant-primary-action:link {
+  color: var(--bui_color_on_cta_background);
+}
+
+.root--variant-primary-action:not(.root--loading):active::before,
+.root--variant-primary-action.root--active::before {
+  background-color: var(--bui_color_cta_highlighted);
+  border-color: var(--bui_color_cta_highlighted);
+}
+
+@media (hover: hover) {
+  .root--variant-primary-action:not(.root--loading):hover::before {
+    background-color: var(--bui_color_cta_highlighted);
+    border-color: var(--bui_color_cta_highlighted);
+  }
+}
+
+/* Primary Destructive */
+.root--variant-primary-destructive {
+  color: var(--bui_color_on_destructive_background);
+}
+
+.root--variant-primary-destructive::before {
+  background-color: var(--bui_color_destructive_background);
+  border-color: var(--bui_color_destructive_background);
+}
+
+.root--variant-primary-destructive:hover,
+.root--variant-primary-destructive:visited,
+.root--variant-primary-destructive:focus,
+.root--variant-primary-destructive:active,
+.root--variant-primary-destructive.root--active,
+.root--variant-primary-destructive:link {
+  color: var(--bui_color_on_destructive_background);
+}
+
+.root--variant-primary-destructive:not(.root--loading):active::before,
+.root--variant-primary-destructive.root--active::before {
+  background-color: var(--bui_color_destructive_highlighted);
+  border-color: var(--bui_color_destructive_highlighted);
+}
+
+@media (hover: hover) {
+  .root--variant-primary-destructive:not(.root--loading):hover::before {
+    background-color: var(--bui_color_destructive_highlighted);
+    border-color: var(--bui_color_destructive_highlighted);
+  }
+}
+
+/* Secondary */
+
+/* Secondary Disabled */
+.root--variant-secondary[disabled],
+.root--variant-secondary[disabled]:hover,
+.root--variant-secondary[disabled]:active {
+  color: var(--bui_color_foreground_disabled);
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+.root--variant-secondary[disabled]::before,
+.root--variant-secondary[disabled]:hover::before,
+.root--variant-secondary[disabled]:active::before {
+  background-color: var(--bui_color_background_disabled_alt);
+  border-color: var(--bui_color_background_disabled);
+}
+
+/* Secondary Action */
+.root--variant-secondary-action {
+  background-color: var(--bui_color_background_elevation_one);
+  color: var(--bui_color_action_foreground);
+}
+
+.root--variant-secondary-action::before {
+  background-color: transparent;
+  border-color: var(--bui_color_action_border);
+}
+
+.root--variant-secondary-action:hover,
+.root--variant-secondary-action:visited,
+.root--variant-secondary-action:focus,
+.root--variant-secondary-action:active,
+.root--variant-secondary-action.root--active,
+.root--variant-secondary-action:link {
+  color: var(--bui_color_action_foreground);
+}
+
+.root--variant-secondary-action:not(.root--loading):active::before,
+.root--variant-secondary-action.root--active::before {
+  background-color: var(--bui_color_action_highlighted_alt);
+  border-color: var(--bui_color_action_border);
+}
+
+@media (hover: hover) {
+  .root--variant-secondary-action:not(.root--loading):hover::before {
+    background-color: var(--bui_color_action_highlighted_alt);
+    border-color: var(--bui_color_action_border);
+  }
+}
+
+/* Secondary Destructive */
+.root--variant-secondary-destructive {
+  background-color: var(--bui_color_background_elevation_one);
+  color: var(--bui_color_destructive_foreground);
+}
+
+.root--variant-secondary-destructive::before {
+  background-color: transparent;
+  border-color: var(--bui_color_destructive_border);
+}
+
+.root--variant-secondary-destructive:hover,
+.root--variant-secondary-destructive:visited,
+.root--variant-secondary-destructive:focus,
+.root--variant-secondary-destructive:active,
+.root--variant-secondary-destructive.root--active,
+.root--variant-secondary-destructive:link {
+  color: var(--bui_color_destructive_foreground);
+}
+
+.root--variant-secondary-destructive:not(.root--loading):active::before,
+.root--variant-secondary-destructive.root--active::before {
+  background-color: var(--bui_color_destructive_highlighted_alt);
+  border-color: var(--bui_color_destructive_border);
+}
+
+@media (hover: hover) {
+  .root--variant-secondary-destructive:not(.root--loading):hover::before {
+    background-color: var(--bui_color_destructive_highlighted_alt);
+    border-color: var(--bui_color_destructive_border);
+  }
+}
+
+/* Secondary Neutral */
+.root--variant-secondary-neutral {
+  background-color: transparent;
+  color: var(--bui_color_foreground);
+}
+
+.root--variant-secondary-neutral::before {
+  background-color: transparent;
+  border-color: var(--bui_color_border);
+}
+
+.root--variant-secondary-neutral:hover,
+.root--variant-secondary-neutral:visited,
+.root--variant-secondary-neutral:focus,
+.root--variant-secondary-neutral:active,
+.root--variant-secondary-neutral.root--active,
+.root--variant-secondary-neutral:link {
+  color: var(--bui_color_foreground);
+}
+
+.root--variant-secondary-neutral:not(.root--loading):active::before,
+.root--variant-secondary-neutral.root--active::before {
+  background-color: var(--bui_color_highlighted_alt);
+  border-color: var(--bui_color_border);
+}
+
+@media (hover: hover) {
+  .root--variant-secondary-neutral:not(.root--loading):hover::before {
+    background-color: var(--bui_color_highlighted_alt);
+    border-color: var(--bui_color_border);
+  }
+}
+
+/* Tertiary */
+.root--variant-tertiary {
+  --bui_button_inline_padding_extra: calc(var(--bui_spacing_1x) * -1);
+}
+
+.root--variant-tertiary::before {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.root--variant-tertiary[disabled],
+.root--variant-tertiary[disabled]:hover,
+.root--variant-tertiary[disabled]:active {
+  color: var(--bui_color_foreground_disabled);
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+/* Tertiary Action */
+.root--variant-tertiary-action {
+  color: var(--bui_color_action_foreground);
+}
+
+.root--variant-tertiary-action:hover,
+.root--variant-tertiary-action:visited,
+.root--variant-tertiary-action:focus,
+.root--variant-tertiary-action:active,
+.root--variant-tertiary-action.root--active,
+.root--variant-tertiary-action:link {
+  color: var(--bui_color_action_foreground);
+}
+
+.root--variant-tertiary-action:not(.root--loading):active::before,
+.root--variant-tertiary-action.root--active::before {
+  background-color: var(--bui_color_action_highlighted_alt);
+  border-color: transparent;
+}
+
+@media (hover: hover) {
+  .root--variant-tertiary-action:not(.root--loading):hover::before {
+    background-color: var(--bui_color_action_highlighted_alt);
+    border-color: transparent;
+  }
+}
+
+/* Tertiary Destructive */
+.root--variant-tertiary-destructive {
+  color: var(--bui_color_destructive_foreground);
+}
+
+.root--variant-tertiary-destructive:hover,
+.root--variant-tertiary-destructive:visited,
+.root--variant-tertiary-destructive:focus,
+.root--variant-tertiary-destructive:active,
+.root--variant-tertiary-destructive.root--active,
+.root--variant-tertiary-destructive:link {
+  color: var(--bui_color_destructive_foreground);
+}
+
+.root--variant-tertiary-destructive:not(.root--loading):active::before,
+.root--variant-tertiary-destructive.root--active::before {
+  background-color: var(--bui_color_destructive_highlighted_alt);
+  border-color: transparent;
+}
+
+@media (hover: hover) {
+  .root--variant-tertiary-destructive:not(.root--loading):hover::before {
+    background-color: var(--bui_color_destructive_highlighted_alt);
+    border-color: transparent;
+  }
+}
+
+/* Tertiary Neutral */
+.root--variant-tertiary-neutral {
+  color: var(--bui_color_foreground);
+}
+
+.root--variant-tertiary-neutral:hover,
+.root--variant-tertiary-neutral:visited,
+.root--variant-tertiary-neutral:focus,
+.root--variant-tertiary-neutral:active,
+.root--variant-tertiary-neutral.root--active,
+.root--variant-tertiary-neutral:link {
+  color: var(--bui_color_foreground);
+}
+
+.root--variant-tertiary-neutral:not(.root--loading):active::before,
+.root--variant-tertiary-neutral.root--active::before {
+  background-color: var(--bui_color_highlighted_alt);
+  border-color: transparent;
+}
+
+@media (hover: hover) {
+  .root--variant-tertiary-neutral:not(.root--loading):hover::before {
+    background-color: var(--bui_color_highlighted_alt);
+    border-color: transparent;
+  }
+}
+
+/* Tertiary Inherit */
+.root--variant-tertiary-inherit {
+  color: currentcolor;
+}
+
+.root--variant-tertiary-inherit::before {
+  opacity: 0;
+}
+
+.root--variant-tertiary-inherit:hover,
+.root--variant-tertiary-inherit:visited,
+.root--variant-tertiary-inherit:focus,
+.root--variant-tertiary-inherit:active,
+.root--variant-tertiary-inherit.root--active,
+.root--variant-tertiary-inherit:link {
+  color: currentcolor;
+}
+
+.root--variant-tertiary-inherit:not(.root--loading):active::before,
+.root--variant-tertiary-inherit.root--active::before {
+  background-color: currentcolor;
+  opacity: 0.1;
+  border-color: transparent;
+}
+
+@media (hover: hover) {
+  .root--variant-tertiary-inherit:not(.root--loading):hover::before {
+    background-color: currentcolor;
+    opacity: 0.1;
+    border-color: transparent;
+  }
+}
+
+/* White */
+
+/* White Disabled */
+.root--variant-white[disabled]::before,
+.root--variant-white[disabled]:hover::before,
+.root--variant-white[disabled]:active::before {
+  background-color: var(--bui_color_white);
+}
+
+.root--variant-white[disabled],
+.root--variant-white[disabled]:hover,
+.root--variant-white[disabled]:active {
+  color: var(--bui_color_foreground_disabled);
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+/* White default */
+.root--variant-white-action {
+  background-color: var(--bui_color_white);
+  color: var(--bui_color_black);
+}
+
+.root--variant-white-action::before {
+  border-color: transparent;
+}
+
+.root--variant-white-action:hover,
+.root--variant-white-action:visited,
+.root--variant-white-action:focus,
+.root--variant-white-action:active,
+.root--variant-white-action.root--active,
+.root--variant-white-action:link {
+  color: var(--bui_color_black);
+}
+
+.root--variant-white-action:not(.root--loading):active::before,
+.root--variant-white-action.root--active::before {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+@media (hover: hover) {
+  .root--variant-white-action:not(.root--loading):hover::before {
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* Elevated */
+
+/* Elevated Disabled */
+.root--variant-elevated[disabled],
+.root--variant-elevated[disabled]:hover,
+.root--variant-elevated[disabled]:active {
+  color: var(--bui_color_foreground_disabled);
+  cursor: not-allowed;
+  text-decoration: none;
+  box-shadow: var(--bui_shadow_100);
+}
+
+.root--variant-elevated[disabled]::before,
+.root--variant-elevated[disabled]:hover::before,
+.root--variant-elevated[disabled]:active::before {
+  background-color: var(--bui_color_background_elevation_two);
+  border-color: transparent;
+}
+
+.root--icon-only.root--variant-elevated::before,
+.root--icon-only.root--variant-elevated {
+  border-radius: 50%;
+}
+
+/* Elevated default */
+.root--variant-elevated-action {
+  background-color: var(--bui_color_background_elevation_two);
+  color: var(--bui_color_foreground);
+  box-shadow: var(--bui_shadow_100);
+}
+
+.root--variant-elevated-action::before {
+  border-color: transparent;
+}
+
+.root--variant-elevated-action:hover,
+.root--variant-elevated-action:visited,
+.root--variant-elevated-action:focus,
+.root--variant-elevated-action:active,
+.root--variant-elevated-action.root--active,
+.root--variant-elevated-action:link {
+  color: var(--bui_color_foreground);
+}
+
+.root--variant-elevated-action:not(.root--loading):active::before,
+.root--variant-elevated-action.root--active::before {
+  background-color: var(--bui_color_highlighted_alt);
+}
+
+@media (hover: hover) {
+  .root--variant-elevated-action:not(.root--loading):hover::before {
+    background-color: var(--bui_color_highlighted_alt);
+  }
+}
+
+/* Elevated Destructive */
+.root--variant-elevated-destructive {
+  background-color: var(--bui_color_background_elevation_two);
+  box-shadow: var(--bui_shadow_100);
+  color: var(--bui_color_destructive_foreground);
+}
+
+.root--variant-elevated-destructive:hover,
+.root--variant-elevated-destructive:visited,
+.root--variant-elevated-destructive:focus,
+.root--variant-elevated-destructive:active,
+.root--variant-elevated-destructive.root--active,
+.root--variant-elevated-destructive:link {
+  color: var(--bui_color_destructive_foreground);
+}
+
+.root--variant-elevated-destructive:not(.root--loading):active::before,
+.root--variant-elevated-destructive.root--active::before {
+  background-color: var(--bui_color_destructive_highlighted_alt);
+  border-color: transparent;
+}
+
+@media (hover: hover) {
+  .root--variant-elevated-destructive:not(.root--loading):hover::before {
+    background-color: var(--bui_color_destructive_highlighted_alt);
+    border-color: transparent;
+  }
+}
+
+.root--rounded,
+.root--rounded::before {
+  border-radius: 999px;
+}
+
+/* Sizes */
+@bui-responsive .root--size {
+  @bui-modifier medium {
+    padding: var(--bui_spacing_1x)
+      calc(var(--bui_spacing_3x) + var(--bui_button_inline_padding_extra, 0px));
+    margin-block-start: var(--bui_button_medium_margin_block_start, initial);
+    margin-block-end: var(--bui_button_medium_margin_block_end, initial);
+    margin-inline-start: var(--bui_button_medium_margin_inline_start, initial);
+    margin-inline-end: var(--bui_button_medium_margin_inline_end, initial);
+    min-height: calc(var(--bui_spacing_1x) * 9);
+    min-width: calc(var(--bui_spacing_1x) * 9);
+
+    @apply --bui_font_emphasized_2;
+  }
+
+  @bui-modifier large {
+    padding: var(--bui_spacing_2x)
+      calc(var(--bui_spacing_4x) + var(--bui_button_inline_padding_extra, 0px));
+    margin-block-start: var(--bui_button_large_margin_block_start, initial);
+    margin-block-end: var(--bui_button_large_margin_block_end, initial);
+    margin-inline-start: var(--bui_button_large_margin_inline_start, initial);
+    margin-inline-end: var(--bui_button_large_margin_inline_end, initial);
+    min-height: calc(var(--bui_spacing_1x) * 12);
+    min-width: calc(var(--bui_spacing_1x) * 12);
+
+    @apply --bui_font_emphasized_1;
+  }
+}
+
+/* Wide */
+@bui-responsive .root--wide {
+  @bui-modifier true {
+    width: 100%;
+    text-align: center;
+  }
+
+  @bui-modifier false {
+    width: auto;
+    text-align: start;
+  }
+}
+
+/* Negative Inset Adjustments */
+.aligner {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.root--alignment-top .root--variant-tertiary,
+.root--alignment-top .root--variant-tertiary-neutral {
+  --bui_button_medium_margin_block_start: calc(var(--bui_spacing_2x) * -1);
+  --bui_button_large_margin_block_start: calc(var(--bui_spacing_3x) * -1);
+}
+
+.root--alignment-bottom .root--variant-tertiary,
+.root--alignment-bottom .root--variant-tertiary-neutral {
+  --bui_button_medium_margin_block_end: calc(var(--bui_spacing_2x) * -1);
+  --bui_button_large_margin_block_end: calc(var(--bui_spacing_3x) * -1);
+}
+
+.root--alignment-start .root--variant-tertiary,
+.root--alignment-start .root--variant-tertiary-neutral {
+  --bui_button_medium_margin_inline_start: calc(var(--bui_spacing_2x) * -1);
+  --bui_button_large_margin_inline_start: calc(var(--bui_spacing_3x) * -1);
+}
+
+.root--alignment-end .root--variant-tertiary,
+.root--alignment-end .root--variant-tertiary-neutral {
+  --bui_button_medium_margin_inline_end: calc(var(--bui_spacing_2x) * -1);
+  --bui_button_large_margin_inline_end: calc(var(--bui_spacing_3x) * -1);
+}

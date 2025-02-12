@@ -1,0 +1,4 @@
+include: .gitlab/ci_templates/package-gitlab-ci.yml
+
+variables:
+  FOLDER_NAME: bui-core

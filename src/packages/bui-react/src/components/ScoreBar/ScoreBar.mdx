@@ -1,0 +1,50 @@
+# ScoreBar
+
+<Featured>
+  The score bar component displays scores related to user reviews.
+</Featured>
+
+<Grid>
+  <CrossLink
+    title="ScoreBar"
+    type="documentation"
+    text="Learn more about the ScoreBar design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design.booking.com/article/bui/components/patterns/score-bar/"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+```jsx
+import { ScoreBar } from "@bookingcom/bui-react";
+import type { ScoreBarProps } from "@bookingcom/bui-react";
+```
+
+<Example name="default" />
+
+Available variants.
+
+<Example name="variants" />
+
+It's also possible to omit both `labelStart` and `labelEnd`, but make sure you pass `ariaLabel` to describe the component to screen reader users.
+
+<Example name="noLabels" />
+
+## Accessibility
+
+In case niether `labelStart` nor `labelEnd` is provided, make sure to pass `ariaLabel` property to provide additional element description to screen-readers.
+
+## Properties
+
+| Name       | Type                                                                          | Default | Required | Description                                                                                                    |
+| ---------- | ----------------------------------------------------------------------------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| variant    | `brand_primary`, `constructive`, `accent`, `callout`, `destructive`, `action` | -       | false    |                                                                                                                |
+| labelStart | `string`                                                                      | -       | false    | Score bar label                                                                                                |
+| labelEnd   | `string`                                                                      | -       | false    | Custom label to render instead of the score value                                                              |
+| value      | `string`                                                                      | -       | true     | Score value                                                                                                    |
+| ariaLabel  | `string`                                                                      | -       | false    | a11y label                                                                                                     |
+| className  | `string`                                                                      | -       | false    | Custom root element className                                                                                  |
+| attributes | `object`                                                                      | -       | false    | Custom root element attributes                                                                                 |
+| mixin        | `object`                                                                      | -       | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |

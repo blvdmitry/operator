@@ -1,0 +1,41 @@
+# List
+
+<Featured>
+  List containers are used in lists. They stack multiple containers vertically
+  to form a list of items.
+</Featured>
+
+## Usage
+
+```jsx
+import { List } from "@bookingcom/bui-react";
+import type { ListProps } from "@bookingcom/bui-react";
+```
+
+By default List is rendered without any `list-item-style`.
+
+<Example name="default" />
+
+Use `variant` prop to add item style. You can use `ordered`, `unordered`, `upper-alpha` and `text`.
+
+<Example name="ordered" />
+
+Add borders between items with `divided`.
+
+<Example name="divided" />
+
+You can build more complex UI by using `Stack` as a `List` item.
+
+<Example name="dividedActionsAndIcons" />
+
+### Properties
+
+| Name       | Type                                          | Default  | Required | Description                                                                                                    |
+| ---------- | --------------------------------------------- | -------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| children   | `ReactNode`                                   | -        | false    |                                                                                                                |
+| variant    | `ordered`, `unordered`, `upper-alpha`, `text` | `text`   | false    | List variant                                                                                                   |
+| rowSpacing | `small`, `medium`, `large`, `none`            | `medium` | false    | Spacing between list items                                                                                     |
+| divided    | `boolean`                                     | -        | false    | Should items be divided by separator?                                                                          |
+| className  | `string`                                      | -        | false    | Custom root element className                                                                                  |
+| attributes | `object`                                      | -        | false    | Custom root element attributes                                                                                 |
+| mixin        | `object`                                      | -        | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |

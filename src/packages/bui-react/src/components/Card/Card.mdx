@@ -1,0 +1,79 @@
+# Card
+
+<Featured>
+  Card is a container for content representing a single topic. They can be used
+  in a collection to showcase content of the same type, such as hotels or
+  destinations.
+</Featured>
+
+<Grid>
+  <CrossLink
+    title="Card"
+    type="documentation"
+    text="Learn more about the Card design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design.booking.com/article/bui/components/containers/card/"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+```jsx
+import { Card } from "@bookingcom/bui-react";
+import type { CardProps } from "@bookingcom/bui-react";
+```
+
+Card is an empty container which can have any kind of layout inside.
+
+<Example name="empty" />
+
+You can apply elevation to a Card to create visual hierarchy and draw attention to elements that require the user’s attention.
+
+<Example name="elevated" />
+
+### Composition
+
+You can use it to visually group the content together with layout utilities like Stack to display its `children`.
+For example, you can achieve the following layout by just combining utilities provided by the library.
+
+<Example name="composition" />
+
+Following the same approach, you can achieve more complicated layouts.
+For example, you can display an image on the leading side of the Card using an `Image` utility.
+
+<Example name="media" />
+
+If you need to display some content inside the Card that goes from side to side, you can remove the padding with the `fill` flag and use it together with the `Box` utility
+
+<Example name="fill" />
+
+### Variant
+
+Use different variants to give your Card proper styling.
+
+<Example name="variants" />
+
+### Responsive
+
+For mobile viewports, Card supports `bleed` property that will apply negative horizontal margins to make it take full-page width on mobile viewport only.
+This negative margin is aligned with `Container` padding values.
+
+<Example name="bleed" />
+
+## Accessibility
+
+- If you want to make Card to be used for navigation, make sure to wrap it with `Actionable` utility and not pass `href` or `onClick` to card through attributes
+- When an image is present, always add an alt attribute with the image description
+
+## Properties
+
+| Name       | Type                                                                   | Default   | Required | Description                                                                                                    |
+| ---------- | ---------------------------------------------------------------------- | --------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| children   | `ReactNode`                                                            | -         | false    | Card content                                                                                                   |
+| fill       | `boolean`                                                              | -         | false    | Should content have no padding?                                                                                |
+| bleed      | `boolean`                                                              | -         | false    | Should component take full width on mobile?                                                                    |
+| variant    | `neutral`, `elevated`, `success`, `error`, `callout`, `accent`, `hint` | `neutral` | false    | Banner variant                                                                                                 |
+| className  | `string`                                                               | -         | false    | Custom root element className                                                                                  |
+| attributes | `object`                                                               | -         | false    | Custom root element attributes                                                                                 |
+| mixin        | `object`                                                               | -         | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |

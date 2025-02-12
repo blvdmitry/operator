@@ -1,0 +1,55 @@
+# NavigationProgress
+
+<Featured>
+  Navigation progress facilitates the progression through a series of steps in a
+  flow.
+</Featured>
+
+<Grid>
+  <CrossLink
+    title="Navigation progress"
+    type="documentation"
+    text="Learn more about the Navigation progress design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design-system.booking.com/article/bui/components/containers/navigation-progress/"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+```jsx
+import { NavigationProgress } from "@bookingcom/bui-react";
+import type { NavigationProgressProps } from "@bookingcom/bui-react";
+```
+
+NavigationProgress displays a list of steps and supports two directions.
+Each step is rendered based on the `items` data and its status.
+
+With `vertical` direction, you can display content for each step in between the step titles.
+Only content for the current step is displayed, all other content slots are hidden.
+
+<Example name="vertical" />
+
+For `horizontal` direction, you can render the content separately, outside the component.
+Since `horizontal` NavigationProgress is likely to not fit on smaller screens, it changes its behaviour for mobile viewports and only displays the current step title and overall progress.
+
+Try switching in between different viewports to see the difference.
+
+<Example name="horizontal" />
+
+## Properties
+
+| Name                 | Type                     | Default      | Required                                | Description                                                                                                    |
+| -------------------- | ------------------------ | ------------ | --------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| variant              | `horizontal`, `vertical` | `horizontal` | false                                   | Navigation progress variant                                                                                    |
+| items                | `array`                  | -            | true                                    | Navigation progress items                                                                                      |
+| items.title          | `string`                 | -            | true                                    | Item title                                                                                                     |
+| items.content        | `ReactNode`              | -            | false                                   | Item content                                                                                                   |
+| items.status         | `current`, `next`        | -            | false                                   | Item progress status                                                                                           |
+| items.className      | `string`                 | -            | false                                   | Custom item element className                                                                                  |
+| items.attributes     | `object`                 | -            | false                                   | Custom item element attributes                                                                                 |
+| renderMobileProgress | `(step, total) => void`  | -            | variant === 'horizontal' ? true : false | Render function for mobile progress indication                                                                 |
+| className            | `string`                 | -            | false                                   | Custom root element className                                                                                  |
+| attributes           | `object`                 | -            | false                                   | Custom root element attributes                                                                                 |
+| mixin                  | `object`                 | -            | false                                   | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |

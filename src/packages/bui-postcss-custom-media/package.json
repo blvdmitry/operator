@@ -1,0 +1,9 @@
+{
+  "name": "@bookingcom/postcss-custom-media",
+  "version": "9.10.4",
+  "license": "UNLICENSED",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ]
+}

@@ -1,0 +1,29 @@
+.text {
+  position: relative;
+  white-space: pre-line;
+}
+
+.text--collapsed {
+  --bui_collapsed_text_line_percentage: calc(
+    100% / var(--bui_collapsed_text_visible_lines)
+  );
+
+  /* stylelint-disable-next-line value-no-vendor-prefix */
+  display: -webkit-box;
+  -webkit-line-clamp: var(--bui_collapsed_text_visible_lines);
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1) calc(
+      var(--bui_collapsed_text_line_percentage) +
+      (var(--bui_collapsed_text_line_percentage) / 2)
+    )
+  );
+}
+
+.text--non-collapsable {
+  -webkit-line-clamp: none;
+  mask-image: none;
+}

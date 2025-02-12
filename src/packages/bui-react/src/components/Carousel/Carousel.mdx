@@ -1,0 +1,91 @@
+# Carousel
+
+<Featured>
+  Carousel stacks items of the same type and allows scrolling through them
+  horizontally.
+</Featured>
+
+<Grid>
+  <CrossLink
+    title="Carousel"
+    type="documentation"
+    text="Learn more about the Carousel design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design-system.booking.com/article/bui/components/containers/carousel/"
+    target="_blank"
+  />
+</Grid>
+
+> Previews in the documentation don't fit desktop carousels so all examples don't show navigation controls. Check Playground tab for the desktop behaviour.
+
+## Usage
+
+```jsx
+import { Carousel } from "@bookingcom/bui-react";
+import type { CarouselProps } from "@bookingcom/bui-react";
+```
+
+Carousel takes a list of children components and turns them into a scrollable list.
+On desktop it shows navigation controls to support mouse devices, while on smaller viewports it relies on touch scrolling.
+
+Based on our most common use cases, it supports a `title` slot where you can provide additional context around the carousel and a contextual user `action`.
+
+<Example name="default" />
+
+Carousel comes in multiple sizes.
+Each size controls the amount of items shown within the container area and automatically adjusts them based on the viewport size.
+
+<Example name="size" />
+
+Sometimes carousels are used to display items with images and text below them.
+In this case centering navigation controls vertically could look like they're misaligned.
+To improve its UX, you can pass `topNavigationOffset` value and center it based on the image height instead.
+
+For example, here the top placeholder height is 100px, so we're setting the offset to 50px:
+
+<Example name="navigationOffset" />
+
+In case you have any external controls or state that should scroll the contents of the Carousel, you can access its methods through a ref.
+You can use `ref.navigateBack` and `ref.navigateForward` to simulate the Carousel navigation controls or scroll to a specific Carousel item using `ref.navigate` method.
+
+<Example name="ref" />
+
+## Accessibility
+
+- Provide an `aria-label` describing what your carousel is showcasing.
+- If your carousel does not contain focusable elements, then set the tabindex to 0 on the main container.
+
+## Properties
+
+**Carousel properties:**
+
+| Name                    | Type                                            | Default  | Required | Description                                                                                                    |
+| ----------------------- | ----------------------------------------------- | -------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| children                | `ReactNode`                                     | -        | false    |                                                                                                                |
+| title                   | `ReactNode`                                     | -        | false    |                                                                                                                |
+| action                  | `ButtonProps`                                   | -        | false    | Button props to render for the carousel action                                                                 |
+| size                    | `small`, `medium`, `large`, `larger`, `largest` | `medium` | false    | Carousel size                                                                                                  |
+| ariaLabel               | `string`                                        | -        | false    | Aria label attribute for the whole carousel                                                                    |
+| previousButtonAriaLabel | `string`                                        | -        | true     | Aria label attribute for the previous button                                                                   |
+| nextButtonAriaLabel     | `string`                                        | -        | true     | Aria label attribute for the next button                                                                       |
+| onAfterNavigate         | `({ index }) => void`                           | -        | false    | Navigation handler                                                                                             |
+| topNavigationOffset     | `string`                                        | -        | false    | Top offset value for navigation buttons (in px/%)                                                              |
+| className               | `string`                                        | -        | false    | Custom root element className                                                                                  |
+| attributes              | `object`                                        | -        | false    | Custom root element attributes                                                                                 |
+| mixin                     | `object`                                        | -        | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |
+
+**Carousel.Item properties:**
+
+| Name       | Type        | Default | Required | Description                    |
+| ---------- | ----------- | ------- | -------- | ------------------------------ |
+| children   | `ReactNode` | -       | false    |                                |
+| className  | `string`    | -       | false    | Custom item element className  |
+| attributes | `object`    | -       | false    | Custom item element attributes |
+
+### Ref
+
+You can access Carousel imperative methods by passing a `ref` to it:
+
+- `ref.navigate(index)` - scroll Carousel to the passed item index
+- `ref.navigateBack()` - scroll Carousel to the passed item index
+- `ref.navigateForward()` - scroll Carousel to the passed item index

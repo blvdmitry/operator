@@ -1,0 +1,68 @@
+# InputStepper
+
+<Featured>
+  Use InputSteppers to allow the user to select a numerical value inside a
+  range.
+</Featured>
+
+<Grid>
+  <CrossLink
+    title="InputStepper"
+    type="documentation"
+    text="Learn more about the InputStepper design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design-system.booking.com/article/bui/components/elements/input-stepper/"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+```jsx
+import { InputStepper } from "@bookingcom/bui-react";
+import type { InputStepperProps } from "@bookingcom/bui-react";
+```
+
+<Example name="default" />
+
+- When the InputStepper reaches its `min` value, the decrement button gets disabled
+- When the InputStepper reaches its `max` value, the increment button gets disabled
+
+To disable the whole InputStepper, we can make use of the `disabled` prop.
+
+<Example name="disabled" />
+
+### Controlled and uncontrolled
+
+All input components in BUI support controlled and uncontrolled version.
+Uncontrolled version is the default behavior where you can pass it a `defaultValue` and the browser will control the incrementation and decrementation of the InputStepper's value.
+
+<Example name="uncontrolled" />
+
+Controlled version is enabled once you pass the InputStepper a `value`.
+This means that clicking on the increment or decrement buttons will trigger `onChange` but you will have to update the `value` using your own state.
+
+<Example name="controlled" />
+
+## Accessibility
+
+The user can manipulate the component handles using the keyboard, using the arrow keys after focusing on the element.
+If title is not passed to the component - you have to manually link input stepper to its label with htmlFor.
+
+## Properties
+
+| Name         | Type                        | Default | Required | Description                                                                                                    |
+| ------------ | --------------------------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| name         | `string`                    | -       | true     | Field name                                                                                                     |
+| label        | `ReactNode`                 | -       | false    | Field label                                                                                                    |
+| helperText   | `ReactNode`                 | -       | false    | Helper text to provide more information about the stepper                                                      |
+| value        | `number`, `null`            | -       | false    | Field value. Activates controlled version of the component                                                     |
+| defaultValue | `number`                    | -       | false    | Field default value. Activates uncontrolled version of the component                                           |
+| min          | `number`                    | `0`     | false    | Min value boundary                                                                                             |
+| max          | `number`                    | `100`   | false    | Max value boundary                                                                                             |
+| step         | `number`                    | `1`     | false    | Incrementation step                                                                                            |
+| onChange     | `({ name, value }) => void` | -       | false    | Field change handler                                                                                           |
+| disabled     | `boolean`                   | -       | false    | Is field disabled?                                                                                             |
+| className    | `string`                    | -       | false    | Custom root element className                                                                                  |
+| attributes   | `object`                    | -       | false    | Custom root element attributes                                                                                 |
+| mixin          | `object`                    | -       | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |

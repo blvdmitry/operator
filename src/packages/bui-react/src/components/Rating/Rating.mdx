@@ -1,0 +1,53 @@
+# Rating
+
+<Featured>
+  Rating elements represent the official or estimated rating of a property.
+</Featured>
+
+<Grid>
+  <CrossLink
+    title="Rating"
+    type="documentation"
+    text="Learn more about the Rating design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design.booking.com/article/bui/components/elements/input-text/"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+```jsx
+import { Rating } from "@bookingcom/bui-react";
+import type { RatingProps } from "@bookingcom/bui-react";
+```
+
+Rating component displays a value that is whole number or number with `0.5` step. Passing floating number will result in number rounded to the nearest `n.5` value.
+
+<Example name="valued" />
+
+Besides `stars`, component supports more variants: `circles`, `diamonds`, `squares`. Squares variant doesn't render floating values.
+
+<Example name="variants" />
+
+It also may come in different sizes if needed: `smaller`, `small`, `medium`, `large`, `larger`.
+
+<Example name="sizes" />
+
+## Accessibility
+
+- Make sure a writer provides a meaningful `ariaLabel` to describe the rating. The convention we use is x out of x (e.g., “3.5 out of 5 stars”). The _copytag_ should be passed into the `ariaLabel` attribute.
+- For branding purposes, the current yellow color is preserved and does not meet current WCAG 2 contrast ratio requirements, which is flawed. WCAG 3 will base contrast ratio requirements on a more accurate and reliable way of measuring contrast, using the “Advanced Perceptual Contrast Algorithm,” or APCA. The yellow color meets contrast requirements if measured with APCA. Over the long term as WCAG 3 becomes standard, the problem of compliance will solve itself.
+
+## Properties
+
+| Name       | Type                                            | Default  | Required | Description                                                                                                    |
+| ---------- | ----------------------------------------------- | -------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| value      | `number`                                        | -        | false    | Rating value                                                                                                   |
+| size       | `smaller`, `small`, `medium`, `large`, `larger` | `medium` | false    | Rating size                                                                                                    |
+| variant    | `stars`, `circles`, `diamonds`, `squares`       | `stars`  | false    | Rating visual representation                                                                                   |
+| tagName    | `string`                                        | -        | false    | Custom root element tag                                                                                        |
+| ariaLabel  | `string`                                        | -        | false    |                                                                                                                |
+| className  | `string`                                        | -        | false    | Custom root element className                                                                                  |
+| attributes | `object`                                        | -        | false    | Custom root element attributes                                                                                 |
+| mixin        | `object`                                        | -        | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |

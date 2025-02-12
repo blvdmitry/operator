@@ -1,0 +1,68 @@
+# InputCheckboxGroup
+
+<Featured>
+  InputCheckboxGroup helps to control the state of multiple checkbox fields.
+</Featured>
+
+<Grid>
+  <CrossLink
+    title="InputCheckboxGroup"
+    type="documentation"
+    text="Learn more about the InputCheckboxGroup design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design.booking.com/article/bui/components/elements/input-checkbox/#Input-checkbox-(group)"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+```jsx
+import { InputCheckboxGroup } from "@bookingcom/bui-react";
+import type { InputCheckboxGroupProps } from "@bookingcom/bui-react";
+```
+
+`InputCheckboxGroup` works with the checkbox fields passed to it as children.
+You can control their layout using BUI React utilities, like `Stack`.
+
+<Example name="defaultInline" />
+
+### State
+
+Provide error message via `error` prop to display the message and highlight checkboxes with accent color.
+Restrict user from interacting with the interface with `disabled` prop.
+
+<Example name="errorDisabled" />
+
+### Controlled / Uncontrolled
+
+`InputCheckboxGroup` can be controlled and uncontrolled, when it's using `defaultValue` and `value` props respectively.
+By making component controlled, you fully control the event handling.
+
+<Example name="selectedControlled" />
+
+### Composition
+
+You can use `InputCheckboxGroup` with other checkbox components as well and apply custom layout to them.
+For example, you can pass `InputCheckboxCard` or `Chip` as children.
+
+<Example name="card" />
+
+## Properties
+
+| Name         | Type                               | Default | Required | Description                                                                                                    |
+| ------------ | ---------------------------------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| children     | `ReactNode`                        | -       | false    |                                                                                                                |
+| label        | `ReactNode`                        | -       | false    | Field label                                                                                                    |
+| subLabel     | `ReactNode`                        | -       | false    |                                                                                                                |
+| required     | `boolean`                          | -       | false    |                                                                                                                |
+| value        | `string[]`, `null`                 | -       | false    | Field value. Activates controlled version of the component                                                     |
+| defaultValue | `string[]`                         | -       | false    | Field default value. Activates uncontrolled version of the component                                           |
+| name         | `string`                           | -       | true     | Field name                                                                                                     |
+| error        | `ReactNode`                        | -       | false    | Field error text                                                                                               |
+| disabled     | `boolean`                          | -       | false    | Is field disabled?                                                                                             |
+| onChange     | `({ name, value, event }) => void` | -       | false    | Field change handler                                                                                           |
+| id           | `string`                           | -       | false    | Custom group id                                                                                                |
+| className    | `string`                           | -       | false    | Custom root element className                                                                                  |
+| attributes   | `object`                           | -       | false    | Custom root element attributes                                                                                 |
+| mixin          | `object`                           | -       | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |

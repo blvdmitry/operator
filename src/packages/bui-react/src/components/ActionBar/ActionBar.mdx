@@ -1,0 +1,79 @@
+# ActionBar
+
+<Featured>
+  Action bar is used to create a dedicated real estate for prominent information
+  and action
+</Featured>
+
+<Grid>
+  <CrossLink
+    title="Action Bar"
+    type="documentation"
+    text="Learn more about the ActionBar design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design-system.booking.com/article/bui/components/containers/action-bar/"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+```jsx
+import { ActionBar } from "@bookingcom/bui-react";
+import type { ActionBarProps } from "@bookingcom/bui-react";
+```
+
+<Example name="default" />
+
+Use the non-elevated ActionBar when the content does not go below the ActionBar on scroll. There is a border and the background will be 'elevation_one' so that it matches the content background in dark mode.
+
+### Elevated
+
+If content can go below the ActionBar on scroll, then using the `elevated` prop will make the ActionBar have a shadow and a background color of 'elevation_two' to make it visually appear to be above the main content.
+
+<Example name="elevated" />
+
+### Children and topContent
+
+There are two content slots available to place the content: `children` and `topContent`.
+
+Use `children` to render the content and the CTA in the same row.
+
+<Example name="startContent" />
+
+If there is enough space, `fillEqually` can increase the CTA area to make it more prominent.
+
+<Example name="fillEqually" />
+
+In some cases, there might not be enough screen real estate to accomodate the content side by side the CTA. In such scenarios, we can use `topContent` prop.
+
+<Example name="topContent" />
+
+`topContentFill` removes inline padding from `topContent` and is handy when building interfases with scrollable content.
+
+<Example name="topContentFill" />
+
+You can use `verticalAlignment` to align `children` and `button`.
+
+<Example name="verticalAlignment" />
+
+### Responsive properties
+
+Size and elevated properties can be responsive. That means they can have different values between viewports. You can read more about responsive properties [here](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#Responsive-development).
+
+<Example name="responsive" />
+
+## Properties
+
+| Name           | Type              | Default  | Required | Description                                                                                                                                         |
+| -------------- | ----------------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| button         | `ButtonProps`     | -        | false    | Item button                                                                                                                                         |
+| children       | `ReactNode`       | -        | false    | Children to be used instead of items                                                                                                                |
+| topContent     | `ReactNode`       | -        | false    | Top content displayed above children                                                                                                                |
+| topContentFill | `boolean`         | false    | false    | Removes default inline padding for topContent                                                                                                       |
+| fillEqually    | `boolean`         | false    | false    | Make the children and CTA take up equal horizontal space.                                                                                           |
+| size           | `medium`, `large` | `medium` | false    | [Responsive](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#Responsive-development). Padding size around the ActionBar |
+| elevated       | `boolean`         | false    | false    | [Responsive](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#Responsive-development). Is the ActionBar elevated?        |
+| className      | `string`          | -        | false    | Custom root element className                                                                                                                       |
+| attributes     | `object`          | -        | false    | Custom root element attributes                                                                                                                      |
+| mixin            | `object`          | -        | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer)                                      |

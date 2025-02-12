@@ -1,0 +1,61 @@
+# DateItem
+
+<Featured>
+  The date component displays date and time consistently throughout our
+  products.
+</Featured>
+
+<Grid>
+  <CrossLink
+    title="Date"
+    type="documentation"
+    text="Learn more about the Date design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design-system.booking.com/article/bui/components/patterns/date/"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+```jsx
+import { DateItem } from "@bookingcom/bui-react";
+import type { DateItemProps } from "@bookingcom/bui-react";
+```
+
+DateItem is a low-level component used to display single date values. For displaying a date range, use `DateRange` component.
+
+DateItem comes in two variant, `simplified` and `detailed`.
+`Simplified` variant is used to display dates for specific days without any additional information.
+In this case we align all the content to the center of the component.
+
+<Example name="simplified" />
+
+`Detailed` variant aligns everything to the start side and supports rendering additional properties, like `label` and `originalTitle`.
+It's used to display more specific date values, including daytime.
+
+<Example name="detailed" />
+
+DateItem can be rendered as an actionable element whenever you need to either navigate to another page or open a sheet with additional information.
+
+<Example name="actionable" />
+
+## Accessibility
+
+When date is spread over title and subtitle fill the `datetime` attribute with the full date so screenreaders can pronounce it correctly.
+
+## Properties
+
+| Name          | Type                     | Default      | Required | Description                                                                                                    |
+| ------------- | ------------------------ | ------------ | -------- | -------------------------------------------------------------------------------------------------------------- |
+| variant       | `simplified`, `detailed` | `simplified` |          |                                                                                                                |
+| title         | `ReactNode`              | -            | true     |                                                                                                                |
+| subtitle      | `ReactNode`              | -            | false    |                                                                                                                |
+| label         | `ReactNode`              | -            | false    |                                                                                                                |
+| originalTitle | `ReactNode`              | -            | false    | Crossed out original date value                                                                                |
+| datetime      | `string`                 | -            | false    | Date label for screenreaders                                                                                   |
+| onClick       | `(event) => void`        | -            | false    | Click handler                                                                                                  |
+| href          | `string`                 | -            | false    |                                                                                                                |
+| className     | `string`                 | -            | false    | Custom root element className                                                                                  |
+| attributes    | `object`                 | -            | false    | Custom root element attributes                                                                                 |
+| mixin           | `object`                 | -            | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |

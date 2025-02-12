@@ -1,0 +1,23 @@
+.root {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.value {
+  position: absolute;
+  inset-block-start: calc(var(--bui_spacing_half) * -1);
+  inset-inline-start: 100%;
+  transform: translateX(calc(var(--bui_spacing_1x) * -3));
+}
+
+[dir="rtl"] .value {
+  transform: translateX(calc(var(--bui_spacing_1x) * 3));
+}
+
+.value:empty {
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-inline-start: auto;
+  transform: none;
+}

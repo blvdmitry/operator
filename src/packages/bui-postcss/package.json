@@ -1,0 +1,32 @@
+{
+  "name": "@bookingcom/bui-postcss",
+  "version": "9.10.4",
+  "license": "UNLICENSED",
+  "main": "dist/postcss.config.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf node_modules dist",
+    "lint": "eslint",
+    "lint:fix": "yarn lint --fix",
+    "test": "jest --config ../../tools/jest/jest.config.js --rootDir src",
+    "test:ci": "yarn test --maxWorkers=4"
+  },
+  "dependencies": {
+    "@bookingcom/postcss-custom-media": "^8.0.1",
+    "css-selector-tokenizer": "0.8.0",
+    "postcss-css-variables": "0.19.0",
+    "postcss-import": "14.1.0"
+  },
+  "devDependencies": {
+    "@bookingcom/bui-themes": "9.9.2",
+    "@types/css-selector-tokenizer": "0.7.2",
+    "@types/postcss-import": "14.0.0",
+    "autoprefixer": "9.8.8"
+  },
+  "peerDependencies": {
+    "postcss": "^8.0.0"
+  }
+}

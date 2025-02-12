@@ -9,18 +9,27 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "lucide-react": "^0.475.0",
+    "next": "15.1.7",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "reshaped": "3.3.10",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.1.7"
+    "@bookingcom/bui-react": "file:./src/packages/bui-react"
+  },
+  "resolutions": {
+    "@bookingcom/bui-core": "file:./src/packages/bui-core",
+    "@bookingcom/bui-postcss": "file:./src/packages/bui-postcss",
+    "@bookingcom/bui-themes": "file:./src/packages/bui-themes",
+    "@bookingcom/postcss-custom-media": "file:./src/packages/bui-postcss-custom-media",
+    "@bookingcom/bui-assets-react": "file:./src/packages/bui-assets-react"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
-    "@eslint/eslintrc": "^3"
+    "typescript": "^5"
   }
 }

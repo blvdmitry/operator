@@ -1,0 +1,73 @@
+# Title
+
+<Featured>
+  Use titles to create logical hierarchies in your product. They ensure that
+  elements in the UI are clear and easily recognisable when scanning the screen.
+  Titles can be used both on the page level and reused in many other elements in
+  BUI.
+</Featured>
+
+<Grid>
+  <CrossLink
+    title="Title"
+    type="documentation"
+    text="Learn more about the Title design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design-system.booking.com/article/bui/components/elements/title/"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+```jsx
+import { Title } from "@bookingcom/bui-react";
+import type { TitleProps } from "@bookingcom/bui-react";
+```
+
+Title component is a combination of `title` and `subtitle` properties with predefined layout and font pairings.
+
+<Example name="default" />
+
+Title comes with a bunch of available variants to make them for for page level areas and also to use it inside other components.
+For example, we can use `headline_2` variant for page section titles.
+
+<Example name="variantHeadline2" />
+
+Depending on the usage context, you can reverse the layout direction to display the subtitle on top.
+
+<Example name="reversed" />
+
+When using Title on top of background colors, you can make it inherit the color defined by its parent.
+For instance, in the hero section of the website we render text on top of the `brand_primary` background and Title should automatically adapt to it when using `inherit` color.
+
+<Example name="colorInherit" />
+
+## Accessibility
+
+By default, we don't assume in which context it will be used so we're rendering both text elements as `div`.
+However, you can pass tag names to both of them to apply correct `<h\*>` tags and achieve the required accessible ways of navigating the content.
+
+When styling title as a heading (using headline_1, headline_2 or headline_3) a heading tagName (h1 ... h6) should be added to make sure headings are announced with screen-readers also and screen-reader users are provided with the same experience.
+Make sure every page only contains a single h1 element and the heading levels are only increasing by one.
+
+
+## Properties
+
+| Name               | Type                                                              | Default    | Required | Description                                                                                                    |
+| ------------------ | ----------------------------------------------------------------- | ---------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| reversed           | `boolean`                                                         | -          | false    | Should elements be rendered in reversed direction?                                                             |
+| variant            | `display_3`, `headline_1`, `headline_2`, `headline_3`, `strong_1` | `strong_2` | false    | Display variant                                                                                                |
+| color              | `inherit`                                                         | -          | false    | Color of the text elements                                                                                     |
+| title              | `string`                                                          | -          | true     | Title text value                                                                                               |
+| subtitle           | `string`                                                          | -          | false    | Subtitle text value                                                                                            |
+| titleTagName       | `string`                                                          | -          | false    | Custom tag name for title element                                                                              |
+| titleClassName     | `string`                                                          | -          | false    | Custom title element className                                                                                 |
+| titleAttributes    | `object`                                                          | -          | false    | Custom title element attributes                                                                                |
+| subtitleTagName    | `string`                                                          | -          | false    | Custom tag name for subtitle element                                                                           |
+| subtitleClassName  | `string`                                                          | -          | false    | Custom subtitle element className                                                                              |
+| subtitleAttributes | `object`                                                          | -          | false    | Custom subtitle element attributes                                                                             |
+| tagName            | `string`                                                          | -          | false    | Custom tag name for root element                                                                               |
+| className          | `string`                                                          | -          | false    | Custom root element className                                                                                  |
+| attributes         | `object`                                                          | -          | false    | Custom root element attributes                                                                                 |
+| mixin                | `object`                                                          | -          | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |

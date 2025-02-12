@@ -1,0 +1,84 @@
+# Other design tokens
+
+Besides Color, Spacing and Typography we support other design tokens that we use in BUI components and which are available in your product code.
+
+**Shadow:**
+
+```css
+--bui_shadow_100
+--bui_shadow_200
+--bui_shadow_300
+```
+
+**Border radius**:
+
+```css
+--bui_border_radius_100
+--bui_border_radius_200
+--bui_border_radius_300
+```
+
+Note that border radius tokens are not supported by Figma yet.
+Because of that we have a custom way of defining them in design.
+
+To find the border radius token value used in the component, look for the comment in the Figma handover code:
+
+```
+---style---
+{"borderRadius": "bui_border_radius_100"}
+```
+
+**Border width**:
+
+```css
+--bui_border_width_100
+--bui_border_width_200
+```
+
+**zIndex**:
+
+```css
+--bui_z_index_0
+--bui_z_index_1
+--bui_z_index_2
+--bui_z_index_3
+--bui_z_index_4
+```
+
+**Container width:**
+
+```css
+--bui_container
+```
+
+`--bui_container` is the width value used by the Container component, in case you need to build a custom wrapper with the same width or calculate other values based on the original value.
+
+**Media queries:**
+Our media queries are available in your css files by default as well and can be used with the following syntax.
+
+```css
+@media (--bui_small_viewport) {
+  .foo {
+    display: none;
+  }
+}
+```
+
+Available media queries:
+
+```css
+/* <= Mobile */
+--bui_small_viewport
+
+/* >= Tablet */
+--bui_medium_viewport
+
+/* >= Desktop */
+--bui_large_viewport
+
+/* >= Desktop, wide screen */
+--bui_xlarge_viewport
+```
+
+We use mobile first approach, which means that writing styles for `medium` viewport will apply them to `medium`, `large` and `xlarge` viewports.
+Therefore when writing responsive CSS, write mobile styles as a default and then adjust the styles for other viewports using media queries.

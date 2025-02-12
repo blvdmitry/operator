@@ -1,0 +1,71 @@
+# Overlay
+
+<Featured>
+  Overlay is a utility used for fading out the page and display another layer on
+  top of it. It's used for components like SheetContainer.
+</Featured>
+
+## Usage
+
+```jsx
+import { Overlay } from "@bookingcom/bui-react";
+import type { OverlayProps } from "@bookingcom/bui-react";
+```
+
+Overlay is a controlled component, which means you should pass an `active` property to control its display.
+You can change the value of the `active` property with your own state when user performs an action with the help of `onCloseTrigger` handler.
+
+```jsx
+const Component = () => {
+  const [active, setActive] = React.useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setActive(true)}>Open overlay</Button>
+      <Overlay active={active} onCloseTrigger={() => setActive(false)}>
+        Overlay content
+      </Overlay>
+    </>
+  );
+};
+```
+
+In the case when you need to change the state of the Overlay children, like when you want to animate it, you can render children as a function and receive current state as an argument:
+
+```jsx
+const Component = () => {
+  const [active, setActive] = React.useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setActive(true)}>Open overlay</Button>
+      <Overlay active={active} onCloseTrigger={() => setActive(false)}>
+        {({ active }) => (active ? "Animate fade-in" : "Animate fade-out")}
+      </Overlay>
+    </>
+  );
+};
+```
+
+### Properties
+
+| Name             | Type                                     | Default | Required | Description                                                                  |
+| ---------------- | ---------------------------------------- | ------- | -------- | ---------------------------------------------------------------------------- |
+| active           | `boolean`                                | -       | false    | Is overlay active?                                                           |
+| children         | `ReactNode`, `({ active }) => ReactNode` | -       | false    | Overlay content                                                              |
+| lockClose        | `boolean`                                | -       | false    | Prevent overlay from closing                                                 |
+| lockCloseOnClick | `boolean`                                | -       | false    | Prevent overlay from closing on click                                        |
+| keepMounted      | `boolean`                                | -       | false    | Do not unmount the overlay after it's closed                                 |
+| zIndex           | `number`                                 | -       | false    | Custom z-index value                                                         |
+| arrowNavigation  | `boolean`                                | -       | false    | Enable keyboard arrow navigation in addition to tabs for the overlay content |
+| onCloseTrigger() | `() => void`                             | -       | false    | Handler to change overlay state when triggered by the user                   |
+| onClose()        | `() => void`                             | -       | false    |                                                                              |
+| onOpen()         | `() => void`                             | -       | false    |                                                                              |
+| onAfterOpen()    | `() => void`                             | -       | false    |                                                                              |
+| onAfterClose()   | `() => void`                             | -       | false    |                                                                              |
+| attributes       | `object`                                 | -       | false    | Custom root element attributes                                               |
+
+### Ref API
+
+`open()` - Open the overlay
+`close()` - Close the overlay

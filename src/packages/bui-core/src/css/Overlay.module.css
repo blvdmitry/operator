@@ -1,0 +1,48 @@
+.root {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  z-index: var(--bui_z_index_2);
+  box-sizing: border-box;
+  border: none;
+  padding: 0;
+  position: fixed;
+  background: transparent;
+  inset: 0;
+  transition: var(--bui_animation_fade_in);
+  transition-property: background-color, visibility;
+  outline: none;
+  visibility: hidden;
+}
+
+.content {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.root--visible {
+  transition-timing-function: var(--bui_animation_fade_in_timing_function);
+  transition-duration: var(--bui_animation_fade_in_duration);
+  background-color: var(--bui_color_black_with_alpha);
+  visibility: visible;
+
+  /* Animating visibility only on close here to make the .focus() work for elements inside */
+  transition-property: background-color;
+}
+
+.root--hide-overlay {
+  background-color: transparent;
+  pointer-events: none;
+}
+
+/**
+ * This is used as the enterence point of the animation in BUI Vue
+ * Transition API is not able to get it from .root
+ */
+.root--enter-from {
+  background: transparent;
+  visibility: hidden;
+}

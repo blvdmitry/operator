@@ -1,0 +1,31 @@
+:root {
+  --color: red;
+  --unit: 10px;
+  --unit-large: 20px;
+  --bar {
+    color: var(--color);
+    margin-left: var(--unit);
+  }
+}
+
+@custom-media --media (max-width: 575px);
+
+.foo {
+  color: var(--color);
+  margin-left: var(--unit);
+}
+
+.bar {
+  @apply --bar;
+}
+
+@media (--media) {
+  .foo {
+    margin-left: var(--unit-large);
+  }
+}
+
+.bui {
+  background: var(--bui_color_brand_primary_background);
+  @apply --bui_font_body_1;
+}

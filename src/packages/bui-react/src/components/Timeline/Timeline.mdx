@@ -1,0 +1,60 @@
+# Timeline
+
+<Featured>Timelines display a list of items in a chronological order.</Featured>
+
+<Grid>
+  <CrossLink
+    title="Timeline"
+    type="documentation"
+    text="Learn more about the Timeline design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design-system.booking.com/article/bui/components/containers/timeline/"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+```jsx
+import { Timeline } from "@bookingcom/bui-react";
+import type { TimelineProps, TimelineItemProps } from "@bookingcom/bui-react";
+```
+
+Timeline component works with the `children` provided to it and renders them as items.
+For the most simple scenario, you can pass other components directly to Timeline and it will wrap every passed child with `Timeline.Item`.
+If you also want to pass specific properties to the `Timeline.Item`, you can call it manually as well:
+
+<Example name="default" />
+
+Timeline displays a custom marker for every item but you can replace it with an icon to illustrate the item purpose.
+
+<Example name="marker" />
+
+Both standard and icon markers support all available foreground color tokens with `markerColor` property.
+
+<Example name="markerColor" />
+
+Line connecting the items is solid by default and you can change it to be `dashed` with `lineVariant` property.
+
+<Example name="lineVariant" />
+
+## Properties
+
+**Timeline properties:**
+
+| Name       | Type        | Default | Required | Description                                                                                                    |
+| ---------- | ----------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| children   | `ReactNode` | -       | false    |                                                                                                                |
+| className  | `string`    | -       | false    | Custom root element className                                                                                  |
+| attributes | `object`    | -       | false    | Custom root element attributes                                                                                 |
+| mixin        | `object`    | -       | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |
+
+**Timeline.Item properties:**
+
+| Name        | Type              | Default | Required | Description                  |
+| ----------- | ----------------- | ------- | -------- | ---------------------------- |
+| title       | `ReactNode`       | -       | false    | Item title                   |
+| children    | `ReactNode`       | -       | false    | Item content                 |
+| marker      | `ComponentType`   | -       | false    | Custom marker icon           |
+| markerColor | `TextProps.color` | -       | false    |                              |
+| lineVariant | `solid`, `dashed` | `solid` | false    | Connection line display type |

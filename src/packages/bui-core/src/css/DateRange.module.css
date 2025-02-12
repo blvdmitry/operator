@@ -1,0 +1,19 @@
+.root {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.item:first-child {
+  padding-inline-end: var(--bui_spacing_4x);
+}
+
+.item:last-child {
+  padding-inline-start: var(--bui_spacing_4x);
+}
+
+@media (--bui_small_viewport) {
+  .root--variant-detailed .item {
+    flex-grow: 1;
+    width: 50%;
+  }
+}

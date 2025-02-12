@@ -1,0 +1,69 @@
+# Actionable
+
+<Featured>
+  Actionable utility component is used for creating interactive elements.
+</Featured>
+
+## Usage
+
+```jsx
+import { Actionable } from "@bookingcom/bui-react";
+import type { ActionableProps } from "@bookingcom/bui-react";
+```
+
+Actionable is rendered with a tag that is resolved automatically based on props.
+
+Passing `href` will make it render with `<a>`.
+When setting `onClick`, `onFocus` or `onBlur` Actionalble will render `<button>` tag unless you pass your own tag via `tagName` prop.
+
+The most common example is using Actionable as a link with `href` prop.
+
+<Example name="link" />
+
+You can also use it as a button.
+
+<Example name="button" />
+
+### Frameworks & libraries
+
+**NextJS**
+
+Wrap Actionable in Link component with `passHref` prop. Read more about `passHref` and other props [here](https://nextjs.org/docs/api-reference/next/link).
+
+```jsx
+<Link href="/about" passHref>
+  <Actionable>AboutLink</Actionable>
+</Link>
+```
+
+**React Router**
+
+Follow advice from React Router team described [here](https://reactrouter.com/en/v6.3.0/upgrading/v5#remove-link-component-prop).
+
+## Properties
+
+**Base properties:**
+
+| Name           | Type          | Default | Required | Description                                                                                                    |
+| -------------- | ------------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| children       | `ReactNode`   | -       | false    |                                                                                                                |
+| insetFocus     | `boolean`     | -       | false    | Insets the focus styles within the borders of the element                                                      |
+| tagName        | `string`      | -       | false    | Custom root element tag                                                                                        |
+| className      | `string`      | -       | false    | className for the root element                                                                                 |
+| attributes     | `object`      | -       | false    | Attributes for the root element                                                                                |
+| onClick        | `(e) => void` | -       | false    |                                                                                                                |
+| preventDefault | `boolean`     | -       | false    | Should prevent event default?                                                                                  |
+| mixin            | `object`      | -       | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |
+
+**Link properties**, when Actionable is used with `href` property:
+
+| Name | Type     | Default | Required | Description |
+| ---- | -------- | ------- | -------- | ----------- |
+| href | `string` | -       | false    |             |
+
+**Button properties**, when Actionable is used without `href` property:
+
+| Name     | Type                        | Default  | Required | Description           |
+| -------- | --------------------------- | -------- | -------- | --------------------- |
+| type     | `button`, `submit`, `reset` | `button` | false    | Button type attribute |
+| disabled | `boolean`                   | -        | false    |                       |

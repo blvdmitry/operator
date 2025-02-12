@@ -1,0 +1,69 @@
+.root {
+  box-sizing: border-box;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.image {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.image--fill-width {
+  width: 100%;
+}
+
+.image--fill-height {
+  height: 100%;
+}
+
+@bui-responsive-vars .root, image, width, height {
+  @bui-literal;
+}
+
+.image--content-mode-fill {
+  object-fit: cover !important;
+}
+
+.image--content-mode-fit {
+  object-fit: scale-down !important;
+}
+
+.image--error {
+  visibility: hidden;
+}
+
+.root--border-radius-100 {
+  border-radius: var(--bui_border_radius_100);
+}
+
+.root--border-radius-200 {
+  border-radius: var(--bui_border_radius_200);
+}
+
+.root--border-radius-300 {
+  border-radius: var(--bui_border_radius_300);
+}
+
+.fallback {
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bui_color_background_alt);
+  padding: var(--bui_spacing_6x);
+}
+
+.fallback-image-padding--none {
+  padding: 0;
+}
+
+.fallback-image-padding--small {
+  padding: var(--bui_spacing_2x);
+}
+
+.fallback-image-padding--large {
+  padding: var(--bui_spacing_6x);
+}

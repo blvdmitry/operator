@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.base",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "baseUrl": "./src",
+    "rootDir": "./src",
+    "paths": { "*": ["*"] },
+    "types": ["cypress", "node"]
+  },
+  "exclude": ["node_modules", "dist"]
+}

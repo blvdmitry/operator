@@ -1,0 +1,28 @@
+# Hidden
+
+<Featured>
+  Use the Hidden component to show or hide content based on the viewport size
+</Featured>
+
+## Usage
+
+```jsx
+import { Hidden } from "@bookingcom/bui-react";
+import type { HiddenProps } from "@bookingcom/bui-react";
+```
+
+Hidden accepts `above` and `below` props to control above/below which viewport the content will be hidden.
+
+<Example name="belowMedium" />
+
+By default, Hidden wraps your component with an additional wrapper that controls its display.
+In case you need to avoid having that wrapper, you can use render props approach:
+
+<Example name="renderProps" />
+
+## Properties
+
+| Name  | Type                                 | Default | Required | Description                                                               |
+| ----- | ------------------------------------ | ------- | -------- | ------------------------------------------------------------------------- |
+| above | `small`, `medium`, `large`, `xlarge` | -       | false    | Hides the content provided in viewport sizes above the one specified here |
+| below | `small`, `medium`, `large`, `xlarge` | -       | false    | Hides the content provided in viewport sizes below the one specified here |

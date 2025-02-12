@@ -1,0 +1,57 @@
+include:
+  - local: .gitlab/ci_templates/package-gitlab-ci.yml
+  - local: packages/bui-env-react/ci.yml
+
+variables:
+  FOLDER_NAME: bui-react
+  BUI_REACT_PATH: "packages/$FOLDER_NAME"
+  BUI_ENV_PROJECT_DIR: "$BUI_REACT_PATH"
+  BUNDLES_DIR: "$CI_PROJECT_DIR/$BUI_REACT_PATH/dist/bundles"
+  BUNDLES_PATH: "$BUI_REACT_PATH/dist/bundles"
+  METRICS_FILENAME: "bundle-sizes.json"
+  MASTER_METRICS_FILENAME: "bundle-sizes-master.json"
+  PARENT_PIPELINE_ID: $CI_PIPELINE_ID
+
+# exclude running tests on tag and enable on default branch
+bui-env-test-vrt:
+  extends: .needs-build-artifacts
+  rules:
+    - !reference [.except-version, rules]
+    - !reference [.on-mr, rules]
+    - !reference [.on-default-branch, rules]
+
+build-bundle-sizes-on-default:
+  stage: test
+  extends:
+    - .with-node-rsync
+    - .on-default-branch
+    - .needs-build-artifacts
+  script:
+    - 'yarn --cwd "$BUI_REACT_PATH" bundle-sizes:calculate --bundles-dir "$BUNDLES_DIR" --output-dir "$BUNDLES_DIR" --output-filename "$MASTER_METRICS_FILENAME"'
+  artifacts:
+    name: bundle-sizes
+    paths:
+      - $BUNDLES_PATH/$MASTER_METRICS_FILENAME
+    when: always
+  tags:
+    - docker
+
+compare-bundle-sizes:
+  stage: test
+  extends:
+    - .on-mr
+    - .needs-build-artifacts
+  script:
+    - 'curl -L --output "$BUNDLES_DIR/$MASTER_METRICS_FILENAME" "$CI_API_V4_URL/projects/$CI_PROJECT_ID/jobs/artifacts/$CI_DEFAULT_BRANCH/raw/$BUNDLES_PATH/$MASTER_METRICS_FILENAME?job=build-bundle-sizes-on-default&job_token=$CI_JOB_TOKEN"'
+    - 'yarn --cwd "$BUI_REACT_PATH" bundle-sizes:calculate --bundles-dir "$BUNDLES_DIR" --output-dir "$BUNDLES_DIR" --output-filename "$METRICS_FILENAME"'
+    - 'yarn --cwd packages/bui-react bundle-sizes:compare --base-metrics "$BUNDLES_DIR/$MASTER_METRICS_FILENAME" --current-metrics "$BUNDLES_DIR/$METRICS_FILENAME"'
+  tags:
+    - docker
+
+test-foundry-build:
+  stage: test
+  extends: .needs-build-artifacts
+  rules:
+    - !reference [.on-mr, rules]
+  script:
+    - yarn --cwd "$BUI_REACT_PATH" foundry:build

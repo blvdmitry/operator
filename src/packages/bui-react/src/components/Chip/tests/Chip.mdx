@@ -1,0 +1,140 @@
+# Chip
+
+<Featured>
+  Chip component lets users make selections or quickly toggle options of the
+  same set.
+</Featured>
+
+<Grid>
+  <CrossLink
+    title="Chip"
+    type="documentation"
+    text="Learn more about the Chip design anatomy and best-practices."
+    section="Design documentation"
+    href="https://design.booking.com/article/bui/components/elements/chip/"
+    target="_blank"
+  />
+</Grid>
+
+## Usage
+
+```jsx
+import { Chip } from "@bookingcom/bui-react";
+import type { ChipProps } from "@bookingcom/bui-react";
+```
+
+Chip component combines two variants with different behavior: "toggle" and "action".
+
+- <a href="#Variant-Toggle">**Toggle**</a> is a customised version of a checkbox
+  element that can be grouped together to do multi-selection.
+
+- <a href="#Variant-Action">**Action variant**</a> is basically a button that can
+  act as a trigger for a dropdown or sheet container and helps to reflect a certain
+  selection state with a bubble (for example number of selected filters).
+
+### Variant Toggle
+
+Since it's an input, it requires a `name` to be passed to it.
+Everytime user toggles it, an `onChange` handler is called where you can add custom business logic.
+
+<Example name="default" />
+
+Additionally, it can be used as a list of dismissible tags.
+With `dismissible` flag it will always be highlighted and a dismiss icon will appear.
+`onChange` in this case can be used to remove the component from the page.
+
+<Example name="dismissible" />
+
+**Controlled and uncontrolled**
+
+All input components in BUI support controlled and uncontrolled version.
+Uncontrolled version is the default behavior where you can check it by default with `defaultChecked` flag but the browser will control the rendering of the input.
+
+Controlled version is enabled once you pass `checked` flag.
+This means that toggling the component will only trigger `onChange` but you will have to update the `checked` value using your own state.
+
+<Example name="controlledAndUncontrolled" />
+
+For managing state of multiple `Chip` components — use `InputCheckboxGroup`.
+
+### Variant Action
+
+Chip with `variant=action` variant does not require `name` or `value`. Use `selected` prop to control whether Chip is selected.
+An arrow-icon is always displayed.
+
+<Example name="variantAction" />
+
+Display the amount of selected options with `bubble` prop. Make sure to provide ARIA label via `bubble.ariaLabel`.
+Bubble is displayed only when `selected` is true.
+
+<Example name="variantActionBubble" />
+
+### Common Props and Composition
+
+Both variants of Chip can be `disabled` which will prevent any user interaction with it.
+
+<Example name="disabled" />
+
+When used over media content, you should be using `elevated` check buttons.
+For instance, this helps when rendering check buttons on top of a map or an image.
+
+<Example name="elevated" />
+
+To help user understand the role of each button, you can add an icon in addition to the label.
+
+<Example name="icon" />
+
+Most of the time you would use multiple of them together.
+The easiest way to render them next to each other is by using `Stack` utility.
+However, you will need to handle their state on the product side.
+
+<Example name="group" />
+
+If you want to group them side by side and keep them in their container you can benefit from the `shrink` property of the `Stack.Item` component.
+
+<Example name="multiline" />
+
+In cases where you need to horizontally scroll all the chips, you can use `wrap` property of the `Stack` component.
+
+<Example name="horizontalScroll" />
+
+## Accessibility
+
+- When using a group of check buttons, make sure there is a label explaining what this group is responsible for.
+- When using `action` variant and `bubble` prop, make sure to provide ARIA label via `bubble.ariaLabel`.
+
+## Properties
+
+| Name       | Type              | Default  | Required | Description                                                                                                    |                  |
+| ---------- | ----------------- | -------- | -------- | -------------------------------------------------------------------------------------------------------------- | ---------------- |
+| variant    | `toggle`          | 'action' | 'toggle' | true                                                                                                           | Sets the variant |
+| label      | `ReactNode`       | -        | true     |                                                                                                                |                  |
+| icon       | `IconComponent`   | -        | false    |                                                                                                                |                  |
+| disabled   | `boolean`         | -        | false    |                                                                                                                |                  |
+| elevated   | `boolean`         | -        | false    |                                                                                                                |                  |
+| wide       | `boolean`         | -        | false    | Make Chip 100% wide                                                                                            |
+| onFocus    | `(event) => void` | -        | false    |                                                                                                                |                  |
+| onBlur     | `(event) => void` | -        | false    |                                                                                                                |                  |
+| className  | `string`          | -        | false    | Custom root element className                                                                                  |                  |
+| attributes | `object`          | -        | false    | Custom root element attributes                                                                                 |                  |
+| mixin        | `object`          | -        | false    | [Utility Layer](?page=Getting%2520started%252FDevelopment%252FComponents&view=documentation#BUI-Utility-Layer) |
+
+### Variant Toggle
+
+| Name            | Type                                        | Default | Required | Description                                |
+| --------------- | ------------------------------------------- | ------- | -------- | ------------------------------------------ |
+| value           | `boolean`                                   | -       | false    | Input field value                          |
+| name            | `string`                                    | -       | true     | Input field name                           |
+| checked         | `boolean`                                   | -       | false    | Makes input controlled                     |
+| defaultChecked  | `boolean`                                   | -       | false    | Keeps input uncontrolled                   |
+| dismissible     | `boolean`                                   | -       | false    | Renders dismiss icon, makes button checked |
+| onChange        | `({ name, value, checked, event }) => void` | -       | false    |                                            |
+| inputAttributes | `object`                                    | -       | false    | Custom input element attributes            |
+
+### Variant Action
+
+| Name     | Type          | Default | Required | Description                 |
+| -------- | ------------- | ------- | -------- | --------------------------- |
+| selected | `boolean`     | -       | false    | Puts Chip in selected state |
+| bubble   | Bubble props  | -       | false    | Bubble properties           |
+| onClick  | `(e) => void` | -       | false    | Click handler               |

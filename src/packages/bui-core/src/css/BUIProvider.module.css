@@ -1,7 +1,0 @@
-@media (--bui_small_viewport) {
-  .bui-u-bleed--small {
-    margin-inline: calc(var(--bui_spacing_4x) * -1) !important;
-    border-radius: 0 !important;
-    border-inline: 0 !important;
-  }
-}

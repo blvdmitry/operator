@@ -8,7 +8,7 @@ export default function Home() {
     <BUIProvider theme={theme}>
       <Stack direction="row">
         <Box mixin={{ width: "300px" }}>
-          Accommodation calendar
+          Narrow calendar
           <Calendar
             dayNames={{
               monday: "Mon",
@@ -36,38 +36,44 @@ export default function Home() {
           />
         </Box>
 
+        <Box mixin={{ width: "420px" }}>
+          Wide calendar
+          <Calendar
+            dayNames={{
+              monday: "Mon",
+              tuesday: "Tue",
+              wednesday: "Wed",
+              thursday: "Thu",
+              friday: "Fri",
+              saturday: "Sat",
+              sunday: "Sun",
+            }}
+            monthNames={{
+              january: "January",
+              february: "February",
+              march: "March",
+              april: "April",
+              may: "May",
+              june: "June",
+              july: "July",
+              august: "August",
+              september: "September",
+              october: "October",
+              november: "November",
+              december: "December",
+            }}
+          />
+        </Box>
+
+        <style
+          dangerouslySetInnerHTML={{
+            __html: ".foo td > span:hover { border: 2px solid }",
+          }}
+        />
         <Box mixin={{ width: "400px" }}>
-          Flights calendar
+          Hover calendar
           <Calendar
-            dayNames={{
-              monday: "Mon",
-              tuesday: "Tue",
-              wednesday: "Wed",
-              thursday: "Thu",
-              friday: "Fri",
-              saturday: "Sat",
-              sunday: "Sun",
-            }}
-            monthNames={{
-              january: "January",
-              february: "February",
-              march: "March",
-              april: "April",
-              may: "May",
-              june: "June",
-              july: "July",
-              august: "August",
-              september: "September",
-              october: "October",
-              november: "November",
-              december: "December",
-            }}
-          />
-        </Box>
-
-        <Box mixin={{ width: "500px" }}>
-          Attractions calendar
-          <Calendar
+            className="foo"
             dayNames={{
               monday: "Mon",
               tuesday: "Tue",
@@ -95,15 +101,10 @@ export default function Home() {
         </Box>
       </Stack>
       <Stack direction="row">
-        <style
-          dangerouslySetInnerHTML={{
-            __html: ".foo td > span:hover { border: 2px solid }",
-          }}
-        />
-        <Box mixin={{ width: "400px" }}>
-          Ideal calendar
+        <Box mixin={{ width: "800px" }}>
+          Double
           <Calendar
-            className="foo"
+            mode="double"
             dayNames={{
               monday: "Mon",
               tuesday: "Tue",
